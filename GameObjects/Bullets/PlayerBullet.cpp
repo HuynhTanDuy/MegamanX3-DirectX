@@ -2,10 +2,22 @@
 #include "../../GameObjects/Player/Player.h"
 
 
-PlayerBullet::PlayerBullet() {
-	
-	BulletMoving = new Animation("Resources/Bullets/PlayerBulletMoving.png", 1, 1, 1, 0.2f);
-	BulletDie = new Animation("Resources/Bullets/PlayerBulletDie.png", 3, 1, 3, 0.05f);
+PlayerBullet::PlayerBullet(int level) {
+	if (level == 1)
+	{
+		BulletMoving = new Animation("Resources/Bullets/PlayerBulletMoving.png", 1, 1, 1, 0.2f);
+		BulletDie = new Animation("Resources/Bullets/PlayerBulletDie.png", 3, 1, 3, 0.05f);
+	}
+	if (level == 2)
+	{
+		BulletMoving = new Animation("Resources/Bullets/PlayerBulletCharged1Moving.png", 1, 1, 1, 0.2f);
+		BulletDie = new Animation("Resources/Bullets/PlayerBulletCharged1Die.png", 3, 1, 3, 0.05f);
+	}
+	if (level == 3)
+	{
+		BulletMoving = new Animation("Resources/Bullets/PlayerBulletCharged2Moving.png", 1, 1, 1, 0.2f);
+		BulletDie = new Animation("Resources/Bullets/PlayerBulletCharged2Die.png", 3, 1, 3, 0.05f);
+	}
 	//this->playerBulletData = new EnemyData3();
 	//this->playerBulletData->PlayerBullet = this;
 	this->playerBulletData = new PlayerBulletData();
@@ -20,6 +32,9 @@ PlayerBullet::PlayerBullet() {
 	//this->mEnemyData->PlayerShot = new PlayerShot(this);
 	
 	
+}
+PlayerBullet::PlayerBullet()
+{
 }
 PlayerBullet::~PlayerBullet()
 {	

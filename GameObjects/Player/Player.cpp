@@ -65,6 +65,13 @@ void Player::HandleKeyboard(std::map<int, bool> keys)
 
 void Player::OnKeyPressed(int key)
 {
+	if (key == 0x58)
+	{
+		level = 1;
+
+		count++;
+		//GAMELOG("count: %d",count);
+	}
     if (key == VK_SPACE)
     {
         if (allowJump)
@@ -84,6 +91,9 @@ void Player::OnKeyPressed(int key)
 			this->SetState(new PlayerRunningShotState(this->mPlayerData));
 			//return;
 			allowShot = false;
+
+			level = 1;
+			count++;
 		}
 	}
 	if (key == 0x58 && mCurrentState == PlayerState::Jumping)
@@ -93,9 +103,13 @@ void Player::OnKeyPressed(int key)
 			this->SetState(new PlayerJumpingShotState(this->mPlayerData));
 			//return;
 			allowShot = false;
+
+			level = 1;
+			count++;
 		}
 
 	}
+	
 }
 
 void Player::OnKeyUp(int key)
@@ -105,8 +119,12 @@ void Player::OnKeyUp(int key)
 	if (key == 0x58)
 	{
 		allowShot = true;
-		OnFired();
-		
+		if (count > 5) level=2;
+		if (count > 30) level = 3;
+		count = 0;
+		//GAMELOG("level: %d", level);
+		OnFired(level);
+		//if (key == 0x58) GAMELOG("2222");
 
 	}
 	/*if (key == 0x59)
@@ -247,11 +265,15 @@ void Player::OnCollisionWithEnemy(Entity *impactor, Entity::CollisionReturn data
 	if (side==Left || side ==Right)  this->SetState(new PlayerHurtingState(this->mPlayerData));
 }
 
-void Player::OnFired()
+void Player::OnFired(int _level)
 {
-	PlayerBullet *tempbullet = new PlayerBullet();
-	if (this->mCurrentReverse) tempbullet->SetReverse(true);
-	else tempbullet->SetReverse(false);
-	tempbullet->SetPosition(this->GetPosition());
-	mListPlayerBullet.push_back(tempbullet);
+	
+		PlayerBullet *tempbullet = new PlayerBullet(_level);
+		if (this->mCurrentReverse) tempbullet->SetReverse(true);
+		else tempbullet->SetReverse(false);
+		tempbullet->SetPosition(this->GetPosition());
+		mListPlayerBullet.push_back(tempbullet);
+	
+
+	
 }

@@ -14,7 +14,7 @@
 class PlayerBullet : public Bullet {
 public: PlayerBullet();
 		~PlayerBullet();
-		
+		PlayerBullet(int level);
 		void Update(float dt);
 		void SetState(BulletState *newState);
 		

@@ -12,6 +12,8 @@
 #include "PlayerFallingState.h"
 #include "PlayerHurtingState .h"
 #include "../Bullets/PlayerBullet.h"
+#include "../Bullets/PlayerBulletCharged1.h"
+#include "../Bullets/PlayerBulletCharged2.h"
 class Player : public Entity
 {
 public:
@@ -59,7 +61,8 @@ public:
 	PlayerState::StateName mCurrentState;
 
 	std::vector<PlayerBullet*>             mListPlayerBullet;
-	void OnFired();
+	void OnFired(int _level);
+	int count,level=1;
 protected:
     PlayerData *mPlayerData;
 

@@ -50,6 +50,9 @@
     <Filter Include="FrameWork\GameObjects\Bullets">
       <UniqueIdentifier>{21f4c376-e5bb-40dd-8ac4-5aa4351f775f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork\GameObjects\Bullets\PlayerBullet">
+      <UniqueIdentifier>{ec6f758c-a866-4b3d-9d3b-ed10f44b82c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -275,13 +278,13 @@
       <Filter>FrameWork\GameObjects\Bullets</Filter>
     </ClCompile>
     <ClCompile Include="GameObjects\Bullets\PlayerBullet.cpp">
-      <Filter>FrameWork\GameObjects\Bullets</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Bullets\PlayerBulletMovingState.cpp">
-      <Filter>FrameWork\GameObjects\Bullets</Filter>
+      <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
     </ClCompile>
     <ClCompile Include="GameObjects\Bullets\PlayerBulletDieState.cpp">
-      <Filter>FrameWork\GameObjects\Bullets</Filter>
+      <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\PlayerBulletMovingState.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -520,16 +523,16 @@
       <Filter>FrameWork\GameObjects\Bullets</Filter>
     </ClInclude>
     <ClInclude Include="GameObjects\Bullets\PlayerBullet.h">
-      <Filter>FrameWork\GameObjects\Bullets</Filter>
+      <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
     </ClInclude>
     <ClInclude Include="GameObjects\Bullets\PlayerBulletData.h">
-      <Filter>FrameWork\GameObjects\Bullets</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Bullets\PlayerBulletMovingState.h">
-      <Filter>FrameWork\GameObjects\Bullets</Filter>
+      <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
     </ClInclude>
     <ClInclude Include="GameObjects\Bullets\PlayerBulletDieState.h">
-      <Filter>FrameWork\GameObjects\Bullets</Filter>
+      <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\PlayerBulletMovingState.h">
+      <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
