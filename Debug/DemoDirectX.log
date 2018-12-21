@@ -1,0 +1,90 @@
+﻿  PlayerBulletDieState.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerBulletMovingState.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Enemy2StandingState.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Enemy3FlyingState.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy3\enemy3flyingstate.cpp(44): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy3\enemy3flyingstate.cpp(51): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy3\enemy3flyingstate.cpp(58): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy3\enemy3flyingstate.cpp(65): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  Enemy3ShootingState.cpp
+  Enemy3StandingState.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Enemy1FallingState.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy\enemy1fallingstate.cpp(43): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy\enemy1fallingstate.cpp(50): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy\enemy1fallingstate.cpp(57): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy\enemy1fallingstate.cpp(64): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  Enemy1JumpingState.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy\enemy1jumpingstate.cpp(43): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy\enemy1jumpingstate.cpp(50): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy\enemy1jumpingstate.cpp(57): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\enemy\enemy1jumpingstate.cpp(64): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  Enemy1ShootingState.cpp
+  Enemy1StandingState.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerClimbingShotState.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerClimbingState .cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerFallingState.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerfallingstate.cpp(72): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerfallingstate.cpp(82): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  PlayerHurtingState .cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerJumpingShotState.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerjumpingshotstate.cpp(95): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerjumpingshotstate.cpp(102): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerjumpingshotstate.cpp(109): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerjumpingshotstate.cpp(116): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  PlayerJumpingState.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerjumpingstate.cpp(95): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerjumpingstate.cpp(102): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerjumpingstate.cpp(109): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerjumpingstate.cpp(116): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  PlayerRunningShot.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerrunningshot.cpp(59): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerrunningshot.cpp(73): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerrunningshot.cpp(84): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  PlayerRunningState.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerrunningstate.cpp(58): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerrunningstate.cpp(72): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerrunningstate.cpp(83): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  PlayerStandingShotState.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  PlayerStandingState.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
+  Compiling...
+  PlayerSurfingShotState .cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playersurfingshotstate .cpp(69): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playersurfingshotstate .cpp(83): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playersurfingshotstate .cpp(94): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  PlayerSurfingState .cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playersurfingstate .cpp(67): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playersurfingstate .cpp(81): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playersurfingstate .cpp(92): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  PlayerWallShotState.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerwallshotstate.cpp(80): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerwallshotstate.cpp(87): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerwallshotstate.cpp(94): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerwallshotstate.cpp(101): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  PlayerWallState.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerwallstate.cpp(81): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerwallstate.cpp(88): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerwallstate.cpp(95): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\gameobjects\player\playerwallstate.cpp(102): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
+  DemoScene.cpp
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\scenes\demoscene.cpp(26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\scenes\demoscene.cpp(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\scenes\demoscene.cpp(93): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\scenes\demoscene.cpp(99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\scenes\demoscene.cpp(106): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\scenes\demoscene.cpp(113): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\tài liệu môn học\nhập môn phát triển game\github\megamanx3-blasthonest\megamanx3-directx\scenes\demoscene.cpp(385): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  DemoDirectX.vcxproj -> D:\Tài liệu môn học\Nhập môn phát triển game\Github\MegamanX3-BlastHonest\MegamanX3-DirectX\Debug\DemoDirectX.exe

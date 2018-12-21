@@ -7,5 +7,5 @@ namespace Define
 	const float PLAYER_BOTTOM_RANGE_FALLING = 8.0f;
 	const float ENEMY1_JUMP_VELOCITY = -300.0f;
 	const float ENEMY3_FLY_VELOCITY = 300.0f;
-	const float PLAYER_BULLET_VELOCITY = 200.0f;
+	const float PLAYER_BULLET_VELOCITY = 500.0f;
 }

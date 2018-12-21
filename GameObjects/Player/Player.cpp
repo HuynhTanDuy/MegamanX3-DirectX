@@ -250,6 +250,8 @@ void Player::OnCollisionWithEnemy(Entity *impactor, Entity::CollisionReturn data
 void Player::OnFired()
 {
 	PlayerBullet *tempbullet = new PlayerBullet();
+	if (this->mCurrentReverse) tempbullet->SetReverse(true);
+	else tempbullet->SetReverse(false);
 	tempbullet->SetPosition(this->GetPosition());
 	mListPlayerBullet.push_back(tempbullet);
 }
