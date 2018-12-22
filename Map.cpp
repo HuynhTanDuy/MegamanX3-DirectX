@@ -84,11 +84,7 @@ void Map::LoadMap(char* filePath)
 				Enemy1 *temp = new Enemy1();
 				temp->SetPosition(position);
 				mListEnemy1.push_back(temp);
-				Entity *entity = new Entity();
-				entity->SetPosition(position);
-				entity->SetWidth(temp->GetWidth());
-				entity->SetHeight(temp->GetHeight());
-				mListBodyEnemy1.push_back(entity);
+				
 			}
 		}
 		if (objectGroup->GetName() == "creep 2")
@@ -102,11 +98,7 @@ void Map::LoadMap(char* filePath)
 				Enemy2 *temp = new Enemy2();
 				temp->SetPosition(position);
 				mListEnemy2.push_back(temp);
-				Entity *entity = new Entity();
-				entity->SetPosition(position);
-				entity->SetWidth(temp->GetWidth());
-				entity->SetHeight(temp->GetHeight());
-				mListBodyEnemy2.push_back(entity);
+				
 			}
 		}
 		if (objectGroup->GetName() == "creep 3")
@@ -120,11 +112,7 @@ void Map::LoadMap(char* filePath)
 				Enemy3 *temp = new Enemy3();
 				temp->SetPosition(position);
 				mListEnemy3.push_back(temp);
-				Entity *entity = new Entity();
-				entity->SetPosition(position);
-				entity->SetWidth(temp->GetWidth());
-				entity->SetHeight(temp->GetHeight());
-				mListBodyEnemy3.push_back(entity);
+				
 			}
 		}
 	}
@@ -312,44 +300,47 @@ bool Map::IsBoundBottom()
 
 void Map::Update(float dt)
 {
-	/*for (size_t i = 0; i < mListBricks.size(); i++)
-	{
-		mListBricks[i]->Update(dt);
-	}*/
+	
 	for (size_t i = 0; i < mListEnemy1.size(); i++)
 	{
 		if (mPlayer->GetPosition().x > mListEnemy1[i]->GetPosition().x - 30) mListEnemy1[i]->SetReverse(true);
 		else mListEnemy1[i]->SetReverse(false);
 		mListEnemy1[i]->Update(dt);
+		
+		//XOA ENEMY NEU ENEMY "CHET"
+		if (mListEnemy1.at(i)->isDeleted) {
+			delete mListEnemy1.at(i);
+			mListEnemy1.erase(mListEnemy1.begin()+i);
+		}
 	}
-	for (size_t i = 0; i < mListBodyEnemy1.size(); i++)
-	{
-		Entity *entity = new Entity();
-		entity->SetPosition(mListEnemy1[i]->GetPosition());
-		entity->SetWidth(mListEnemy1[i]->GetWidth());
-		entity->SetHeight(mListEnemy1[i]->GetHeight());
-		mListBodyEnemy1[i] = entity;
-	}
+	
+
 	for (size_t i = 0; i < mListEnemy2.size(); i++)
 	{
 		if (mPlayer->GetPosition().x > mListEnemy2[i]->GetPosition().x - 30) mListEnemy2[i]->SetReverse(true);
 		else mListEnemy2[i]->SetReverse(false);
 		mListEnemy2[i]->Update(dt);
+
+		//XOA ENEMY NEU ENEMY "CHET"
+		if (mListEnemy2.at(i)->isDeleted) {
+			delete mListEnemy2.at(i);
+			mListEnemy2.erase(mListEnemy2.begin() + i);
+		}
+
 	}
 	for (size_t i = 0; i < mListEnemy3.size(); i++)
 	{
 		if (mPlayer->GetPosition().x > mListEnemy3[i]->GetPosition().x - 30) mListEnemy3[i]->SetReverse(true);
 		else mListEnemy3[i]->SetReverse(false);
 		mListEnemy3[i]->Update(dt);
+
+		//XOA ENEMY NEU ENEMY "CHET"
+		if (mListEnemy3.at(i)->isDeleted) {
+			delete mListEnemy3.at(i);
+			mListEnemy3.erase(mListEnemy3.begin() + i);
+		}
 	}
-	for (size_t i = 0; i < mListBodyEnemy3.size(); i++)
-	{
-		Entity *entity = new Entity();
-		entity->SetPosition(mListEnemy3[i]->GetPosition());
-		entity->SetWidth(mListEnemy3[i]->GetWidth());
-		entity->SetHeight(mListEnemy3[i]->GetHeight());
-		mListBodyEnemy3[i] = entity;
-	}
+	
 	//mListEnemy1[0]->Update(dt);
 }
 void Map::createQuadTree()

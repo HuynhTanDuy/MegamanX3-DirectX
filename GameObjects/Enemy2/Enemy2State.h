@@ -12,9 +12,8 @@ public:
 	enum StateName
 	{
 		Standing,
-		Falling,
-		Jumping,
-		Shooting
+		Shooting,
+		Die
 	};
 
 	~Enemy2State();

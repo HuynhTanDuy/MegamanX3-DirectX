@@ -7,16 +7,19 @@ PlayerBullet::PlayerBullet(int level) {
 	{
 		BulletMoving = new Animation("Resources/Bullets/PlayerBulletMoving.png", 1, 1, 1, 0.2f);
 		BulletDie = new Animation("Resources/Bullets/PlayerBulletDie.png", 3, 1, 3, 0.05f);
+		damage = 1;
 	}
 	if (level == 2)
 	{
 		BulletMoving = new Animation("Resources/Bullets/PlayerBulletCharged1Moving.png", 1, 1, 1, 0.2f);
 		BulletDie = new Animation("Resources/Bullets/PlayerBulletCharged1Die.png", 4, 1, 4, 0.05f);
+		damage = 2;
 	}
 	if (level == 3)
 	{
 		BulletMoving = new Animation("Resources/Bullets/PlayerBulletCharged2Moving.png", 1, 1, 1, 0.2f);
 		BulletDie = new Animation("Resources/Bullets/PlayerBulletCharged2Die.png", 4, 1, 4, 0.05f);
+		damage = 3;
 	}
 	//this->playerBulletData = new EnemyData3();
 	//this->playerBulletData->PlayerBullet = this;

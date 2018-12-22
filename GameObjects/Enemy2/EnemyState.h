@@ -9,7 +9,9 @@ class EnemyState // Chi dung doi voi cac Enemy co cac trang thai di chuyen, tan 
 public:
 	enum StateName
 	{
-		
+		Standing,
+		Shooting,
+		Die
 	};
 
 	~EnemyState();

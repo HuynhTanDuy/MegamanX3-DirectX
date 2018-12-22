@@ -40,6 +40,8 @@ public: Bullet();
 		void OnCollision();
 	
 		bool isDestroyed,isDeleted;
+
+		int damage;
 protected:
 	//BulletData *mEnemyData3;
 

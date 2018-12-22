@@ -13,7 +13,8 @@ public:
 		Falling,
 		Jumping,
 		Shooting,
-		Flying
+		Flying,
+		Die
 	};
 
 	~Enemy1State();

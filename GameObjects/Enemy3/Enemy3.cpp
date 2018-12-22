@@ -6,7 +6,7 @@ Enemy3::Enemy3() {
 	
 	Enemy3Standing = new Animation("Resources/enemy3/Enemy3Standing.png", 5, 1, 5, 0.2f);
 	Enemy3Flying = new Animation("Resources/enemy3/Enemy3Flying.png", 5, 1, 5, 0.2f);
-	
+	Enemy3Die = new Animation("Resources/enemy1/DieState.png", 7, 1, 7, 0.05f);
 	Enemy3Shooting = new Animation("Resources/enemy3/Enemy3Shooting.png", 2, 1, 2, 0.2f);
 	//this->mEnemyData3 = new EnemyData3();
 	//this->mEnemyData3->Enemy3 = this;
@@ -21,7 +21,7 @@ Enemy3::Enemy3() {
 	//this->SetState(new Enemy3StandingState(this->mEnemyData3));
 	//this->mEnemyData->PlayerShot = new PlayerShot(this);
 	
-	
+	HP = 5;
 }
 Enemy3::~Enemy3()
 {	
@@ -32,6 +32,7 @@ void Enemy3::Update(float dt)
 	CurrentAnimation->Update(dt);
 	Entity::Update(dt);
 	//this->mEnemyData->PlayerShot->Update(dt);
+	if (isDestroyed && mCurrentState != 3) this->SetState(new Enemy3DieState(this->mEnemyData3));
 	if (this->mEnemyData3->Enemy3State)
 	{
 		this->mEnemyData3->Enemy3State->Update(dt);
@@ -76,6 +77,9 @@ void Enemy3::changeAnimation(Enemy3State::StateName state)
 	case Enemy3State::Shooting:
 		CurrentAnimation = Enemy3Shooting;
 		break;
+	case Enemy3State::Die:
+		CurrentAnimation = Enemy3Die;
+		break;
 	}
 
 	this->width = CurrentAnimation->GetWidth();
@@ -99,4 +103,17 @@ Enemy3State::StateName Enemy3::getState()
 void Enemy3::OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side)
 {
 	this->mEnemyData3->Enemy3State->OnCollision(impactor, side, data);
+}
+Entity* Enemy3::getEntity()
+{
+	Entity *temp = new Entity();
+	temp->SetPosition(this->GetPosition());
+	temp->SetWidth(this->GetWidth());
+	temp->SetHeight(this->GetHeight());
+	return temp;
+}
+void Enemy3::OnCollissionWithBullet(int damage)
+{
+	HP = HP - damage;
+	if (HP == 0) isDestroyed = true;
 }

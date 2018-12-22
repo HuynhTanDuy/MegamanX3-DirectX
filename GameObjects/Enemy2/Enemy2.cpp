@@ -6,6 +6,7 @@ Enemy2::Enemy2() {
 
 	Enemy2Standing = new Animation("Resources/enemy2/enemy2Standing.png", 1, 1, 1, 0.0f);
 	Enemy2Shooting = new Animation("Resources/enemy2/enemy2Shooting.png", 3, 1, 3, 0.2f);
+	Enemy2Die = new Animation("Resources/enemy1/DieState.png", 7, 1, 7, 0.05f);
 	this->mEnemyData2 = new EnemyData2();
 	this->mEnemyData2->Enemy2 = this;
 	this->SetVx(0);
@@ -15,7 +16,7 @@ Enemy2::Enemy2() {
 	this->SetState(new Enemy2StandingState(this->mEnemyData2));
 	//this->SetState(new Enemy2StandingState(this->mEnemyData1));
 	//this->mEnemyData->PlayerShot = new PlayerShot(this);
-
+	HP = 5;
 
 }
 Enemy2::~Enemy2()
@@ -27,6 +28,7 @@ void Enemy2::Update(float dt)
 	CurrentAnimation->Update(dt);
 	Entity::Update(dt);
 	//this->mEnemyData->PlayerShot->Update(dt);
+	if (isDestroyed && mCurrentState != 2) this->SetState(new Enemy2DieState(this->mEnemyData2));
 	if (this->mEnemyData2->Enemy2State)
 	{
 		this->mEnemyData2->Enemy2State->Update(dt);
@@ -67,6 +69,9 @@ void Enemy2::changeAnimation(Enemy2State::StateName state)
 	case Enemy2State::Shooting:
 		CurrentAnimation = Enemy2Shooting;
 		break;
+	case Enemy2State::Die:
+		CurrentAnimation = Enemy2Die;
+		break;
 	}
 
 	this->width = CurrentAnimation->GetWidth();
@@ -86,4 +91,17 @@ void Enemy2::SetState(Enemy2State *newState)
 Enemy2State::StateName Enemy2::getState()
 {
 	return mCurrentState;
+}
+Entity* Enemy2::getEntity()
+{
+	Entity *temp = new Entity();
+	temp->SetPosition(this->GetPosition());
+	temp->SetWidth(this->GetWidth());
+	temp->SetHeight(this->GetHeight());
+	return temp;
+}
+void Enemy2::OnCollissionWithBullet(int damage)
+{
+	HP = HP - damage;
+	if (HP == 0) isDestroyed = true;
 }

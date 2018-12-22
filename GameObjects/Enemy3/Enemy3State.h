@@ -12,6 +12,7 @@ public:
 		Standing,
 		Flying,
 		Shooting,
+		Die
 		
 	};
 

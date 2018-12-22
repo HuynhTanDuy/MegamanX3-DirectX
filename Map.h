@@ -63,9 +63,7 @@ public:
 	std::vector<Enemy2*>             mListEnemy2;
 	std::vector<Enemy3*>             mListEnemy3;
 
-	std::vector<Entity*>             mListBodyEnemy1;
-	std::vector<Entity*>             mListBodyEnemy2;
-	std::vector<Entity*>             mListBodyEnemy3;
+	
 	//void saveQuadTree(QuadTree *quadtree);
 	~Map();
 

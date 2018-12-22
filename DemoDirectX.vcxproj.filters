@@ -286,6 +286,15 @@
     <ClCompile Include="GameObjects\Bullets\PlayerBulletMovingState.cpp">
       <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjects\Enemy\EnemyDieState.cpp">
+      <Filter>FrameWork\GameObjects\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Enemy2\Enemy2DieState.cpp">
+      <Filter>FrameWork\GameObjects\Enemy2</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Enemy3\Enemy3DieState.cpp">
+      <Filter>FrameWork\GameObjects\Enemy3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameComponents\Game.h">
@@ -533,6 +542,15 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Bullets\PlayerBulletMovingState.h">
       <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Enemy\EnemyDieState.h">
+      <Filter>FrameWork\GameObjects\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Enemy2\Enemy2DieState.h">
+      <Filter>FrameWork\GameObjects\Enemy2</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Enemy3\Enemy3DieState.h">
+      <Filter>FrameWork\GameObjects\Enemy3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 #include "Enemy1.h"
 #include "../../GameObjects/Player/Player.h"
-
+#include "EnemyDieState.h"
 
 Enemy1::Enemy1() {
 	
@@ -8,6 +8,7 @@ Enemy1::Enemy1() {
 	Enemy1Jumping = new Animation("Resources/enemy1/enemy1Jumping.png", 1, 1, 1, 0.0f);
 	Enemy1Falling = new Animation("Resources/enemy1/enemy1Jumping.png", 1, 1, 1, 0.0f);
 	Enemy1Shooting = new Animation("Resources/enemy1/enemy1Shooting.png", 1, 1, 1, 0.0f);
+	Enemy1Die = new Animation("Resources/enemy1/DieState.png", 7, 1, 7, 0.05f);
 	this->mEnemyData1 = new EnemyData1();
 	this->mEnemyData1->Enemy1 = this;
 	this->SetVx(0);
@@ -17,7 +18,7 @@ Enemy1::Enemy1() {
 	this->SetState(new Enemy1StandingState(this->mEnemyData1));
 	//this->SetState(new Enemy1StandingState(this->mEnemyData1));
 	//this->mEnemyData->PlayerShot = new PlayerShot(this);
-	
+	HP = 3; 
 	
 }
 Enemy1::~Enemy1()
@@ -29,6 +30,7 @@ void Enemy1::Update(float dt)
 	CurrentAnimation->Update(dt);
 	Entity::Update(dt);
 	//this->mEnemyData->PlayerShot->Update(dt);
+	if (isDestroyed && mCurrentState!=5) this->SetState(new EnemyDieState(this->mEnemyData1));
 	if (this->mEnemyData1->Enemy1State)
 	{
 		this->mEnemyData1->Enemy1State->Update(dt);
@@ -75,6 +77,9 @@ void Enemy1::changeAnimation(Enemy1State::StateName state)
 	case Enemy1State::Shooting:
 		CurrentAnimation = Enemy1Shooting;
 		break;
+	case Enemy1State::Die:
+		CurrentAnimation = Enemy1Die;
+		break;
 	}
 
 	this->width = CurrentAnimation->GetWidth();
@@ -95,7 +100,23 @@ Enemy1State::StateName Enemy1::getState()
 {
 	return mCurrentState;
 }
+
 void Enemy1::OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side)
 {
 	this->mEnemyData1->Enemy1State->OnCollision(impactor, side, data);
+}
+
+Entity* Enemy1::getEntity()
+{
+	Entity *temp=new Entity();
+	temp->SetPosition(this->GetPosition());
+	temp->SetWidth(this->GetWidth());
+	temp->SetHeight(this->GetHeight());
+	return temp;
+}
+
+void Enemy1::OnCollissionWithBullet(int damage)
+{
+	HP=HP-damage;
+	if (HP == 0) isDestroyed = true;
 }

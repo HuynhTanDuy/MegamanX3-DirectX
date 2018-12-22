@@ -64,7 +64,7 @@ void Player::Update(float dt)
 			
 		}
 	}
-	GAMELOG("size:%d", mListPlayerBullet.size());
+	
 	
 }
 

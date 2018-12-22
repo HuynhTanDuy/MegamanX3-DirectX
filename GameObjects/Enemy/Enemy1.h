@@ -33,10 +33,15 @@ public: Enemy1();
 
 		Enemy1State::StateName mCurrentState;
 
-		bool isLeft;
+		bool isLeft,isDestroyed,isDeleted;
 
 		void OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side);
+
+		void OnCollissionWithBullet(int damage);
 	
+		Entity* getEntity();
+
+		int HP;
 protected:
 	EnemyData1 *mEnemyData1;
 
@@ -44,6 +49,7 @@ protected:
 			  *Enemy1Jumping,
 			  *Enemy1Falling,
 			  *Enemy1Shooting,	
+			  *Enemy1Die,	
 			  *CurrentAnimation;
 	
 	void changeAnimation(Enemy1State::StateName state);

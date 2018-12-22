@@ -175,12 +175,12 @@ void DemoScene::checkCollision()
 
 #pragma region XU LY VA CHAM CUA ENEMY1
 	//xu ly va cham voi enemy, duyet listenemy
-	vector<Entity*> listEnemy;
-	listEnemy = map->mListBodyEnemy1;
+	vector<Enemy1*> listEnemy;
+	listEnemy = map->mListEnemy1;
 	for (size_t i = 0; i < listEnemy.size(); i++)
 	{
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
-			listEnemy.at(i)->GetBound()); //xac dinh Rect va cham
+			listEnemy.at(i)->getEntity()->GetBound()); //xac dinh Rect va cham
 
 		if (r.IsCollided)
 		{
@@ -209,7 +209,7 @@ void DemoScene::checkCollision()
 
 		for (size_t i = 0;i <listCollisionEnemyvsMap.size(); i++)
 		{
-			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy[j]->GetBound(),
+			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy[j]->getEntity()->GetBound(),
 				listCollisionEnemyvsMap.at(i)->GetBound()); //xac dinh Rect va cham
 
 			if (r.IsCollided)
@@ -228,7 +228,7 @@ void DemoScene::checkCollision()
 				
 			}
 		}
-		//XU LY VA CHAM CUA ENEMY VS BULLET
+		//XU LY VA CHAM CUA ENEMY1 VS BULLET
 		for (size_t i = 0; i < mPlayer->mListPlayerBullet.size(); i++)
 		{
 			if (mPlayer->mListPlayerBullet.at(i))
@@ -238,7 +238,7 @@ void DemoScene::checkCollision()
 				if (r.IsCollided)
 				{
 					mPlayer->mListPlayerBullet.at(i)->OnCollision();
-					
+					listEnemy[j]->OnCollissionWithBullet(mPlayer->mListPlayerBullet.at(i)->damage);
 				}
 			}
 		}
@@ -248,12 +248,12 @@ void DemoScene::checkCollision()
 #pragma endregion
 
 #pragma region XU LY VA CHAM ENEMY2
-	vector<Entity*> listEnemy2;
-	listEnemy2 = map->mListBodyEnemy2;
+	vector<Enemy2*> listEnemy2;
+	listEnemy2 = map->mListEnemy2;
 	for (size_t i = 0; i < listEnemy2.size(); i++)
 	{
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
-			listEnemy2.at(i)->GetBound()); //xac dinh Rect va cham
+			listEnemy2.at(i)->getEntity()->GetBound()); //xac dinh Rect va cham
 
 		if (r.IsCollided)
 		{
@@ -282,7 +282,7 @@ void DemoScene::checkCollision()
 
 		for (size_t i = 0; i < listCollisionEnemyvsMap.size(); i++)
 		{
-			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy2[j]->GetBound(),
+			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy2[j]->getEntity()->GetBound(),
 				listCollisionEnemyvsMap.at(i)->GetBound()); //xac dinh Rect va cham
 
 			if (r.IsCollided)
@@ -301,17 +301,31 @@ void DemoScene::checkCollision()
 
 			}
 		}
+		//XU LY VA CHAM CUA ENEMY2 VS BULLET
+		for (size_t i = 0; i < mPlayer->mListPlayerBullet.size(); i++)
+		{
+			if (mPlayer->mListPlayerBullet.at(i))
+			{
+				Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy2[j]->GetBound(),
+					mPlayer->mListPlayerBullet.at(i)->GetBound());
+				if (r.IsCollided)
+				{
+					mPlayer->mListPlayerBullet.at(i)->OnCollision();
+					listEnemy2[j]->OnCollissionWithBullet(mPlayer->mListPlayerBullet.at(i)->damage);
+				}
+			}
+		}
 	}
 #pragma endregion
 
 #pragma region XU LY VA CHAM CUA ENEMY3
 	//xu ly va cham voi enemy, duyet listenemy
-	vector<Entity*> listEnemy3;
-	listEnemy3 = map->mListBodyEnemy3;
+	vector<Enemy3*> listEnemy3;
+	listEnemy3 = map->mListEnemy3;
 	for (size_t i = 0; i < listEnemy3.size(); i++)
 	{
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
-			listEnemy3.at(i)->GetBound()); //xac dinh Rect va cham
+			listEnemy3.at(i)->getEntity()->GetBound()); //xac dinh Rect va cham
 
 		if (r.IsCollided)
 		{
@@ -340,7 +354,7 @@ void DemoScene::checkCollision()
 
 		for (size_t i = 0; i < listCollisionEnemyvsMap.size(); i++)
 		{
-			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy3[j]->GetBound(),
+			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy3[j]->getEntity()->GetBound(),
 				listCollisionEnemyvsMap.at(i)->GetBound()); //xac dinh Rect va cham
 
 			if (r.IsCollided)
@@ -357,6 +371,20 @@ void DemoScene::checkCollision()
 
 				//kiem tra neu va cham voi phia duoi cua Player 
 
+			}
+		}
+		//XU LY VA CHAM CUA ENEMY3 VS BULLET
+		for (size_t i = 0; i < mPlayer->mListPlayerBullet.size(); i++)
+		{
+			if (mPlayer->mListPlayerBullet.at(i))
+			{
+				Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy3[j]->GetBound(),
+					mPlayer->mListPlayerBullet.at(i)->GetBound());
+				if (r.IsCollided)
+				{
+					mPlayer->mListPlayerBullet.at(i)->OnCollision();
+					listEnemy3[j]->OnCollissionWithBullet(mPlayer->mListPlayerBullet.at(i)->damage);
+				}
 			}
 		}
 	}

@@ -10,7 +10,9 @@ PlayerBulletDieState::PlayerBulletDieState(PlayerBulletData *playerData)
     this->playerBulletData = playerData;
     this->playerBulletData->PlayerBullet->SetVx(0);
 	this->playerBulletData->PlayerBullet->isDestroyed = true;
+	this->playerBulletData->PlayerBullet->damage = 0;
 	count = 0;
+	
 }
 
 

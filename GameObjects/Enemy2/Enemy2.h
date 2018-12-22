@@ -12,6 +12,7 @@
 #include "Enemy2State.h"
 #include "Enemy2ShootingState.h"
 #include "Enemy2StandingState.h"
+#include "Enemy2DieState.h"
 
 class Enemy2 : public Entity {
 public: Enemy2();
@@ -36,13 +37,20 @@ public: Enemy2();
 
 		Enemy2State::StateName mCurrentState;
 
-		bool isLeft;
+		bool isLeft, isDestroyed, isDeleted;
+
+		void OnCollissionWithBullet(int damage);
+
+		Entity* getEntity();
+
+		int HP;
 
 protected:
 	EnemyData2 *mEnemyData2;
 
 	Animation *Enemy2Standing,
 		*Enemy2Shooting,
+		*Enemy2Die,
 		*CurrentAnimation;
 
 	void changeAnimation(Enemy2State::StateName state);

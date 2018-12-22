@@ -10,7 +10,7 @@
 #include "Enemy3Data.h"
 #include "../Entity.h"
 #include "Enemy3StandingState.h"
-
+#include "Enemy3DieState.h"
 class Enemy3 : public Entity {
 public: Enemy3();
 		~Enemy3();
@@ -34,10 +34,15 @@ public: Enemy3();
 
 		Enemy3State::StateName mCurrentState;
 
-		bool isLeft;
+		bool isLeft,isDestroyed,isDeleted;
 
 		void OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side);
+
+		void OnCollissionWithBullet(int damage);
 	
+		Entity* getEntity();
+
+		int HP;
 protected:
 	Enemy3Data *mEnemyData3;
 
@@ -45,6 +50,7 @@ protected:
 			  *Enemy3Flying,
 			  *Enemy3Falling,
 			  *Enemy3Shooting,	
+			  *Enemy3Die,	
 			  *CurrentAnimation;
 	
 	void changeAnimation(Enemy3State::StateName state);
