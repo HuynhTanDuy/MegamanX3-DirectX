@@ -160,6 +160,19 @@ void DemoScene::checkCollision()
 			}
 		}
 	}
+	//Neu megaman dung ngoai mep thi luc nay cho mario rot xuong duoi dat    
+	if (widthBottom < Define::PLAYER_BOTTOM_RANGE_FALLING && widthBottom != 0)
+	{
+		mPlayer->OnNoCollisionWithBottom();
+		//LOG(widthBottom);
+	}
+	if (mPlayer->mCurrentState == PlayerState::Surfing)
+		if (widthBottom < Define::PLAYER_BOTTOM_RANGE_FALLING)
+		{
+			mPlayer->OnNoCollisionWithBottom();
+			//LOG(widthBottom);
+		}
+
 #pragma region XU LY VA CHAM CUA ENEMY1
 	//xu ly va cham voi enemy, duyet listenemy
 	vector<Entity*> listEnemy;
@@ -215,9 +228,25 @@ void DemoScene::checkCollision()
 				
 			}
 		}
+		//XU LY VA CHAM CUA ENEMY VS BULLET
+		for (size_t i = 0; i < mPlayer->mListPlayerBullet.size(); i++)
+		{
+			if (mPlayer->mListPlayerBullet.at(i))
+			{
+				Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy[j]->GetBound(),
+					mPlayer->mListPlayerBullet.at(i)->GetBound());
+				if (r.IsCollided)
+				{
+					mPlayer->mListPlayerBullet.at(i)->OnCollision();
+					
+				}
+			}
+		}
 	}
+
+	
 #pragma endregion
-/*
+
 #pragma region XU LY VA CHAM ENEMY2
 	vector<Entity*> listEnemy2;
 	listEnemy2 = map->mListBodyEnemy2;
@@ -279,7 +308,7 @@ void DemoScene::checkCollision()
 	//xu ly va cham voi enemy, duyet listenemy
 	vector<Entity*> listEnemy3;
 	listEnemy3 = map->mListBodyEnemy3;
-	for (size_t i = 0; i < listEnemy.size(); i++)
+	for (size_t i = 0; i < listEnemy3.size(); i++)
 	{
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
 			listEnemy3.at(i)->GetBound()); //xac dinh Rect va cham
@@ -332,19 +361,8 @@ void DemoScene::checkCollision()
 		}
 	}
 #pragma endregion
-*/
-	//Neu mario dung ngoai mep thi luc nay cho mario rot xuong duoi dat    
-	if (widthBottom < Define::PLAYER_BOTTOM_RANGE_FALLING && widthBottom != 0)
-	{
-		mPlayer->OnNoCollisionWithBottom();
-		//LOG(widthBottom);
-	}
-	if (mPlayer->mCurrentState==PlayerState::Surfing)
-		if (widthBottom < Define::PLAYER_BOTTOM_RANGE_FALLING)
-	{
-		mPlayer->OnNoCollisionWithBottom();
-		//LOG(widthBottom);
-	}
+
+	
 	
 }
 void DemoScene::DrawQuadtree(QuadTree *quadtree)

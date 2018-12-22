@@ -37,9 +37,9 @@ public: Bullet();
 
 		bool isLeft;
 
-		void OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side);
+		void OnCollision();
 	
-		bool isDestroyed;
+		bool isDestroyed,isDeleted;
 protected:
 	//BulletData *mEnemyData3;
 

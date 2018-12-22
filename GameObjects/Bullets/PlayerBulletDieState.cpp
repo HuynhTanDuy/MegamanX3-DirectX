@@ -10,7 +10,7 @@ PlayerBulletDieState::PlayerBulletDieState(PlayerBulletData *playerData)
     this->playerBulletData = playerData;
     this->playerBulletData->PlayerBullet->SetVx(0);
 	this->playerBulletData->PlayerBullet->isDestroyed = true;
-	
+	count = 0;
 }
 
 
@@ -20,7 +20,8 @@ PlayerBulletDieState::~PlayerBulletDieState()
 
 void PlayerBulletDieState::Update(float dt)
 {
-	
+	count++;
+	if (count == 15) this->playerBulletData->PlayerBullet->isDeleted = true;
 	
 }
 

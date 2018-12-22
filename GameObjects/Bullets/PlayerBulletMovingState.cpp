@@ -11,20 +11,24 @@ PlayerBulletMovingState::PlayerBulletMovingState(PlayerBulletData *playerData)
    
    
 	count = 0;
-	time = 400;
+	time = 70;
 }
 
 
 PlayerBulletMovingState::~PlayerBulletMovingState()
 {
+
 }
 
 void PlayerBulletMovingState::Update(float dt)
 {
-	if (this->playerBulletData->PlayerBullet->mCurrentReverse) 	this->playerBulletData->PlayerBullet->SetVx(-Define::PLAYER_BULLET_VELOCITY);
-	else this->playerBulletData->PlayerBullet->SetVx(Define::PLAYER_BULLET_VELOCITY);
-	count++;
-	if (count == time) this->playerBulletData->PlayerBullet->SetState(new PlayerBulletDieState(this->playerBulletData));
+	
+		if (this->playerBulletData->PlayerBullet->mCurrentReverse) 	this->playerBulletData->PlayerBullet->SetVx(-Define::PLAYER_BULLET_VELOCITY);
+		else this->playerBulletData->PlayerBullet->SetVx(Define::PLAYER_BULLET_VELOCITY);
+		count++;
+		if (count == time || this->playerBulletData->PlayerBullet->isDestroyed) this->playerBulletData->PlayerBullet->SetState(new PlayerBulletDieState(this->playerBulletData));
+	
+	
 }
 
 

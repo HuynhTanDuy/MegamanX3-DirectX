@@ -64,7 +64,7 @@ BulletState::StateName Bullet::getState()
 {
 	return mCurrentState;
 }
-void Bullet::OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side)
+void Bullet::OnCollision()
 {
-	
+	isDestroyed = true;
 }

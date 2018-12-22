@@ -63,6 +63,7 @@ public:
 	std::vector<PlayerBullet*>             mListPlayerBullet;
 	void OnFired(int _level);
 	int count,level=1;
+	bool charging;
 protected:
     PlayerData *mPlayerData;
 

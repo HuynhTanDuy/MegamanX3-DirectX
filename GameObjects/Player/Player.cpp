@@ -52,6 +52,19 @@ void Player::Update(float dt)
     }
 
     Entity::Update(dt);
+
+	if (charging) count++;
+	else count = 0;
+	for (int i = 0; i < mListPlayerBullet.size(); i++)
+	{
+		
+		if (mListPlayerBullet.at(i)->isDeleted) {
+			delete mListPlayerBullet.at(i);
+			mListPlayerBullet.erase(mListPlayerBullet.begin() + i);
+			
+		}
+	}
+	GAMELOG("size:%d", mListPlayerBullet.size());
 	
 }
 
@@ -68,9 +81,10 @@ void Player::OnKeyPressed(int key)
 	if (key == 0x58)
 	{
 		level = 1;
-
-		count++;
-		//GAMELOG("count: %d",count);
+		
+		
+		charging = true;
+		//GAMELOG("count: %d",charging);
 	}
     if (key == VK_SPACE)
     {
@@ -92,8 +106,7 @@ void Player::OnKeyPressed(int key)
 			//return;
 			allowShot = false;
 
-			level = 1;
-			count++;
+			
 		}
 	}
 	if (key == 0x58 && mCurrentState == PlayerState::Jumping)
@@ -104,8 +117,6 @@ void Player::OnKeyPressed(int key)
 			//return;
 			allowShot = false;
 
-			level = 1;
-			count++;
 		}
 
 	}
@@ -119,9 +130,11 @@ void Player::OnKeyUp(int key)
 	if (key == 0x58)
 	{
 		allowShot = true;
-		if (count > 5) level=2;
-		if (count > 30) level = 3;
-		count = 0;
+		if (count > 8) level=2;
+		if (count > 35) level = 3;
+		
+		charging = false;
+	
 		//GAMELOG("level: %d", level);
 		OnFired(level);
 		//if (key == 0x58) GAMELOG("2222");
