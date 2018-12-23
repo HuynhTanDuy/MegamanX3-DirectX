@@ -53,6 +53,9 @@
     <Filter Include="FrameWork\GameObjects\Bullets\PlayerBullet">
       <UniqueIdentifier>{ec6f758c-a866-4b3d-9d3b-ed10f44b82c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork\GameObjects\Elevator">
+      <UniqueIdentifier>{e4f0daa5-c8be-48ce-b0bb-820a7c5fd839}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -294,6 +297,9 @@
     </ClCompile>
     <ClCompile Include="GameObjects\Enemy3\Enemy3DieState.cpp">
       <Filter>FrameWork\GameObjects\Enemy3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Elevator\Elevator.cpp">
+      <Filter>FrameWork\GameObjects\Elevator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -551,6 +557,9 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Enemy3\Enemy3DieState.h">
       <Filter>FrameWork\GameObjects\Enemy3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Elevator\Elevator.h">
+      <Filter>FrameWork\GameObjects\Elevator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

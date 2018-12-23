@@ -20,6 +20,7 @@
 //#include "Scenes/DemoScene.h"
 #include <fstream>
 #include <iostream>
+#include "GameObjects/Elevator/Elevator.h"
 class Map
 {
 public:
@@ -63,7 +64,7 @@ public:
 	std::vector<Enemy2*>             mListEnemy2;
 	std::vector<Enemy3*>             mListEnemy3;
 
-	
+	Elevator *elevator;
 	//void saveQuadTree(QuadTree *quadtree);
 	~Map();
 

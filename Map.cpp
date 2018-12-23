@@ -118,6 +118,13 @@ void Map::LoadMap(char* filePath)
 	}
 	//GAMELOG("ene: %d", mListEnemy1);
 	//createQuadTree();
+
+	//ELEVATOR
+	elevator = new Elevator();
+	elevator->SetPosition(2280,1762);
+	elevator->Tag = Entity::EntityTypes::Elevator;
+	
+	
 }
 
 Tmx::Map* Map::GetMap()
@@ -252,6 +259,8 @@ void Map::Draw()
 	{
 		mPlayer->mListPlayerBullet.at(i)->Draw(mPlayer->mListPlayerBullet.at(i)->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 	}
+	elevator->Draw(elevator->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	//elevator->Draw(D3DXVECTOR3(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight() / 2, 0));
 }
 
 void Map::SetCamera(Camera * camera)
@@ -340,7 +349,7 @@ void Map::Update(float dt)
 			mListEnemy3.erase(mListEnemy3.begin() + i);
 		}
 	}
-	
+	elevator->Update(dt);
 	//mListEnemy1[0]->Update(dt);
 }
 void Map::createQuadTree()

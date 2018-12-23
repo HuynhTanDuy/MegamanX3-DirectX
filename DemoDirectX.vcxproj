@@ -103,6 +103,7 @@
     <ClCompile Include="GameObjects\Bullets\PlayerBullet.cpp" />
     <ClCompile Include="GameObjects\Bullets\PlayerBulletDieState.cpp" />
     <ClCompile Include="GameObjects\Bullets\PlayerBulletMovingState.cpp" />
+    <ClCompile Include="GameObjects\Elevator\Elevator.cpp" />
     <ClCompile Include="GameObjects\Enemy2\Enemy2.cpp" />
     <ClCompile Include="GameObjects\Enemy2\Enemy2DieState.cpp" />
     <ClCompile Include="GameObjects\Enemy2\Enemy2ShootingState.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="GameObjects\Bullets\PlayerBulletData.h" />
     <ClInclude Include="GameObjects\Bullets\PlayerBulletDieState.h" />
     <ClInclude Include="GameObjects\Bullets\PlayerBulletMovingState.h" />
+    <ClInclude Include="GameObjects\Elevator\Elevator.h" />
     <ClInclude Include="GameObjects\Enemy2\Enemy2.h" />
     <ClInclude Include="GameObjects\Enemy2\Enemy2DieState.h" />
     <ClInclude Include="GameObjects\Enemy2\Enemy2ShootingState.h" />

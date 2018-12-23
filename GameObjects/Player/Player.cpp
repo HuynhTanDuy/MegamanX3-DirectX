@@ -65,6 +65,14 @@ void Player::Update(float dt)
 		}
 	}
 	
+	if (nobody)
+	{
+		clock++;
+		if (clock == 70) {
+			nobody = false;
+			clock = 0;
+		}
+	}
 	
 }
 
@@ -174,11 +182,16 @@ void Player::SetState(PlayerState *newState)
 RECT Player::GetBound()
 {
     RECT rect;
+	
     rect.left = this->posX - CurrentAnimation->GetWidth() / 2;
     rect.right = rect.left + CurrentAnimation->GetWidth();
     rect.top = this->posY - CurrentAnimation->GetHeight() / 2;
     rect.bottom = rect.top + CurrentAnimation->GetHeight();
-
+	/*
+	rect.left = this->posX - this->GetWidth()/2;
+	rect.right = rect.left + this->GetWidth();
+	rect.top = this->posY - this->GetHeight()/2;
+	rect.bottom = rect.top + this->GetHeight();*/
     return rect;
 }
 

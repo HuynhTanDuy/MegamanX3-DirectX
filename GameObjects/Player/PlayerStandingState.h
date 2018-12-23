@@ -11,6 +11,8 @@ public:
 
     void HandleKeyboard(std::map<int, bool> keys);
 
+	void OnCollision(Entity *impactor, Entity::SideCollisions side, Entity::CollisionReturn data);
+
     virtual StateName GetState(); // lay state nhan vat
 
 protected:

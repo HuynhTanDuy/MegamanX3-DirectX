@@ -160,9 +160,11 @@ void DemoScene::checkCollision()
 			}
 		}
 	}
-	//Neu megaman dung ngoai mep thi luc nay cho mario rot xuong duoi dat    
-	if (widthBottom < Define::PLAYER_BOTTOM_RANGE_FALLING && widthBottom != 0)
+	
+	//Neu megaman dung ngoai mep thi luc nay cho megaman rot xuong duoi dat    
+	if (widthBottom < Define::PLAYER_BOTTOM_RANGE_FALLING && widthBottom !=0)
 	{
+		
 		mPlayer->OnNoCollisionWithBottom();
 		//LOG(widthBottom);
 	}
@@ -181,8 +183,8 @@ void DemoScene::checkCollision()
 	{
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
 			listEnemy.at(i)->getEntity()->GetBound()); //xac dinh Rect va cham
-
-		if (r.IsCollided)
+		
+		if (r.IsCollided && mPlayer->nobody==false)
 		{
 			//lay phia va cham cua Entity so voi Player
 			Entity::SideCollisions sidePlayer = GameCollision::getSideCollision(mPlayer, r);
@@ -255,7 +257,7 @@ void DemoScene::checkCollision()
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
 			listEnemy2.at(i)->getEntity()->GetBound()); //xac dinh Rect va cham
 
-		if (r.IsCollided)
+		if (r.IsCollided && mPlayer->nobody == false)
 		{
 			//lay phia va cham cua Entity so voi Player
 			Entity::SideCollisions sidePlayer = GameCollision::getSideCollision(mPlayer, r);
@@ -327,7 +329,7 @@ void DemoScene::checkCollision()
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
 			listEnemy3.at(i)->getEntity()->GetBound()); //xac dinh Rect va cham
 
-		if (r.IsCollided)
+		if (r.IsCollided && mPlayer->nobody == false)
 		{
 			//lay phia va cham cua Entity so voi Player
 			Entity::SideCollisions sidePlayer = GameCollision::getSideCollision(mPlayer, r);
@@ -390,7 +392,18 @@ void DemoScene::checkCollision()
 	}
 #pragma endregion
 
-	
+#pragma region XU LY VA CHAM CUA ELEVATOR
+	Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
+		map->elevator->GetBound());
+	if (r.IsCollided)
+	{
+		map->elevator->SetVy(-50);
+		//mPlayer->SetVy(-50);
+		Entity::SideCollisions sidePlayer = GameCollision::getSideCollision(mPlayer, r);
+		mPlayer->OnCollision(map->elevator, r, sidePlayer);
+		
+	}
+#pragma endregion	
 	
 }
 void DemoScene::DrawQuadtree(QuadTree *quadtree)

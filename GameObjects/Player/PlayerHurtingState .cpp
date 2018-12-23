@@ -17,7 +17,8 @@ PlayerHurtingState::PlayerHurtingState(PlayerData *playerData)
 	isHurting=1;
 	count = 0;
 	timeHurting = 10;
-
+	this->mPlayerData->player->nobody = true;
+	
 }
 
 
