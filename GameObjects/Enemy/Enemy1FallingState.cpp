@@ -7,28 +7,24 @@
 Enemy1FallingState::Enemy1FallingState(EnemyData1 *playerData)
 {
     this->mEnemyData1 = playerData;
-    this->mEnemyData1->Enemy1->SetVy(-Define::ENEMY1_JUMP_VELOCITY);
+    this->mEnemyData1->Enemy1->SetVy(200);
 
     acceleratorY = -10.0f;
-    acceleratorX = 0.0f;
+	if (this->mEnemyData1->Enemy1->mCurrentReverse) acceleratorX = 50.0f;
+	else acceleratorX = -50.0f;
 	    noPressed = false;
 }
 
 
 Enemy1FallingState::~Enemy1FallingState()
 {
-
+	this->mEnemyData1->Enemy1->SetVx(acceleratorX);
 }
 
 void Enemy1FallingState::Update(float dt)
 {
 	//GAMELOG("vy :%d", mEnemyData1->Enemy1->GetVy());
-	if (mEnemyData1->Enemy1->GetVy() > 0 )
-	{
-		this->mEnemyData1->Enemy1->AddVy(acceleratorY );
-		//this->mEnemyData1->Enemy1->AddVx(acceleratorX * 3);
-	}
-	else mEnemyData1->Enemy1->SetState(new Enemy1StandingState(this->mEnemyData1));
+	
     
 
  
@@ -55,13 +51,14 @@ void Enemy1FallingState::OnCollision(Entity *impactor, Entity::SideCollisions si
 	case Entity::TopRight: case Entity::TopLeft: case Entity::Top:
 	{
 		this->mEnemyData1->Enemy1->AddPosition(0, data.RegionCollision.bottom - data.RegionCollision.top);
-		this->mEnemyData1->Enemy1->SetVy(0);
+		//this->mEnemyData1->Enemy1->SetVy(0);
 		break;
 	}
 
 	case Entity::BottomRight: case Entity::BottomLeft: case Entity::Bottom:
 	{
 		this->mEnemyData1->Enemy1->AddPosition(0, -(data.RegionCollision.bottom - data.RegionCollision.top));
+		this->mEnemyData1->Enemy1->SetState(new Enemy1StandingState(this->mEnemyData1));
 	}
 
 	default:

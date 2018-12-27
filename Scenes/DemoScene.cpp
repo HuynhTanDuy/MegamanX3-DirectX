@@ -193,10 +193,24 @@ void DemoScene::checkCollision()
 			//Entity::SideCollisions sideImpactor = GameCollision::getSideCollision(listCollision.at(i), r);
 
 			//goi den ham xu ly collision cua Player va Entity
-			mPlayer->OnCollisionWithEnemy(listEnemy.at(i), r, sidePlayer);
+			mPlayer->OnCollisionWithEnemy();
 			//listCollision.at(i)->OnCollision(mPlayer, r, sideImpactor);
 
 			
+		}
+		
+		//XU LY VA CHAM CUA BULLET ENEMY VS PLAYER
+		for (size_t j = 0; j <listEnemy[i]->mListEnemy1Bullet.size();j++  )
+		{
+			Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
+				listEnemy.at(i)->mListEnemy1Bullet[j]->getEntity()->GetBound()); //xac dinh Rect va cham
+			if (r.IsCollided && mPlayer->nobody == false)
+			{
+					mPlayer->OnCollisionWithEnemy();
+				
+
+
+			}
 		}
 	}
 
@@ -266,7 +280,7 @@ void DemoScene::checkCollision()
 			//Entity::SideCollisions sideImpactor = GameCollision::getSideCollision(listCollision.at(i), r);
 
 			//goi den ham xu ly collision cua Player va Entity
-			mPlayer->OnCollisionWithEnemy(listEnemy2.at(i), r, sidePlayer);
+			mPlayer->OnCollisionWithEnemy();
 			//listCollision.at(i)->OnCollision(mPlayer, r, sideImpactor);
 
 
@@ -338,7 +352,7 @@ void DemoScene::checkCollision()
 			//Entity::SideCollisions sideImpactor = GameCollision::getSideCollision(listCollision.at(i), r);
 
 			//goi den ham xu ly collision cua Player va Entity
-			mPlayer->OnCollisionWithEnemy(listEnemy3.at(i), r, sidePlayer);
+			mPlayer->OnCollisionWithEnemy();
 			//listCollision.at(i)->OnCollision(mPlayer, r, sideImpactor);
 
 

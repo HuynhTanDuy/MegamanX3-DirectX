@@ -52,3 +52,11 @@ void Enemy1Bullet::SetState(BulletState *newState)
 
 	mCurrentState = newState->GetState();
 }
+Entity* Enemy1Bullet::getEntity()
+{
+	Entity *temp = new Entity();
+	temp->SetPosition(this->GetPosition());
+	temp->SetWidth(this->GetWidth());
+	temp->SetHeight(this->GetHeight());
+	return temp;
+}

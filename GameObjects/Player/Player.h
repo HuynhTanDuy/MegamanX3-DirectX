@@ -54,7 +54,7 @@ public:
 	bool allowMoveRight;
 
 	void OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side);
-	void OnCollisionWithEnemy(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side);
+	void OnCollisionWithEnemy();
 	void OnNoCollisionWithBottom();
 	void FindFollowAnimation();
 	PlayerState::StateName mCurrentState;

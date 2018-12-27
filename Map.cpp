@@ -326,17 +326,22 @@ void Map::Update(float dt)
 		if (mPlayer->GetPosition().x > mListEnemy1[i]->GetPosition().x - 30) mListEnemy1[i]->SetReverse(true);
 		else mListEnemy1[i]->SetReverse(false);
 		mListEnemy1[i]->Update(dt);
-		
-		//update bullet enemy
-		for (size_t j = 0; j < mListEnemy1[i]->mListEnemy1Bullet.size(); j++)
-		{
-			mListEnemy1[i]->mListEnemy1Bullet[j]->Update(dt);
-		}
-
+				
 		//XOA ENEMY NEU ENEMY "CHET"
 		if (mListEnemy1.at(i)->isDeleted) {
 			delete mListEnemy1.at(i);
 			mListEnemy1.erase(mListEnemy1.begin()+i);
+		}
+
+		//update bullet enemy
+		for (size_t j = 0; j < mListEnemy1[i]->mListEnemy1Bullet.size(); j++)
+		{
+			mListEnemy1[i]->mListEnemy1Bullet[j]->Update(dt);
+			if (mListEnemy1[i]->mListEnemy1Bullet[j]->isDeleted)
+			{
+				delete mListEnemy1[i]->mListEnemy1Bullet[j];
+				mListEnemy1[i]->mListEnemy1Bullet.erase(mListEnemy1[i]->mListEnemy1Bullet.begin() + j);
+			}
 		}
 	}
 

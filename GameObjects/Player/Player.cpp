@@ -286,9 +286,9 @@ void Player::FindFollowAnimation()
 	if (CurrentAnimation == playerJumping) FollowAnimation = playerJumpingShot;
 	if (CurrentAnimation == playerJumpingShot) FollowAnimation = playerJumping;
 }
-void Player::OnCollisionWithEnemy(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side)
+void Player::OnCollisionWithEnemy()
 {
-	if (side==Left || side ==Right)  this->SetState(new PlayerHurtingState(this->mPlayerData));
+	  this->SetState(new PlayerHurtingState(this->mPlayerData));
 }
 
 void Player::OnFired(int _level)

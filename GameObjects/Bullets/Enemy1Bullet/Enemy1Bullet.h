@@ -17,7 +17,7 @@ public: Enemy1Bullet();
 		~Enemy1Bullet();
 		void Update(float dt);
 		void SetState(BulletState *newState);
-		
+		Entity* getEntity();
 	
 protected:
 	Enemy1BulletData *enemy1BulletData;
