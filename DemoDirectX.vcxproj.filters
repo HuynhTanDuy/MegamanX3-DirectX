@@ -56,6 +56,9 @@
     <Filter Include="FrameWork\GameObjects\Elevator">
       <UniqueIdentifier>{e4f0daa5-c8be-48ce-b0bb-820a7c5fd839}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork\GameObjects\Bullets\Enemy1Bullet">
+      <UniqueIdentifier>{65731eb2-49c6-4168-93f9-757d667a0895}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -277,9 +280,6 @@
     <ClCompile Include="GameObjects\Bullets\Bullet.cpp">
       <Filter>FrameWork\GameObjects\Bullets</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjects\Bullets\BulletState.cpp">
-      <Filter>FrameWork\GameObjects\Bullets</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjects\Bullets\PlayerBullet.cpp">
       <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
     </ClCompile>
@@ -300,6 +300,18 @@
     </ClCompile>
     <ClCompile Include="GameObjects\Elevator\Elevator.cpp">
       <Filter>FrameWork\GameObjects\Elevator</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\BulletState.cpp">
+      <Filter>FrameWork\GameObjects\Bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\Enemy1Bullet\Enemy1Bullet.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy1Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletDieState.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy1Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletMovingState.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy1Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -534,9 +546,6 @@
     <ClInclude Include="GameObjects\Bullets\Bullet.h">
       <Filter>FrameWork\GameObjects\Bullets</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjects\Bullets\BulletState.h">
-      <Filter>FrameWork\GameObjects\Bullets</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjects\Bullets\PlayerBullet.h">
       <Filter>FrameWork\GameObjects\Bullets\PlayerBullet</Filter>
     </ClInclude>
@@ -560,6 +569,21 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Elevator\Elevator.h">
       <Filter>FrameWork\GameObjects\Elevator</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\BulletState.h">
+      <Filter>FrameWork\GameObjects\Bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1Bullet.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy1Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletData.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy1Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletDieState.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy1Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletMovingState.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy1Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

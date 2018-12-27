@@ -244,6 +244,10 @@ void Map::Draw()
 	for (size_t i = 0; i < mListEnemy1.size(); i++)
 	{
 		mListEnemy1[i]->Draw(mListEnemy1[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		for (size_t j = 0; j < mListEnemy1[i]->mListEnemy1Bullet.size(); j++)
+		{
+			mListEnemy1[i]->mListEnemy1Bullet[j]->Draw(mListEnemy1[i]->mListEnemy1Bullet[j]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		}
 	}
 	for (size_t i = 0; i < mListEnemy2.size(); i++)
 	{
@@ -255,10 +259,16 @@ void Map::Draw()
 	}
 #pragma endregion 
 
+#pragma region DRAW BULLETS
+
 	for (size_t i = 0; i < mPlayer->mListPlayerBullet.size(); i++)
 	{
 		mPlayer->mListPlayerBullet.at(i)->Draw(mPlayer->mListPlayerBullet.at(i)->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 	}
+#pragma endregion
+
+	
+
 	elevator->Draw(elevator->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 	//elevator->Draw(D3DXVECTOR3(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight() / 2, 0));
 }
@@ -309,20 +319,27 @@ bool Map::IsBoundBottom()
 
 void Map::Update(float dt)
 {
-	
+
+#pragma region UPDATE ENEMIES
 	for (size_t i = 0; i < mListEnemy1.size(); i++)
 	{
 		if (mPlayer->GetPosition().x > mListEnemy1[i]->GetPosition().x - 30) mListEnemy1[i]->SetReverse(true);
 		else mListEnemy1[i]->SetReverse(false);
 		mListEnemy1[i]->Update(dt);
 		
+		//update bullet enemy
+		for (size_t j = 0; j < mListEnemy1[i]->mListEnemy1Bullet.size(); j++)
+		{
+			mListEnemy1[i]->mListEnemy1Bullet[j]->Update(dt);
+		}
+
 		//XOA ENEMY NEU ENEMY "CHET"
 		if (mListEnemy1.at(i)->isDeleted) {
 			delete mListEnemy1.at(i);
 			mListEnemy1.erase(mListEnemy1.begin()+i);
 		}
 	}
-	
+
 
 	for (size_t i = 0; i < mListEnemy2.size(); i++)
 	{
@@ -349,8 +366,12 @@ void Map::Update(float dt)
 			mListEnemy3.erase(mListEnemy3.begin() + i);
 		}
 	}
+#pragma endregion
+
 	elevator->Update(dt);
-	//mListEnemy1[0]->Update(dt);
+
+
+	
 }
 void Map::createQuadTree()
 {

@@ -8,4 +8,5 @@ namespace Define
 	const float ENEMY1_JUMP_VELOCITY = -300.0f;
 	const float ENEMY3_FLY_VELOCITY = 300.0f;
 	const float PLAYER_BULLET_VELOCITY = 700.0f;
+	const float ENEMY1_BULLET_VELOCITY = -500.0f;
 }

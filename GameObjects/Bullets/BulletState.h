@@ -1,6 +1,7 @@
 #pragma once
 
 #include "PlayerBulletData.h"
+
 #include "../Entity.h"
 #include <map>
 
@@ -27,8 +28,9 @@ public:
 
 
 protected:
-	BulletState(PlayerBulletData *EnemyData3);
+	//BulletState(PlayerBulletData *EnemyData3);
 	BulletState();
 	int count, time;
-	PlayerBulletData *playerBulletData;
+	//PlayerBulletData *playerBulletData;
+
 };

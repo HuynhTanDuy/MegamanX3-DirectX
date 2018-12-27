@@ -1,10 +1,10 @@
 #include "BulletState.h"
 
 
-BulletState::BulletState(PlayerBulletData *PlayerBulletData)
+/*BulletState::BulletState(PlayerBulletData *PlayerBulletData)
 {
 	this->playerBulletData = PlayerBulletData;
-}
+}*/
 
 BulletState::BulletState()
 {

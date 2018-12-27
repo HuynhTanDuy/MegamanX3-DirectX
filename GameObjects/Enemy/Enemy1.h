@@ -9,7 +9,7 @@
 #include "EnemyData1.h"
 #include "../Entity.h"
 #include "Enemy1StandingState.h"
-
+#include "../Bullets/Enemy1Bullet/Enemy1Bullet.h"
 class Enemy1 : public Entity {
 public: Enemy1();
 		~Enemy1();
@@ -41,7 +41,11 @@ public: Enemy1();
 	
 		Entity* getEntity();
 
-		int HP;
+		int HP,timeshot;
+
+		std::vector<Enemy1Bullet*>             mListEnemy1Bullet;
+
+		void onFired();
 protected:
 	EnemyData1 *mEnemyData1;
 

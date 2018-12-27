@@ -100,6 +100,9 @@
     <ClCompile Include="GameControllers\SceneManager.cpp" />
     <ClCompile Include="GameObjects\Bullets\Bullet.cpp" />
     <ClCompile Include="GameObjects\Bullets\BulletState.cpp" />
+    <ClCompile Include="GameObjects\Bullets\Enemy1Bullet\Enemy1Bullet.cpp" />
+    <ClCompile Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletDieState.cpp" />
+    <ClCompile Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletMovingState.cpp" />
     <ClCompile Include="GameObjects\Bullets\PlayerBullet.cpp" />
     <ClCompile Include="GameObjects\Bullets\PlayerBulletDieState.cpp" />
     <ClCompile Include="GameObjects\Bullets\PlayerBulletMovingState.cpp" />
@@ -184,6 +187,10 @@
     <ClInclude Include="GameDefines\GameDefine.h" />
     <ClInclude Include="GameObjects\Bullets\Bullet.h" />
     <ClInclude Include="GameObjects\Bullets\BulletState.h" />
+    <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1Bullet.h" />
+    <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletData.h" />
+    <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletDieState.h" />
+    <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletMovingState.h" />
     <ClInclude Include="GameObjects\Bullets\PlayerBullet.h" />
     <ClInclude Include="GameObjects\Bullets\PlayerBulletData.h" />
     <ClInclude Include="GameObjects\Bullets\PlayerBulletDieState.h" />

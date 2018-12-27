@@ -8,7 +8,7 @@ Enemy1JumpingState::Enemy1JumpingState(EnemyData1 *playerData)
 {
     this->mEnemyData1 = playerData;
     this->mEnemyData1->Enemy1->SetVy(Define::ENEMY1_JUMP_VELOCITY);
-
+	this->mEnemyData1->Enemy1->timeshot = 0;
     acceleratorY = 10.0f;
     if (this->mEnemyData1->Enemy1->mCurrentReverse) acceleratorX = 10.0f;
 	else acceleratorX = -10.0f;

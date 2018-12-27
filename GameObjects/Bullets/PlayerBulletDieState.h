@@ -17,5 +17,6 @@ public:
 
 protected:
 	//int count, time;
+	PlayerBulletData *playerBulletData;
 };
 
