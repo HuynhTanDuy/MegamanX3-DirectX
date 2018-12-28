@@ -399,7 +399,7 @@ void DemoScene::checkCollision()
 				//Entity::SideCollisions sideImpactor = GameCollision::getSideCollision(listCollision.at(i), r);
 
 				//goi den ham xu ly collision cua Player va Entity
-				map->mListEnemy3[j]->OnCollision(listCollisionEnemyvsMap.at(i), r, sidePlayer);
+				//map->mListEnemy3[j]->OnCollision(listCollisionEnemyvsMap.at(i), r, sidePlayer);
 				//listCollision.at(i)->OnCollision(mPlayer, r, sideImpactor);
 
 				//kiem tra neu va cham voi phia duoi cua Player 

@@ -45,6 +45,8 @@ public:
 
 	void Draw();
 
+	bool inCamera(int a);
+
 	//std::vector<Brick*> GetListBrick();
 
 	QuadTree* GetQuadTree();

@@ -331,24 +331,27 @@ void Map::Update(float dt)
 #pragma region UPDATE ENEMIES
 	for (size_t i = 0; i < mListEnemy1.size(); i++)
 	{
-		if (mPlayer->GetPosition().x > mListEnemy1[i]->GetPosition().x - 30) mListEnemy1[i]->SetReverse(true);
-		else mListEnemy1[i]->SetReverse(false);
-		mListEnemy1[i]->Update(dt);
-				
-		//XOA ENEMY NEU ENEMY "CHET"
-		if (mListEnemy1.at(i)->isDeleted) {
-			delete mListEnemy1.at(i);
-			mListEnemy1.erase(mListEnemy1.begin()+i);
-		}
-
-		//update bullet enemy
-		for (size_t j = 0; j < mListEnemy1[i]->mListEnemy1Bullet.size(); j++)
+		if (inCamera(mListEnemy1[i]->GetPosition().x))
 		{
-			mListEnemy1[i]->mListEnemy1Bullet[j]->Update(dt);
-			if (mListEnemy1[i]->mListEnemy1Bullet[j]->isDeleted)
+			if (mPlayer->GetPosition().x > mListEnemy1[i]->GetPosition().x - 30) mListEnemy1[i]->SetReverse(true);
+			else mListEnemy1[i]->SetReverse(false);
+			mListEnemy1[i]->Update(dt);
+
+			//XOA ENEMY NEU ENEMY "CHET"
+			if (mListEnemy1.at(i)->isDeleted) {
+				delete mListEnemy1.at(i);
+				mListEnemy1.erase(mListEnemy1.begin() + i);
+			}
+
+			//update bullet enemy
+			for (size_t j = 0; j < mListEnemy1[i]->mListEnemy1Bullet.size(); j++)
 			{
-				delete mListEnemy1[i]->mListEnemy1Bullet[j];
-				mListEnemy1[i]->mListEnemy1Bullet.erase(mListEnemy1[i]->mListEnemy1Bullet.begin() + j);
+				mListEnemy1[i]->mListEnemy1Bullet[j]->Update(dt);
+				if (mListEnemy1[i]->mListEnemy1Bullet[j]->isDeleted)
+				{
+					delete mListEnemy1[i]->mListEnemy1Bullet[j];
+					mListEnemy1[i]->mListEnemy1Bullet.erase(mListEnemy1[i]->mListEnemy1Bullet.begin() + j);
+				}
 			}
 		}
 	}
@@ -356,54 +359,60 @@ void Map::Update(float dt)
 
 	for (size_t i = 0; i < mListEnemy2.size(); i++)
 	{
-		if (mPlayer->GetPosition().x > mListEnemy2[i]->GetPosition().x - 30) mListEnemy2[i]->SetReverse(true);
-		else mListEnemy2[i]->SetReverse(false);
-		mListEnemy2[i]->Update(dt);
-
-		//XOA ENEMY NEU ENEMY "CHET"
-		if (mListEnemy2.at(i)->isDeleted) {
-			delete mListEnemy2.at(i);
-			mListEnemy2.erase(mListEnemy2.begin() + i);
-		}
-
-		//update bullet enemy
-		for (size_t j = 0; j < mListEnemy2[i]->mListEnemy2Bullet.size(); j++)
+		if (inCamera(mListEnemy2[i]->GetPosition().x))
 		{
-			mListEnemy2[i]->mListEnemy2Bullet[j]->Update(dt);
-			if (mListEnemy2[i]->mListEnemy2Bullet[j]->isDeleted)
+			if (mPlayer->GetPosition().x > mListEnemy2[i]->GetPosition().x - 30) mListEnemy2[i]->SetReverse(true);
+			else mListEnemy2[i]->SetReverse(false);
+			mListEnemy2[i]->Update(dt);
+
+			//XOA ENEMY NEU ENEMY "CHET"
+			if (mListEnemy2.at(i)->isDeleted) {
+				delete mListEnemy2.at(i);
+				mListEnemy2.erase(mListEnemy2.begin() + i);
+			}
+
+			//update bullet enemy
+			for (size_t j = 0; j < mListEnemy2[i]->mListEnemy2Bullet.size(); j++)
 			{
-				delete mListEnemy2[i]->mListEnemy2Bullet[j];
-				mListEnemy2[i]->mListEnemy2Bullet.erase(mListEnemy2[i]->mListEnemy2Bullet.begin() + j);
+				mListEnemy2[i]->mListEnemy2Bullet[j]->Update(dt);
+				if (mListEnemy2[i]->mListEnemy2Bullet[j]->isDeleted)
+				{
+					delete mListEnemy2[i]->mListEnemy2Bullet[j];
+					mListEnemy2[i]->mListEnemy2Bullet.erase(mListEnemy2[i]->mListEnemy2Bullet.begin() + j);
+				}
 			}
 		}
 
 	}
 	for (size_t i = 0; i < mListEnemy3.size(); i++)
 	{
-		if (mPlayer->GetPosition().x > mListEnemy3[i]->GetPosition().x - 30) mListEnemy3[i]->SetReverse(true);
-		else mListEnemy3[i]->SetReverse(false);
-		mListEnemy3[i]->Update(dt);
-
-		//XOA ENEMY NEU ENEMY "CHET"
-		if (mListEnemy3.at(i)->isDeleted) {
-			delete mListEnemy3.at(i);
-			mListEnemy3.erase(mListEnemy3.begin() + i);
-		}
-
-		//update bullet enemy
-		for (size_t j = 0; j < mListEnemy3[i]->mListEnemy3Bullet.size(); j++)
+		if (inCamera(mListEnemy3[i]->GetPosition().x))
 		{
-			mListEnemy3[i]->mListEnemy3Bullet[j]->Update(dt);
-			if (mListEnemy3[i]->mListEnemy3Bullet[j]->isDeleted)
+			if (mPlayer->GetPosition().x > mListEnemy3[i]->GetPosition().x - 30) mListEnemy3[i]->SetReverse(true);
+			else mListEnemy3[i]->SetReverse(false);
+			mListEnemy3[i]->Update(dt);
+
+			//XOA ENEMY NEU ENEMY "CHET"
+			if (mListEnemy3.at(i)->isDeleted) {
+				delete mListEnemy3.at(i);
+				mListEnemy3.erase(mListEnemy3.begin() + i);
+			}
+
+			//update bullet enemy
+			for (size_t j = 0; j < mListEnemy3[i]->mListEnemy3Bullet.size(); j++)
 			{
-				delete mListEnemy3[i]->mListEnemy3Bullet[j];
-				mListEnemy3[i]->mListEnemy3Bullet.erase(mListEnemy3[i]->mListEnemy3Bullet.begin() + j);
+				mListEnemy3[i]->mListEnemy3Bullet[j]->Update(dt);
+				if (mListEnemy3[i]->mListEnemy3Bullet[j]->isDeleted)
+				{
+					delete mListEnemy3[i]->mListEnemy3Bullet[j];
+					mListEnemy3[i]->mListEnemy3Bullet.erase(mListEnemy3[i]->mListEnemy3Bullet.begin() + j);
+				}
 			}
 		}
 	}
 #pragma endregion
 
-	elevator->Update(dt);
+	if (inCamera(elevator->GetPosition().x)) elevator->Update(dt);
 
 
 	
@@ -485,3 +494,9 @@ void Map::createQuadTree()
 	
 }
 
+bool Map::inCamera(int a)
+{
+	int b = mPlayer->GetPosition().x;
+	if (abs(a - b) <= GameGlobal::GetWidth() / 2) return 1;
+	else return 0;
+}
