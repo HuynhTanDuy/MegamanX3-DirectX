@@ -59,6 +59,12 @@
     <Filter Include="FrameWork\GameObjects\Bullets\Enemy1Bullet">
       <UniqueIdentifier>{65731eb2-49c6-4168-93f9-757d667a0895}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork\GameObjects\Bullets\Enemy2Bullet">
+      <UniqueIdentifier>{6632ff2b-b9e7-4969-ba5d-39566840dba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork\GameObjects\Bullets\Enemy3Bullet">
+      <UniqueIdentifier>{60e9e5b3-6e42-44e4-b298-8238dfb8c957}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -312,6 +318,24 @@
     </ClCompile>
     <ClCompile Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletMovingState.cpp">
       <Filter>FrameWork\GameObjects\Bullets\Enemy1Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\Enemy2Bullet\Enemy2Bullet.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy2Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\Enemy2Bullet\Enemy2BulletDieState.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy2Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\Enemy2Bullet\Enemy2BulletMovingState.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy2Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\Enemy3Bullet\Enemy3Bullet.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy3Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\Enemy3Bullet\Enemy3BulletDieState.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy3Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Bullets\Enemy3Bullet\Enemy3BulletMovingState.cpp">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy3Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -584,6 +608,30 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1BulletMovingState.h">
       <Filter>FrameWork\GameObjects\Bullets\Enemy1Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy2Bullet\Enemy2Bullet.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy2Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy2Bullet\Enemy2BulletData.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy2Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy2Bullet\Enemy2BulletDieState.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy2Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy2Bullet\Enemy2BulletMovingState.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy2Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy3Bullet\Enemy3Bullet.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy3Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy3Bullet\Enemy3BulletData.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy3Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy3Bullet\Enemy3BulletDieState.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy3Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Bullets\Enemy3Bullet\Enemy3BulletMovingState.h">
+      <Filter>FrameWork\GameObjects\Bullets\Enemy3Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

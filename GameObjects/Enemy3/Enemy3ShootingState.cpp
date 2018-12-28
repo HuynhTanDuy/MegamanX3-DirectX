@@ -9,7 +9,7 @@ Enemy3ShootingState::Enemy3ShootingState(Enemy3Data *playerData)
     this->mEnemyData3 = playerData;
 	this->mEnemyData3->Enemy3->SetVx(0);
     this->mEnemyData3->Enemy3->SetVy(0);
-	
+	this->mEnemyData3->Enemy3->onFired();
 	count = 0;
 	time = 200;
     
@@ -25,7 +25,7 @@ Enemy3ShootingState::~Enemy3ShootingState()
 void Enemy3ShootingState::Update(float dt)
 {
 	count++; 
-//	if (count == time) this->mEnemyData3->Enemy3->SetState(new Enemy3JumpingState(this->mEnemyData3));
+	if (count == time) this->mEnemyData3->Enemy3->SetState(new Enemy3ShootingState(this->mEnemyData3));
 	
 
  

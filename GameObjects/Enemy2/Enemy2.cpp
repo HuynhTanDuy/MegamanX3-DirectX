@@ -105,3 +105,12 @@ void Enemy2::OnCollissionWithBullet(int damage)
 	HP = HP - damage;
 	if (HP < 0) isDestroyed = true;
 }
+void Enemy2::onFired()
+{
+	Enemy2Bullet *tempbullet = new Enemy2Bullet();
+	if (this->mCurrentReverse) tempbullet->SetReverse(true);
+	else tempbullet->SetReverse(false);
+	tempbullet->SetPosition(this->GetPosition());
+	mListEnemy2Bullet.push_back(tempbullet);
+
+}

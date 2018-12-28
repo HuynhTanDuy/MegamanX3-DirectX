@@ -252,14 +252,22 @@ void Map::Draw()
 	for (size_t i = 0; i < mListEnemy2.size(); i++)
 	{
 		mListEnemy2[i]->Draw(mListEnemy2[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		for (size_t j = 0; j < mListEnemy2[i]->mListEnemy2Bullet.size(); j++)
+		{
+			mListEnemy2[i]->mListEnemy2Bullet[j]->Draw(mListEnemy2[i]->mListEnemy2Bullet[j]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		}
 	}
 	for (size_t i = 0; i < mListEnemy3.size(); i++)
 	{
 		mListEnemy3[i]->Draw(mListEnemy3[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		for (size_t j = 0; j < mListEnemy3[i]->mListEnemy3Bullet.size(); j++)
+		{
+			mListEnemy3[i]->mListEnemy3Bullet[j]->Draw(mListEnemy3[i]->mListEnemy3Bullet[j]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		}
 	}
 #pragma endregion 
 
-#pragma region DRAW BULLETS
+#pragma region DRAW BULLETS PLAYER
 
 	for (size_t i = 0; i < mPlayer->mListPlayerBullet.size(); i++)
 	{
@@ -358,6 +366,17 @@ void Map::Update(float dt)
 			mListEnemy2.erase(mListEnemy2.begin() + i);
 		}
 
+		//update bullet enemy
+		for (size_t j = 0; j < mListEnemy2[i]->mListEnemy2Bullet.size(); j++)
+		{
+			mListEnemy2[i]->mListEnemy2Bullet[j]->Update(dt);
+			if (mListEnemy2[i]->mListEnemy2Bullet[j]->isDeleted)
+			{
+				delete mListEnemy2[i]->mListEnemy2Bullet[j];
+				mListEnemy2[i]->mListEnemy2Bullet.erase(mListEnemy2[i]->mListEnemy2Bullet.begin() + j);
+			}
+		}
+
 	}
 	for (size_t i = 0; i < mListEnemy3.size(); i++)
 	{
@@ -369,6 +388,17 @@ void Map::Update(float dt)
 		if (mListEnemy3.at(i)->isDeleted) {
 			delete mListEnemy3.at(i);
 			mListEnemy3.erase(mListEnemy3.begin() + i);
+		}
+
+		//update bullet enemy
+		for (size_t j = 0; j < mListEnemy3[i]->mListEnemy3Bullet.size(); j++)
+		{
+			mListEnemy3[i]->mListEnemy3Bullet[j]->Update(dt);
+			if (mListEnemy3[i]->mListEnemy3Bullet[j]->isDeleted)
+			{
+				delete mListEnemy3[i]->mListEnemy3Bullet[j];
+				mListEnemy3[i]->mListEnemy3Bullet.erase(mListEnemy3[i]->mListEnemy3Bullet.begin() + j);
+			}
 		}
 	}
 #pragma endregion

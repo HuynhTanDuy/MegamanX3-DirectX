@@ -206,10 +206,7 @@ void DemoScene::checkCollision()
 				listEnemy.at(i)->mListEnemy1Bullet[j]->getEntity()->GetBound()); //xac dinh Rect va cham
 			if (r.IsCollided && mPlayer->nobody == false)
 			{
-					mPlayer->OnCollisionWithEnemy();
-				
-
-
+				mPlayer->OnCollisionWithEnemy();
 			}
 		}
 	}
@@ -285,6 +282,16 @@ void DemoScene::checkCollision()
 
 
 		}
+		//XU LY VA CHAM CUA BULLET ENEMY VS PLAYER
+		for (size_t j = 0; j < listEnemy2[i]->mListEnemy2Bullet.size(); j++)
+		{
+			Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
+				listEnemy2.at(i)->mListEnemy2Bullet[j]->getEntity()->GetBound()); //xac dinh Rect va cham
+			if (r.IsCollided && mPlayer->nobody == false)
+			{
+				mPlayer->OnCollisionWithEnemy();
+			}
+		}
 	}
 
 	//XU LY VA CHAM CUA ENEMY VS MAP
@@ -356,6 +363,16 @@ void DemoScene::checkCollision()
 			//listCollision.at(i)->OnCollision(mPlayer, r, sideImpactor);
 
 
+		}
+		//XU LY VA CHAM CUA BULLET ENEMY VS PLAYER
+		for (size_t j = 0; j < listEnemy3[i]->mListEnemy3Bullet.size(); j++)
+		{
+			Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
+				listEnemy3.at(i)->mListEnemy3Bullet[j]->getEntity()->GetBound()); //xac dinh Rect va cham
+			if (r.IsCollided && mPlayer->nobody == false)
+			{
+				mPlayer->OnCollisionWithEnemy();
+			}
 		}
 	}
 

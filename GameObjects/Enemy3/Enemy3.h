@@ -11,6 +11,7 @@
 #include "../Entity.h"
 #include "Enemy3StandingState.h"
 #include "Enemy3DieState.h"
+#include "../Bullets/Enemy3Bullet/Enemy3Bullet.h"
 class Enemy3 : public Entity {
 public: Enemy3();
 		~Enemy3();
@@ -43,6 +44,10 @@ public: Enemy3();
 		Entity* getEntity();
 
 		int HP;
+
+		void onFired();
+
+		std::vector<Enemy3Bullet*>             mListEnemy3Bullet;
 protected:
 	Enemy3Data *mEnemyData3;
 

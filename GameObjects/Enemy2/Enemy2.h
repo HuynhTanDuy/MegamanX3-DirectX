@@ -13,6 +13,7 @@
 #include "Enemy2ShootingState.h"
 #include "Enemy2StandingState.h"
 #include "Enemy2DieState.h"
+#include "../Bullets/Enemy2Bullet/Enemy2Bullet.h"
 
 class Enemy2 : public Entity {
 public: Enemy2();
@@ -44,6 +45,10 @@ public: Enemy2();
 		Entity* getEntity();
 
 		int HP;
+		
+		void onFired();
+
+		std::vector<Enemy2Bullet*>             mListEnemy2Bullet;
 
 protected:
 	EnemyData2 *mEnemyData2;

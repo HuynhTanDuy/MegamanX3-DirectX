@@ -12,7 +12,7 @@ Enemy1FallingState::Enemy1FallingState(EnemyData1 *playerData)
     acceleratorY = -10.0f;
 	if (this->mEnemyData1->Enemy1->mCurrentReverse) acceleratorX = 50.0f;
 	else acceleratorX = -50.0f;
-	    noPressed = false;
+	noPressed = false;
 }
 
 
