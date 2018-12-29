@@ -18,7 +18,7 @@ PlayerHurtingState::PlayerHurtingState(PlayerData *playerData)
 	count = 0;
 	timeHurting = 10;
 	this->mPlayerData->player->nobody = true;
-	
+	this->mPlayerData->player->HP = this->mPlayerData->player->HP - 2;
 }
 
 

@@ -63,7 +63,7 @@ public:
 
 	void OnFired(int _level);
 
-	int count,level=1,clock=0;
+	int count,level=1,clock=0,HP;
 
 	bool charging,nobody;
 protected:

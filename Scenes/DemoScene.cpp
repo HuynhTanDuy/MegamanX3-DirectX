@@ -23,14 +23,14 @@ void DemoScene::LoadContent()
 	//map = new Map("Resources/marioworld1-1.tmx");
 
 	map = new Map("Resources/map.tmx",mPlayer);
-	mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()+500);
+	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()+500);
+	mPlayer->SetPosition(19509.3,4180);
 	camera = new Camera(GameGlobal::GetWidth(), GameGlobal::GetHeight());
 	camera->SetPosition(GameGlobal::GetWidth()/2, GameGlobal::GetHeight()/2);
 
 	map->SetCamera(camera);
-
-	//mEnemy1 = new Enemy1();
-	//mEnemy1->SetPosition(1167.33 ,1569.33);
+	hpTaskBar = new HpTaskBar();
+	
 	
 }
 
@@ -50,6 +50,8 @@ void DemoScene::Update(float dt)
 	{
 		mPlayer->mListPlayerBullet.at(i)->Update(dt);
 	}
+	hpTaskBar->Update(dt,mPlayer->HP);
+	
 }
 
 void DemoScene::Draw()
@@ -57,7 +59,7 @@ void DemoScene::Draw()
 	
 	map->Draw();
     mPlayer->Draw();
-	
+	hpTaskBar->Draw();
 	//mEnemy1->Draw(mEnemy1->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 	
 	//DrawQuadtree(map->GetQuadTree());

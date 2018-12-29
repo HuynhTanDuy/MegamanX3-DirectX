@@ -2,8 +2,9 @@
 #include "GameComponents/GameLog.h"
 Map::Map(char* filePath,Player *mPlayer)
 {
-	LoadMap(filePath);
 	this->mPlayer = mPlayer;
+	LoadMap(filePath);
+	
 }
 
 Map::~Map()
@@ -115,6 +116,38 @@ void Map::LoadMap(char* filePath)
 				
 			}
 		}
+		if (objectGroup->GetName() == "Boss")
+			//if (objectGroup->GetName() == "creep 1")
+		{
+			for (size_t j = 0; j < objectGroup->GetNumObjects(); j++)
+			{
+				Tmx::Object *object = objectGroup->GetObjects().at(j);
+				if (object->GetName() == "Boss 1")
+				{
+					D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
+					Boss1 *temp1 = new Boss1();
+					temp1->SetPosition(position);
+
+					mBoss1.push_back(temp1);
+				}
+				if (object->GetName() == "Boss 2")
+				{
+					D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
+					Boss3 *temp = new Boss3(this->mPlayer);
+
+					temp->SetPosition(position);
+					mBoss3.push_back(temp);
+
+
+				}
+
+
+
+
+			}
+
+		}
+
 	}
 	//GAMELOG("ene: %d", mListEnemy1);
 	//createQuadTree();
@@ -124,7 +157,19 @@ void Map::LoadMap(char* filePath)
 	elevator->SetPosition(2280,1762);
 	elevator->Tag = Entity::EntityTypes::Elevator;
 	
-	
+	//BEE
+	for (size_t i = 0; i < 4; i++)
+	{
+		Bee *temp1 = new Bee();
+		temp1->SetPosition(19509.3 + 30, 3980);
+		mBee.push_back(temp1);
+	}
+	for (size_t i = 0; i < 4; i++)
+	{
+		Bee *temp2 = new Bee();
+		temp2->SetPosition(19509.3 - 425, 3980);
+		mBee2.push_back(temp2);
+	}
 }
 
 Tmx::Map* Map::GetMap()
@@ -264,6 +309,25 @@ void Map::Draw()
 		{
 			mListEnemy3[i]->mListEnemy3Bullet[j]->Draw(mListEnemy3[i]->mListEnemy3Bullet[j]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 		}
+	}
+	//DRAW BOSS
+	for (size_t i = 0; i < mBoss3.size(); i++)
+		mBoss3[i]->Draw(mBoss3[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+
+	for (size_t i = 0; i < mBoss1.size(); i++)
+		mBoss1[i]->Draw(mBoss1[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+
+	for (size_t i = 0; i < 4; i++)
+	{
+		if (mBoss3[0]->getState() == Boss3State::GenerateBee)
+			if (mBoss3[0]->OnRight() == true) {
+				//mBee[i]->SetPosition(19509.3 + 30, 3980);
+				mBee[i]->Draw(mBee[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+			}
+			else {
+				mBee2[i]->Draw(mBee2[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+
+			}
 	}
 #pragma endregion 
 
@@ -414,6 +478,80 @@ void Map::Update(float dt)
 
 	if (inCamera(elevator->GetPosition().x)) elevator->Update(dt);
 
+#pragma region UPDATE BOSS
+	for (size_t i = 0; i < mBoss3.size(); i++)
+	{
+		if (mPlayer->GetPosition().x > mBoss3[i]->GetPosition().x - 30) mBoss3[i]->SetReverse(true);
+		else mBoss3[i]->SetReverse(false);
+		mBoss3[i]->Update(dt);
+
+
+	}
+	if (mBoss3[0]->getState() == Boss3State::GenerateBee)
+		if (mBoss3[0]->OnRight() == true)
+		{
+			/*for (size_t i=0;i<4;i++)
+			{
+				mBee[i]->Update(dt);
+				mBee[i]->SetVx(-speedBeeX);
+				mBee[i]->SetVy(speedBeeY + 10);
+			}*/
+			mBee[0]->Update(dt);
+			mBee[0]->SetVx(-speedBeeX);
+			mBee[0]->SetVy(speedBeeY + 20);
+
+			mBee[1]->Update(dt);
+			mBee[1]->SetVx(-speedBeeX);
+			mBee[1]->SetVy(speedBeeY + 40);
+
+			mBee[2]->Update(dt);
+			mBee[2]->SetVx(-speedBeeX);
+			mBee[2]->SetVy(speedBeeY + 60);
+
+			mBee[3]->Update(dt);
+			mBee[3]->SetVx(-speedBeeX);
+			mBee[3]->SetVy(speedBeeY + 80);
+
+
+
+
+		}
+		else {
+			mBee2[0]->SetReverse(true);
+			mBee2[0]->Update(dt);
+			mBee2[0]->SetVx(speedBeeX);
+			mBee2[0]->SetVy(speedBeeY + 20);
+
+			mBee2[1]->SetReverse(true);
+			mBee2[1]->Update(dt);
+			mBee2[1]->SetVx(speedBeeX);
+			mBee2[1]->SetVy(speedBeeY + 40);
+
+			mBee2[2]->SetReverse(true);
+			mBee2[2]->Update(dt);
+			mBee2[2]->SetVx(speedBeeX);
+			mBee2[2]->SetVy(speedBeeY + 60);
+
+			mBee2[3]->SetReverse(true);
+			mBee2[3]->Update(dt);
+			mBee2[3]->SetVx(speedBeeX);
+			mBee2[3]->SetVy(speedBeeY + 80);
+
+		}
+	
+
+
+
+
+	//	}
+
+	for (size_t i = 0; i < mBoss1.size(); i++)
+	{
+		mBoss1[i]->Update(dt);
+
+	}
+
+#pragma endregion 
 
 	
 }

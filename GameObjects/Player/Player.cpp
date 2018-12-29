@@ -28,6 +28,7 @@ Player::Player()
     this->mPlayerData->player = this;
     this->vx = 0;
     this->vy = 0;
+	this->HP = 16;
 	this->SetState(new PlayerFallingState(this->mPlayerData));
     //this->SetState(new PlayerStandingState(this->mPlayerData));
 

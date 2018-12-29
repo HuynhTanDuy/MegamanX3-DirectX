@@ -20,6 +20,7 @@
 #include "../GameComponents/GameLog.h"
 
 #include "../GameObjects/Enemy/Enemy1.h"
+#include "../GameObjects/HpTaskBar/HpTaskBar.h"
 class DemoScene : public Scene
 {
 public:
@@ -33,7 +34,7 @@ public:
     void OnKeyUp(int keyCode);
     void OnMouseDown(float x, float y);
 	void saveQuadTree(QuadTree *quadtree);
-
+	HpTaskBar *hpTaskBar;
 protected:
 	void checkCollision();
 	void CheckCameraAndWorldMap();

@@ -16,8 +16,8 @@
 #include "GameObjects/Enemy2/Enemy2.h"
 #include "GameObjects/Enemy3/Enemy3.h"
 #include "GameObjects/Player/Player.h"
-//#include "../GameComponents/GameLog.h"
-//#include "Scenes/DemoScene.h"
+#include "GameObjects/Boss1/Boss1.h"
+#include "GameObjects//Boss3/Boss3.h"
 #include <fstream>
 #include <iostream>
 #include "GameObjects/Elevator/Elevator.h"
@@ -81,11 +81,15 @@ private:
 	Camera *mCamera;
 	LPD3DXSPRITE                    mSpriteHandler;
 	QuadTree                        *mQuadTree,*mQuadTree1;
-	//std::vector<Enemy1*>             mListEnemy1;
-	//std::vector<Brick*>             mListBricks;
+	
 
 	Sprite                          *mSpriteBricks, *mSpriteBrickGold;
-	
+
+	std::vector<Boss1*> mBoss1;
+	std::vector<Boss3*> mBoss3;
+	std::vector<Bee*> mBee;
+	std::vector<Bee*> mBee2;
+	float speedBeeX = 180, speedBeeY = 30;
 };
 
 #endif
