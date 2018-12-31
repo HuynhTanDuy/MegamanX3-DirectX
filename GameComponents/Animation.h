@@ -24,6 +24,8 @@ public:
 
     ~Animation();
 
+	int getmCurrentIndex();
+
 protected:
     //su dung cho ke thua
     void InitWithAnimation(const char* filePath, int totalFrame, int rows, int columns, float timePerFrame = 0.1f, D3DCOLOR colorKey = NULL);

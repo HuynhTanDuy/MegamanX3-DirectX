@@ -21,7 +21,7 @@ Player::Player()
 	playerWalling = new Animation("Resources/playerWall.png", 1, 1, 1, 0.1f);
 	playerWallingShot = new Animation("Resources/playerWallShot.png", 1, 1, 1, 0.1f);
 	playerHurting = new Animation("Resources/playerAttacked.png", 2, 1, 2, 0.1f);
-
+	
 	
 
     this->mPlayerData = new PlayerData();
@@ -54,8 +54,26 @@ void Player::Update(float dt)
 
     Entity::Update(dt);
 
-	if (charging) count++;
-	else count = 0;
+	if (charging)
+	{
+		count++;
+		//GAMELOG("a:%d", level);
+		if (charged1==NULL && level==2) charged1 = new Animation("Resources/Charged1.png", 10, 1, 10, 0.1f);
+		if (charged2 == NULL && level == 3) {
+			charged2 = new Animation("Resources/Charged2.png", 10, 1, 10, 0.1f);
+			charged1 = NULL;
+		}
+	//	charged1->SetPosition(this->GetPosition());
+	}
+	else {
+		this->charged1=NULL;
+		this->charged2 = NULL;
+		count = 0;
+	}
+	if (charged1 != NULL) 	charged1->Update(dt);
+	if (charged2 != NULL) charged2->Update(dt);
+		
+	
 	for (int i = 0; i < mListPlayerBullet.size(); i++)
 	{
 		
@@ -90,9 +108,10 @@ void Player::OnKeyPressed(int key)
 	if (key == 0x58)
 	{
 		level = 1;
-		
-		
+		if (count > 16) level = 2;
+		if (count > 85) level = 3;
 		charging = true;
+		
 		//GAMELOG("count: %d",charging);
 	}
     if (key == VK_SPACE)
@@ -114,6 +133,9 @@ void Player::OnKeyPressed(int key)
 			this->SetState(new PlayerRunningShotState(this->mPlayerData));
 			//return;
 			allowShot = false;
+
+			
+
 
 			
 		}
@@ -139,9 +161,8 @@ void Player::OnKeyUp(int key)
 	if (key == 0x58)
 	{
 		allowShot = true;
-		if (count > 8) level=2;
-		if (count > 35) level = 3;
-		
+		if (count > 16) level = 2;
+		if (count > 85) level = 3;
 		charging = false;
 	
 		//GAMELOG("level: %d", level);
@@ -167,6 +188,12 @@ void Player::Draw(D3DXVECTOR3 position, RECT sourceRect, D3DXVECTOR2 scale, D3DX
 
 //    CurrentAnimation->Draw(D3DXVECTOR3(posX, posY, 0));
 	CurrentAnimation->Draw(D3DXVECTOR3(GameGlobal::GetWidth()/ 2, GameGlobal::GetHeight()/ 2, 0));
+	if (charged1) {
+		charged1->Draw(D3DXVECTOR3(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight() / 2, 0));
+	}
+	if (charged2) {
+		charged2->Draw(D3DXVECTOR3(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight() / 2, 0));
+	}
 }
 
 void Player::SetState(PlayerState *newState)

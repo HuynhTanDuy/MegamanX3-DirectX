@@ -437,7 +437,15 @@ void DemoScene::checkCollision()
 		
 	}
 #pragma endregion	
-	
+	map->door->GetBound();
+	Entity::CollisionReturn r1 = GameCollision::RecteAndRect(mPlayer->GetBound(),
+		map->door->GetBound());
+	if (r1.IsCollided)
+	{
+		Entity::SideCollisions sidePlayer = GameCollision::getSideCollision(mPlayer, r1);
+		mPlayer->OnCollision(map->door->getEntity(), r1, sidePlayer);
+		map->door->isOpen = true;
+	}
 }
 void DemoScene::DrawQuadtree(QuadTree *quadtree)
 {

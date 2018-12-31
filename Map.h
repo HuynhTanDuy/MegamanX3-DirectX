@@ -21,6 +21,7 @@
 #include <fstream>
 #include <iostream>
 #include "GameObjects/Elevator/Elevator.h"
+#include "GameObjects/Door/Door.h"
 class Map
 {
 public:
@@ -67,6 +68,8 @@ public:
 	std::vector<Enemy3*>             mListEnemy3;
 
 	Elevator *elevator;
+	Door *door;
+
 	//void saveQuadTree(QuadTree *quadtree);
 	~Map();
 

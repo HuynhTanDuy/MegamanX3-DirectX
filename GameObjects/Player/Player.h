@@ -84,7 +84,9 @@ protected:
 		*playerWalling,
 		*playerWallingShot,
 		*playerFalling,
-		*playerHurting
+		*playerHurting,
+		*charged1,
+		*charged2
 		;
 
     void changeAnimation(PlayerState::StateName state);

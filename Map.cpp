@@ -157,6 +157,11 @@ void Map::LoadMap(char* filePath)
 	elevator->SetPosition(2280,1762);
 	elevator->Tag = Entity::EntityTypes::Elevator;
 	
+	//DOOR
+	door = new Door();
+	door->SetPosition(19009.3, 4220);
+	
+
 	//BEE
 	for (size_t i = 0; i < 4; i++)
 	{
@@ -342,6 +347,7 @@ void Map::Draw()
 	
 
 	elevator->Draw(elevator->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	door->Draw(door->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 	//elevator->Draw(D3DXVECTOR3(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight() / 2, 0));
 }
 
@@ -477,6 +483,9 @@ void Map::Update(float dt)
 #pragma endregion
 
 	if (inCamera(elevator->GetPosition().x)) elevator->Update(dt);
+	
+	if (door->GetPosition().x > (mPlayer->GetPosition().x)) door->locked = true;
+	if (inCamera(door->GetPosition().x)) door->Update(dt);
 
 #pragma region UPDATE BOSS
 	for (size_t i = 0; i < mBoss3.size(); i++)

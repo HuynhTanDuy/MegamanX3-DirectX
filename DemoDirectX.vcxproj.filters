@@ -77,6 +77,9 @@
     <Filter Include="FrameWork\GameObjects\HpTaskBar">
       <UniqueIdentifier>{43a78161-0eee-467a-891f-21225c9014ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork\GameObjects\Door">
+      <UniqueIdentifier>{2177d5f7-3ea5-4f52-8195-35cc047a8828}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -402,6 +405,30 @@
     </ClCompile>
     <ClCompile Include="GameObjects\HpTaskBar\HpTaskBar.cpp">
       <Filter>FrameWork\GameObjects\HpTaskBar</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Door\Door.cpp">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Door\DoorCloseState.cpp">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Door\DoorData.cpp">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Door\DoorOpenState.cpp">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Door\DoorState.cpp">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Door\DoorStandingState.cpp">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Door\DoorOpenedState.cpp">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Door\DoorClosedState.cpp">
+      <Filter>FrameWork\GameObjects\Door</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -758,6 +785,30 @@
     </ClInclude>
     <ClInclude Include="GameObjects\HpTaskBar\HpTaskBar.h">
       <Filter>FrameWork\GameObjects\HpTaskBar</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Door\Door.h">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Door\DoorCloseState.h">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Door\DoorData.h">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Door\DoorOpenState.h">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Door\DoorState.h">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Door\DoorStandingState.h">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Door\DoorOpenedState.h">
+      <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Door\DoorClosedState.h">
+      <Filter>FrameWork\GameObjects\Door</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
