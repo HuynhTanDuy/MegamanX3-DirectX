@@ -15,7 +15,7 @@
 #include "Boss3GenerateBeeState.h"
 #include "../Player/Player.h"
 #include "Bee/Bee.h"
-
+#include "Boss3DieState.h"
 class Boss3 : public Entity {
 public: Boss3(Player *player);
 		~Boss3();
@@ -39,11 +39,12 @@ public: Boss3(Player *player);
 
 		Boss3State::StateName mCurrentState;
 
-		bool isLeft;	int count, time;
+		bool isLeft,isDestroyed,isDeleted;	int count, time,HP;
 
 		void OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side);
 		void GetPlayerPosition();
 		bool OnRight();
+		void OnCollissionWithBullet(int damage);
 protected:
 	Boss3Data *mBoss3Data;
 
@@ -51,6 +52,7 @@ protected:
 		*Boss3GenerateBee,
 		*Boss3Attack,
 		*Boss3Preparing,
+		*Boss3Die,
 		*Wings,
 		
 		*CurrentAnimation;

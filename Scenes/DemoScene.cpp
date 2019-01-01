@@ -437,7 +437,8 @@ void DemoScene::checkCollision()
 		
 	}
 #pragma endregion	
-	map->door->GetBound();
+
+#pragma region XU LY VA CHAM CUA DOOR
 	Entity::CollisionReturn r1 = GameCollision::RecteAndRect(mPlayer->GetBound(),
 		map->door->GetBound());
 	if (r1.IsCollided)
@@ -446,6 +447,57 @@ void DemoScene::checkCollision()
 		mPlayer->OnCollision(map->door->getEntity(), r1, sidePlayer);
 		map->door->isOpen = true;
 	}
+#pragma endregion
+
+#pragma region XU LY VA CHAM CUA BOSS 1
+	if (map->mBoss1) {
+		Entity::CollisionReturn r2 = GameCollision::RecteAndRect(mPlayer->GetBound(),
+			map->mBoss1->GetBound());
+		if (r2.IsCollided)
+		{
+			mPlayer->OnCollisionWithEnemy();
+
+		}
+		for (size_t i = 0; i < mPlayer->mListPlayerBullet.size(); i++)
+		{
+			if (mPlayer->mListPlayerBullet.at(i))
+			{
+				Entity::CollisionReturn r = GameCollision::RecteAndRect(map->mBoss1->GetBound(),
+					mPlayer->mListPlayerBullet.at(i)->GetBound());
+				if (r.IsCollided)
+				{
+					mPlayer->mListPlayerBullet.at(i)->OnCollision();
+					map->mBoss1->OnCollissionWithBullet(mPlayer->mListPlayerBullet.at(i)->damage);
+				}
+			}
+		}
+	}
+#pragma endregion
+
+#pragma region XU LY VA CHAM CUA BOSS 3
+	if (map->mBoss3) {
+		Entity::CollisionReturn r2 = GameCollision::RecteAndRect(mPlayer->GetBound(),
+			map->mBoss3->GetBound());
+		if (r2.IsCollided)
+		{
+			mPlayer->OnCollisionWithEnemy();
+
+		}
+		for (size_t i = 0; i < mPlayer->mListPlayerBullet.size(); i++)
+		{
+			if (mPlayer->mListPlayerBullet.at(i))
+			{
+				Entity::CollisionReturn r = GameCollision::RecteAndRect(map->mBoss3->GetBound(),
+					mPlayer->mListPlayerBullet.at(i)->GetBound());
+				if (r.IsCollided)
+				{
+					mPlayer->mListPlayerBullet.at(i)->OnCollision();
+					map->mBoss3->OnCollissionWithBullet(mPlayer->mListPlayerBullet.at(i)->damage);
+				}
+			}
+		}
+	}
+#pragma endregion
 }
 void DemoScene::DrawQuadtree(QuadTree *quadtree)
 {

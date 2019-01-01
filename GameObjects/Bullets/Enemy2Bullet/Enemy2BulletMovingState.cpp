@@ -23,6 +23,7 @@ void Enemy2BulletMovingState::Update(float dt)
 {
 		if (this->enemy2BulletData->Enemy2Bullet->mCurrentReverse) this->enemy2BulletData->Enemy2Bullet->SetVx(Define::ENEMY2_BULLET_VELOCITY);
 		else this->enemy2BulletData->Enemy2Bullet->SetVx(-Define::ENEMY2_BULLET_VELOCITY);
+	//	GAMELOG("a:%d", this->enemy2BulletData->Enemy2Bullet->GetVx());
 		count++;
 		if (count == time || this->enemy2BulletData->Enemy2Bullet->isDestroyed) this->enemy2BulletData->Enemy2Bullet->SetState(new Enemy2BulletDieState(this->enemy2BulletData));
 		

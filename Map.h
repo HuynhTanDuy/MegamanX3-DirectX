@@ -69,7 +69,8 @@ public:
 
 	Elevator *elevator;
 	Door *door;
-
+	Boss1 *mBoss1;
+	Boss3 *mBoss3;
 	//void saveQuadTree(QuadTree *quadtree);
 	~Map();
 
@@ -88,8 +89,8 @@ private:
 
 	Sprite                          *mSpriteBricks, *mSpriteBrickGold;
 
-	std::vector<Boss1*> mBoss1;
-	std::vector<Boss3*> mBoss3;
+	
+	
 	std::vector<Bee*> mBee;
 	std::vector<Bee*> mBee2;
 	float speedBeeX = 180, speedBeeY = 30;

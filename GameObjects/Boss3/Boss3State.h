@@ -14,6 +14,7 @@ public:
 		GenerateBee,
 		Preparing,
 		Born,
+		Die
 
 	};
 

@@ -13,6 +13,7 @@ public:
 		Moving,
 		Born,
 		Ziczac,
+		Die
 		
 
 	};

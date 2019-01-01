@@ -11,7 +11,7 @@ Boss1StandingState::Boss1StandingState(Boss1Data *Boss1Data)
 	this->mBoss1Data->Boss1->SetVx(0);
 	this->mBoss1Data->Boss1->SetVy(0);
 	count = 0;
-	time = 800;
+	time = 200;
 }
 
 

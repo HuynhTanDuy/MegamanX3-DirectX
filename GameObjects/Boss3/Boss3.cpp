@@ -11,7 +11,7 @@ Boss3::Boss3(Player *Player) {
 	Boss3Attack = new Animation("Resources/Boss3/Boss3Attack.png", 5, 1, 5, 0.5f);
 	Boss3Preparing = new Animation("Resources/Boss3/Boss3Preparing.png", 5, 1, 5, 0.8f);
 	Boss3GenerateBee = new Animation("Resources/Boss3/Boss3GenerateBee.png", 5, 1, 5, 0.5f);
-	
+	Boss3Die = new Animation("Resources/Enemy1/DieState.png", 7, 1, 7, 0.1f);
 	
 	Boss3Preparing->SetScale(D3DXVECTOR2(2, 2));
 	Boss3Flying->SetScale(D3DXVECTOR2(2, 2));
@@ -34,7 +34,7 @@ Boss3::Boss3(Player *Player) {
 	
 	this->mBoss3Data->Player = Player;
 
-
+	this->HP = 2;
 	//this->SetState(new Boss3StandingState(this->mBoss3Data));
 	//this->mEnemyData->PlayerShot = new PlayerShot(this);
 	
@@ -51,7 +51,7 @@ void Boss3::Update(float dt)
 	CurrentAnimation->Update(dt);
 	
 	Entity::Update(dt);
-
+	if (isDestroyed && mCurrentState!=5) this->SetState(new Boss3DieState(this->mBoss3Data));
 	if (this->mBoss3Data->Boss3State)
 	{
 		this->mBoss3Data->Boss3State->Update(dt);
@@ -122,6 +122,9 @@ void Boss3::changeAnimation(Boss3State::StateName state)
 	case Boss3State::Born:
 		CurrentAnimation = Boss3Flying;
 		break;
+	case Boss3State::Die:
+		CurrentAnimation = Boss3Die;
+		break;
 	}
 
 	this->width = CurrentAnimation->GetWidth();
@@ -157,4 +160,9 @@ bool Boss3::OnRight()
 	return this->onRight;
 }
 
+void Boss3::OnCollissionWithBullet(int damage)
+{
+	HP = HP - damage;
+	if (HP < 0) isDestroyed = true;
 
+}

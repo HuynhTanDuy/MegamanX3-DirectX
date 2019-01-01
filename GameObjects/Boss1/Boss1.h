@@ -13,8 +13,8 @@
 #include "Boss1MovingState.h"
 #include "Boss1StandingState.h"
 #include "Boss1BornState.h"
-
-
+#include "Boss1DieState.h"
+#include "../../GameComponents/GameLog.h"
 class Boss1 : public Entity {
 public: Boss1();
 		~Boss1();
@@ -38,9 +38,13 @@ public: Boss1();
 
 		Boss1State::StateName mCurrentState;
 
-		bool isLeft;	int count, time;
+		bool isLeft, isDestroyed, isDeleted;
+		
+		int count, time,HP;
 
 		void OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side);
+
+		void OnCollissionWithBullet(int damage);
 
 protected:
 	Boss1Data *mBoss1Data;
@@ -48,6 +52,7 @@ protected:
 	Animation *Boss1Standing,
 		*Boss1Moving,
 		*Boss1Born,
+		*Boss1Die,
 		*CurrentAnimation;
 
 	void changeAnimation(Boss1State::StateName state);

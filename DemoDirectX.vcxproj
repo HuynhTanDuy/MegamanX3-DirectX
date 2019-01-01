@@ -101,6 +101,7 @@
     <ClCompile Include="GameObjects\Boss1\Boss1.cpp" />
     <ClCompile Include="GameObjects\Boss1\Boss1BornState.cpp" />
     <ClCompile Include="GameObjects\Boss1\Boss1Data.cpp" />
+    <ClCompile Include="GameObjects\Boss1\Boss1DieState.cpp" />
     <ClCompile Include="GameObjects\Boss1\Boss1MovingState.cpp" />
     <ClCompile Include="GameObjects\Boss1\Boss1StandingState.cpp" />
     <ClCompile Include="GameObjects\Boss1\Boss1State.cpp" />
@@ -111,6 +112,7 @@
     <ClCompile Include="GameObjects\Boss3\Boss3.cpp" />
     <ClCompile Include="GameObjects\Boss3\Boss3AttackState.cpp" />
     <ClCompile Include="GameObjects\Boss3\Boss3BornState.cpp" />
+    <ClCompile Include="GameObjects\Boss3\Boss3DieState.cpp" />
     <ClCompile Include="GameObjects\Boss3\Boss3FlyingState.cpp" />
     <ClCompile Include="GameObjects\Boss3\Boss3GenerateBeeState.cpp" />
     <ClCompile Include="GameObjects\Boss3\Boss3PreparingState.cpp" />
@@ -220,6 +222,7 @@
     <ClInclude Include="GameObjects\Boss1\Boss1.h" />
     <ClInclude Include="GameObjects\Boss1\Boss1BornState.h" />
     <ClInclude Include="GameObjects\Boss1\Boss1Data.h" />
+    <ClInclude Include="GameObjects\Boss1\Boss1DieState.h" />
     <ClInclude Include="GameObjects\Boss1\Boss1MovingState.h" />
     <ClInclude Include="GameObjects\Boss1\Boss1StandingState.h" />
     <ClInclude Include="GameObjects\Boss1\Boss1State.h" />
@@ -232,6 +235,7 @@
     <ClInclude Include="GameObjects\Boss3\Boss3AttackState.h" />
     <ClInclude Include="GameObjects\Boss3\Boss3BornState.h" />
     <ClInclude Include="GameObjects\Boss3\Boss3Data.h" />
+    <ClInclude Include="GameObjects\Boss3\Boss3DieState.h" />
     <ClInclude Include="GameObjects\Boss3\Boss3FlyingState.h" />
     <ClInclude Include="GameObjects\Boss3\Boss3GenerateBeeState.h" />
     <ClInclude Include="GameObjects\Boss3\Boss3PreparingState.h" />

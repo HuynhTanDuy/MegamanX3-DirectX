@@ -125,18 +125,18 @@ void Map::LoadMap(char* filePath)
 				if (object->GetName() == "Boss 1")
 				{
 					D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
-					Boss1 *temp1 = new Boss1();
-					temp1->SetPosition(position);
+					 mBoss1 = new Boss1();
+					mBoss1->SetPosition(position);
 
-					mBoss1.push_back(temp1);
+					
 				}
 				if (object->GetName() == "Boss 2")
 				{
 					D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
-					Boss3 *temp = new Boss3(this->mPlayer);
+					 mBoss3 = new Boss3(this->mPlayer);
 
-					temp->SetPosition(position);
-					mBoss3.push_back(temp);
+					mBoss3->SetPosition(position);
+					
 
 
 				}
@@ -177,42 +177,7 @@ void Map::LoadMap(char* filePath)
 	}
 }
 
-Tmx::Map* Map::GetMap()
-{
-	return mMap;
-}
 
-int Map::GetWidth()
-{
-	return mMap->GetWidth()* mMap->GetTileWidth();
-}
-
-int Map::GetHeight()
-{
-	return mMap->GetHeight() * mMap->GetTileHeight();
-}
-int Map::GetTileWidth()
-{
-	return mMap->GetTileWidth();
-}
-
-int Map::GetTileHeight()
-{
-	return mMap->GetTileHeight();
-}
-
-
-
-/*int Map::GetWidth()
-{
-	return mMap->GetWidth();
-}
-
-int Map::GetHeight()
-{
-	return mMap->GetHeight();
-}
-*/
 
 void Map::Draw()
 {
@@ -316,23 +281,25 @@ void Map::Draw()
 		}
 	}
 	//DRAW BOSS
-	for (size_t i = 0; i < mBoss3.size(); i++)
-		mBoss3[i]->Draw(mBoss3[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	
+	if (mBoss3)	mBoss3->Draw(mBoss3->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 
-	for (size_t i = 0; i < mBoss1.size(); i++)
-		mBoss1[i]->Draw(mBoss1[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	
+	if (mBoss1)	mBoss1->Draw(mBoss1->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 
 	for (size_t i = 0; i < 4; i++)
 	{
-		if (mBoss3[0]->getState() == Boss3State::GenerateBee)
-			if (mBoss3[0]->OnRight() == true) {
-				//mBee[i]->SetPosition(19509.3 + 30, 3980);
-				mBee[i]->Draw(mBee[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
-			}
-			else {
-				mBee2[i]->Draw(mBee2[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		if (mBoss3) {
+			if (mBoss3->getState() == Boss3State::GenerateBee)
+				if (mBoss3->OnRight() == true) {
+					//mBee[i]->SetPosition(19509.3 + 30, 3980);
+					mBee[i]->Draw(mBee[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+				}
+				else {
+					mBee2[i]->Draw(mBee2[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 
-			}
+				}
+		}
 	}
 #pragma endregion 
 
@@ -351,49 +318,6 @@ void Map::Draw()
 	//elevator->Draw(D3DXVECTOR3(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight() / 2, 0));
 }
 
-void Map::SetCamera(Camera * camera)
-{
-	this->mCamera = camera;
-}
-RECT Map::GetWorldMapBound()
-{
-	RECT bound;
-	bound.left = bound.top = 0;
-	bound.right = mMap->GetWidth() * mMap->GetTileWidth();
-	bound.bottom = mMap->GetHeight() * mMap->GetTileHeight();
-
-	return bound;
-}
-std::map<int, Sprite*> Map::getListTileSet()
-{
-	return mListTileset;
-}
-
-
-
-QuadTree * Map::GetQuadTree()
-{
-	return mQuadTree;
-}
-bool Map::IsBoundLeft()
-{
-	return (mCamera->GetBound().left == 0);
-}
-
-bool Map::IsBoundRight()
-{
-	return (mCamera->GetBound().right == this->GetWidth());
-}
-
-bool Map::IsBoundTop()
-{
-	return (mCamera->GetBound().top == 0);
-}
-
-bool Map::IsBoundBottom()
-{
-	return (mCamera->GetBound().bottom == this->GetHeight());
-}
 
 void Map::Update(float dt)
 {
@@ -429,7 +353,7 @@ void Map::Update(float dt)
 
 	for (size_t i = 0; i < mListEnemy2.size(); i++)
 	{
-		if (inCamera(mListEnemy2[i]->GetPosition().x))
+		//if (inCamera(mListEnemy2[i]->GetPosition().x))
 		{
 			if (mPlayer->GetPosition().x > mListEnemy2[i]->GetPosition().x - 30) mListEnemy2[i]->SetReverse(true);
 			else mListEnemy2[i]->SetReverse(false);
@@ -488,82 +412,90 @@ void Map::Update(float dt)
 	if (inCamera(door->GetPosition().x)) door->Update(dt);
 
 #pragma region UPDATE BOSS
-	for (size_t i = 0; i < mBoss3.size(); i++)
-	{
-		if (mPlayer->GetPosition().x > mBoss3[i]->GetPosition().x - 30) mBoss3[i]->SetReverse(true);
-		else mBoss3[i]->SetReverse(false);
-		mBoss3[i]->Update(dt);
-
-
-	}
-	if (mBoss3[0]->getState() == Boss3State::GenerateBee)
-		if (mBoss3[0]->OnRight() == true)
-		{
-			/*for (size_t i=0;i<4;i++)
-			{
-				mBee[i]->Update(dt);
-				mBee[i]->SetVx(-speedBeeX);
-				mBee[i]->SetVy(speedBeeY + 10);
-			}*/
-			mBee[0]->Update(dt);
-			mBee[0]->SetVx(-speedBeeX);
-			mBee[0]->SetVy(speedBeeY + 20);
-
-			mBee[1]->Update(dt);
-			mBee[1]->SetVx(-speedBeeX);
-			mBee[1]->SetVy(speedBeeY + 40);
-
-			mBee[2]->Update(dt);
-			mBee[2]->SetVx(-speedBeeX);
-			mBee[2]->SetVy(speedBeeY + 60);
-
-			mBee[3]->Update(dt);
-			mBee[3]->SetVx(-speedBeeX);
-			mBee[3]->SetVy(speedBeeY + 80);
-
-
-
-
-		}
-		else {
-			mBee2[0]->SetReverse(true);
-			mBee2[0]->Update(dt);
-			mBee2[0]->SetVx(speedBeeX);
-			mBee2[0]->SetVy(speedBeeY + 20);
-
-			mBee2[1]->SetReverse(true);
-			mBee2[1]->Update(dt);
-			mBee2[1]->SetVx(speedBeeX);
-			mBee2[1]->SetVy(speedBeeY + 40);
-
-			mBee2[2]->SetReverse(true);
-			mBee2[2]->Update(dt);
-			mBee2[2]->SetVx(speedBeeX);
-			mBee2[2]->SetVy(speedBeeY + 60);
-
-			mBee2[3]->SetReverse(true);
-			mBee2[3]->Update(dt);
-			mBee2[3]->SetVx(speedBeeX);
-			mBee2[3]->SetVy(speedBeeY + 80);
-
-		}
 	
+		
+		if (mBoss3) {
+			if (mPlayer->GetPosition().x > mBoss3->GetPosition().x - 30) mBoss3->SetReverse(true);
+			else mBoss3->SetReverse(false);
+			mBoss3->Update(dt);
+			if (mBoss3->isDeleted)
+				mBoss3 = NULL;
+		}
 
+
+		if (mBoss3) {
+			if (mBoss3->getState() == Boss3State::GenerateBee)
+				if (mBoss3->OnRight() == true)
+				{
+					/*for (size_t i=0;i<4;i++)
+					{
+						mBee[i]->Update(dt);
+						mBee[i]->SetVx(-speedBeeX);
+						mBee[i]->SetVy(speedBeeY + 10);
+					}*/
+					mBee[0]->Update(dt);
+					mBee[0]->SetVx(-speedBeeX);
+					mBee[0]->SetVy(speedBeeY + 20);
+
+					mBee[1]->Update(dt);
+					mBee[1]->SetVx(-speedBeeX);
+					mBee[1]->SetVy(speedBeeY + 40);
+
+					mBee[2]->Update(dt);
+					mBee[2]->SetVx(-speedBeeX);
+					mBee[2]->SetVy(speedBeeY + 60);
+
+					mBee[3]->Update(dt);
+					mBee[3]->SetVx(-speedBeeX);
+					mBee[3]->SetVy(speedBeeY + 80);
+
+
+
+
+				}
+				else {
+					mBee2[0]->SetReverse(true);
+					mBee2[0]->Update(dt);
+					mBee2[0]->SetVx(speedBeeX);
+					mBee2[0]->SetVy(speedBeeY + 20);
+
+					mBee2[1]->SetReverse(true);
+					mBee2[1]->Update(dt);
+					mBee2[1]->SetVx(speedBeeX);
+					mBee2[1]->SetVy(speedBeeY + 40);
+
+					mBee2[2]->SetReverse(true);
+					mBee2[2]->Update(dt);
+					mBee2[2]->SetVx(speedBeeX);
+					mBee2[2]->SetVy(speedBeeY + 60);
+
+					mBee2[3]->SetReverse(true);
+					mBee2[3]->Update(dt);
+					mBee2[3]->SetVx(speedBeeX);
+					mBee2[3]->SetVy(speedBeeY + 80);
+
+				}
+
+		}
 
 
 
 	//	}
 
-	for (size_t i = 0; i < mBoss1.size(); i++)
-	{
-		mBoss1[i]->Update(dt);
-
+	if (mBoss1) {
+		mBoss1->Update(dt);
+		if (mBoss1->isDeleted) 
+			 mBoss1=NULL;
 	}
+
+	
 
 #pragma endregion 
 
 	
 }
+
+
 void Map::createQuadTree()
 {
 	this->outfile.open("quadtree.txt");
@@ -646,4 +578,90 @@ bool Map::inCamera(int a)
 	int b = mPlayer->GetPosition().x;
 	if (abs(a - b) <= GameGlobal::GetWidth() / 2) return 1;
 	else return 0;
+}
+
+
+
+
+
+
+Tmx::Map* Map::GetMap()
+{
+	return mMap;
+}
+
+int Map::GetWidth()
+{
+	return mMap->GetWidth()* mMap->GetTileWidth();
+}
+
+int Map::GetHeight()
+{
+	return mMap->GetHeight() * mMap->GetTileHeight();
+}
+int Map::GetTileWidth()
+{
+	return mMap->GetTileWidth();
+}
+
+int Map::GetTileHeight()
+{
+	return mMap->GetTileHeight();
+}
+
+
+
+/*int Map::GetWidth()
+{
+	return mMap->GetWidth();
+}
+
+int Map::GetHeight()
+{
+	return mMap->GetHeight();
+}
+*/
+
+void Map::SetCamera(Camera * camera)
+{
+	this->mCamera = camera;
+}
+RECT Map::GetWorldMapBound()
+{
+	RECT bound;
+	bound.left = bound.top = 0;
+	bound.right = mMap->GetWidth() * mMap->GetTileWidth();
+	bound.bottom = mMap->GetHeight() * mMap->GetTileHeight();
+
+	return bound;
+}
+std::map<int, Sprite*> Map::getListTileSet()
+{
+	return mListTileset;
+}
+
+
+
+QuadTree * Map::GetQuadTree()
+{
+	return mQuadTree;
+}
+bool Map::IsBoundLeft()
+{
+	return (mCamera->GetBound().left == 0);
+}
+
+bool Map::IsBoundRight()
+{
+	return (mCamera->GetBound().right == this->GetWidth());
+}
+
+bool Map::IsBoundTop()
+{
+	return (mCamera->GetBound().top == 0);
+}
+
+bool Map::IsBoundBottom()
+{
+	return (mCamera->GetBound().bottom == this->GetHeight());
 }

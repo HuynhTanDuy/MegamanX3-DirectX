@@ -430,6 +430,12 @@
     <ClCompile Include="GameObjects\Door\DoorClosedState.cpp">
       <Filter>FrameWork\GameObjects\Door</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1DieState.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3DieState.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameComponents\Game.h">
@@ -809,6 +815,12 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Door\DoorClosedState.h">
       <Filter>FrameWork\GameObjects\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1DieState.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3DieState.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
