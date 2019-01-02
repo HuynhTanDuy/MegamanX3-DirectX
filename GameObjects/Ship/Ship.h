@@ -27,7 +27,8 @@ public: Ship();
 
 		void SetReverse(bool flag);
 
-		int count, time;
+		int count, time,HP,count2;
+		bool isFinished,isDeleted;
 
 		void onFired();
 protected:

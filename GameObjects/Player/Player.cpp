@@ -325,6 +325,7 @@ void Player::OnFired(int _level)
 		PlayerBullet *tempbullet = new PlayerBullet(_level);
 		if (this->mCurrentReverse) tempbullet->SetReverse(true);
 		else tempbullet->SetReverse(false);
+		if (this->getState() == 12) tempbullet->SetReverse(!tempbullet->mCurrentReverse);
 		tempbullet->SetPosition(this->GetPosition());
 		mListPlayerBullet.push_back(tempbullet);
 	

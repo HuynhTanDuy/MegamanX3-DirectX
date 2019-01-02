@@ -122,6 +122,11 @@
     <ClCompile Include="GameObjects\Brick2\Brick2DieState.cpp" />
     <ClCompile Include="GameObjects\Brick2\Brick2StandingState.cpp" />
     <ClCompile Include="GameObjects\Brick2\Brick2State.cpp" />
+    <ClCompile Include="GameObjects\Brick\Brick.cpp" />
+    <ClCompile Include="GameObjects\Brick\BrickData.cpp" />
+    <ClCompile Include="GameObjects\Brick\BrickDieState.cpp" />
+    <ClCompile Include="GameObjects\Brick\BrickStandingState.cpp" />
+    <ClCompile Include="GameObjects\Brick\BrickState.cpp" />
     <ClCompile Include="GameObjects\Bullets\Bullet.cpp" />
     <ClCompile Include="GameObjects\Bullets\BulletState.cpp" />
     <ClCompile Include="GameObjects\Bullets\Enemy1Bullet\Enemy1Bullet.cpp" />
@@ -252,6 +257,11 @@
     <ClInclude Include="GameObjects\Brick2\Brick2DieState.h" />
     <ClInclude Include="GameObjects\Brick2\Brick2StandingState.h" />
     <ClInclude Include="GameObjects\Brick2\Brick2State.h" />
+    <ClInclude Include="GameObjects\Brick\Brick.h" />
+    <ClInclude Include="GameObjects\Brick\BrickData.h" />
+    <ClInclude Include="GameObjects\Brick\BrickDieState.h" />
+    <ClInclude Include="GameObjects\Brick\BrickStandingState.h" />
+    <ClInclude Include="GameObjects\Brick\BrickState.h" />
     <ClInclude Include="GameObjects\Bullets\Bullet.h" />
     <ClInclude Include="GameObjects\Bullets\BulletState.h" />
     <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1Bullet.h" />

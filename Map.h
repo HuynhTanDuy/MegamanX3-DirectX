@@ -25,6 +25,8 @@
 #include "GameObjects/Brick2/Brick2.h"
 #include "GameObjects/Ship/Ship.h"
 #include "GameObjects/Ship/Plane.h"
+#include "GameObjects/Brick/Brick.h"
+
 class Map
 {
 public:
@@ -72,9 +74,10 @@ public:
 	std::vector<Brick2*>             mListBrick2;
 
 	Elevator *elevator;
-	Door *door;
+	std::vector<Door*>             mListDoor;
 	Ship *ship;
 	Plane *plane;
+	Brick *brick;
 	Boss1 *mBoss1;
 	Boss3 *mBoss3;
 	

@@ -130,6 +130,7 @@ void Map::LoadMap(char* filePath)
 
 					
 				}
+				
 				if (object->GetName() == "Boss 3")
 				{
 					D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
@@ -142,7 +143,6 @@ void Map::LoadMap(char* filePath)
 		}
 
 		if (objectGroup->GetName() == "brick")
-			{
 			for (size_t j = 0; j < objectGroup->GetNumObjects(); j++)
 			{
 				Tmx::Object *object = objectGroup->GetObjects().at(j);
@@ -152,8 +152,18 @@ void Map::LoadMap(char* filePath)
 					temp->SetPosition(position);
 					mListBrick2.push_back(temp);
 			}
+		if (objectGroup->GetName() == "gate")
+			for (size_t j = 0; j < objectGroup->GetNumObjects(); j++)
+			{
+				Tmx::Object *object = objectGroup->GetObjects().at(j);
 
-		}
+				D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
+				Door *temp = new Door();
+				temp->SetPosition(position);
+				mListDoor.push_back(temp);
+			}
+
+		
 
 	}
 	//GAMELOG("ene: %d", mListEnemy1);
@@ -164,16 +174,13 @@ void Map::LoadMap(char* filePath)
 	elevator->SetPosition(2280,1762);
 	elevator->Tag = Entity::EntityTypes::Elevator;
 	
-	//DOOR
-	door = new Door();
-	door->SetPosition(19009.3, 4220);
 	
 	//SHIP
 	ship = new Ship();
 	ship->SetPosition(12618.7, 1824);
 	plane = new Plane();
 	plane->SetPosition(12618.7, 1524);
-
+	brick = new Brick();
 	//BEE
 	for (size_t i = 0; i < 4; i++)
 	{
@@ -326,13 +333,16 @@ void Map::Draw()
 	
 #pragma region DRAW GAME SPECIAL OBJECTS
 	elevator->Draw(elevator->GetPosition(), RECT(), D3DXVECTOR2(), trans);
-	door->Draw(door->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+
+	for (size_t i = 0; i < mListDoor.size(); i++)
+	mListDoor[i]->Draw(mListDoor[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 	for (size_t i = 0; i < mListBrick2.size(); i++)
 	{
 		if (mListBrick2[i]) mListBrick2[i]->Draw(mListBrick2[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 	}
-	ship->Draw(ship->GetPosition(), RECT(), D3DXVECTOR2(), trans);
-	plane->Draw(plane->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	if (ship) ship->Draw(ship->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	if (plane) plane->Draw(plane->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	if (brick) brick->Draw(brick->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 #pragma endregion
 }
 
@@ -349,12 +359,6 @@ void Map::Update(float dt)
 			else mListEnemy1[i]->SetReverse(false);
 			mListEnemy1[i]->Update(dt);
 
-			//XOA ENEMY NEU ENEMY "CHET"
-			if (mListEnemy1.at(i)->isDeleted) {
-				delete mListEnemy1.at(i);
-				mListEnemy1.erase(mListEnemy1.begin() + i);
-			}
-
 			//update bullet enemy
 			for (size_t j = 0; j < mListEnemy1[i]->mListEnemy1Bullet.size(); j++)
 			{
@@ -364,6 +368,11 @@ void Map::Update(float dt)
 					delete mListEnemy1[i]->mListEnemy1Bullet[j];
 					mListEnemy1[i]->mListEnemy1Bullet.erase(mListEnemy1[i]->mListEnemy1Bullet.begin() + j);
 				}
+			}
+			//XOA ENEMY NEU ENEMY "CHET"
+			if (mListEnemy1.at(i)->isDeleted) {
+				delete mListEnemy1.at(i);
+				mListEnemy1.erase(mListEnemy1.begin() + i);
 			}
 		}
 	}
@@ -377,12 +386,6 @@ void Map::Update(float dt)
 			else mListEnemy2[i]->SetReverse(false);
 			mListEnemy2[i]->Update(dt);
 
-			//XOA ENEMY NEU ENEMY "CHET"
-			if (mListEnemy2.at(i)->isDeleted) {
-				delete mListEnemy2.at(i);
-				mListEnemy2.erase(mListEnemy2.begin() + i);
-			}
-
 			//update bullet enemy
 			for (size_t j = 0; j < mListEnemy2[i]->mListEnemy2Bullet.size(); j++)
 			{
@@ -392,6 +395,11 @@ void Map::Update(float dt)
 					delete mListEnemy2[i]->mListEnemy2Bullet[j];
 					mListEnemy2[i]->mListEnemy2Bullet.erase(mListEnemy2[i]->mListEnemy2Bullet.begin() + j);
 				}
+			}
+			//XOA ENEMY NEU ENEMY "CHET"
+			if (mListEnemy2.at(i)->isDeleted) {
+				delete mListEnemy2.at(i);
+				mListEnemy2.erase(mListEnemy2.begin() + i);
 			}
 		}
 
@@ -404,12 +412,6 @@ void Map::Update(float dt)
 			else mListEnemy3[i]->SetReverse(false);
 			mListEnemy3[i]->Update(dt);
 
-			//XOA ENEMY NEU ENEMY "CHET"
-			if (mListEnemy3.at(i)->isDeleted) {
-				delete mListEnemy3.at(i);
-				mListEnemy3.erase(mListEnemy3.begin() + i);
-			}
-
 			//update bullet enemy
 			for (size_t j = 0; j < mListEnemy3[i]->mListEnemy3Bullet.size(); j++)
 			{
@@ -420,14 +422,23 @@ void Map::Update(float dt)
 					mListEnemy3[i]->mListEnemy3Bullet.erase(mListEnemy3[i]->mListEnemy3Bullet.begin() + j);
 				}
 			}
+			//XOA ENEMY NEU ENEMY "CHET"
+			if (mListEnemy3.at(i)->isDeleted) {
+				delete mListEnemy3.at(i);
+				mListEnemy3.erase(mListEnemy3.begin() + i);
+			}
 		}
 	}
 #pragma endregion
 
 #pragma region UPDATE GAME SPECIAL OBJECT
 	if (inCamera(elevator->GetPosition().x)) elevator->Update(dt);
-	if (door->GetPosition().x > (mPlayer->GetPosition().x)) door->locked = true;
-	if (inCamera(door->GetPosition().x)) door->Update(dt);
+
+	for (size_t i = 0; i < mListDoor.size(); i++)
+	{
+		if (mListDoor[i]->GetPosition().x < (mPlayer->GetPosition().x)) mListDoor[i]->locked = true;
+		if (inCamera(mListDoor[i]->GetPosition().x)) mListDoor[i]->Update(dt);
+	}
 	for (size_t i = 0; i < mListBrick2.size(); i++)
 	{
 		if (mListBrick2[i]) mListBrick2[i]->Update(dt);
@@ -436,15 +447,39 @@ void Map::Update(float dt)
 			mListBrick2.erase(mListBrick2.begin() + i);
 		}
 	}
-	if (inCamera(ship->GetPosition().x)) ship->Update(dt);
-	if (inCamera(plane->GetPosition().x))
+	if (ship)
 	{
-		 		 plane->Update(dt);
-				
-				 
-		//else plane->FlyUp();
+		if (inCamera(ship->GetPosition().x)) ship->Update(dt);
+		if (ship->isDeleted) ship = NULL;
 	}
+	if (ship)
+		if (plane)
+		{
+			if (inCamera(plane->GetPosition().x))
+			{
+				plane->Update(dt);
+				if (plane->isDown) {
+					brick = new Brick();
+					brick->SetPosition(plane->GetPosition() + D3DXVECTOR3(0, brick->GetHeight(), 0));
+				}
+				if (brick)
+				{
+					brick->Update(dt);
+					if (brick->isDeleted) {
+						brick = NULL;
+						ship->HP--;
+					}
+				}
+				if (ship->isFinished) {
+					plane = NULL;
+					brick = NULL;
+				}
+				//else plane->FlyUp();
+			}
+		}
+	
 #pragma endregion
+
 #pragma region UPDATE BOSS
 	
 		

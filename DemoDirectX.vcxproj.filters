@@ -86,6 +86,9 @@
     <Filter Include="FrameWork\GameObjects\Ship">
       <UniqueIdentifier>{35d57c5e-c51b-4977-b583-9760f9c8aa33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork\GameObjects\Brick">
+      <UniqueIdentifier>{d787f63d-a521-429b-8a09-946dc0b795dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -462,6 +465,21 @@
     </ClCompile>
     <ClCompile Include="GameObjects\Ship\Plane.cpp">
       <Filter>FrameWork\GameObjects\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Brick\Brick.cpp">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Brick\BrickData.cpp">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Brick\BrickDieState.cpp">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Brick\BrickStandingState.cpp">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Brick\BrickState.cpp">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -869,6 +887,21 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Ship\Plane.h">
       <Filter>FrameWork\GameObjects\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Brick\Brick.h">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Brick\BrickData.h">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Brick\BrickDieState.h">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Brick\BrickStandingState.h">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Brick\BrickState.h">
+      <Filter>FrameWork\GameObjects\Brick</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

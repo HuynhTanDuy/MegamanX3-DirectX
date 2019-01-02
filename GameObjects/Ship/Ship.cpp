@@ -5,9 +5,9 @@ Ship::Ship() {
 	CurrentAnimation = new Animation("Resources/ship.png", 1, 1, 1, 0.0f);
 	this->width = CurrentAnimation->GetWidth();
 	this->height = CurrentAnimation->GetHeight();
-	count = 0;
-	time = 200;
-	
+	count = 0; count2 = 0;
+	time = 180;
+	HP = 3;
 }
 void Ship::Update(float dt)
 {
@@ -19,6 +19,13 @@ void Ship::Update(float dt)
 		this->SetVy(0);
 		
 	}
+	if (HP == 0) isFinished = true;
+	if (isFinished) {
+		this->SetVy(-100);
+		count2++;
+		if (count2 == 300) isDeleted = true;
+	}
+	
 	
 }
 

@@ -24,7 +24,7 @@ void DemoScene::LoadContent()
 
 	map = new Map("Resources/map1.tmx",mPlayer);
 	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()+500);
-	mPlayer->SetPosition(10618.7,1824);
+	mPlayer->SetPosition(19509.3,4180);
 	camera = new Camera(GameGlobal::GetWidth(), GameGlobal::GetHeight());
 	camera->SetPosition(GameGlobal::GetWidth()/2, GameGlobal::GetHeight()/2);
 
@@ -38,6 +38,7 @@ void DemoScene::Update(float dt)
 {
 	checkCollision();
 	map->Update(dt);
+	
     mPlayer->HandleKeyboard(keys);
     mPlayer->Update(dt);
 	
@@ -439,13 +440,16 @@ void DemoScene::checkCollision()
 #pragma endregion	
 
 #pragma region XU LY VA CHAM CUA DOOR
-	Entity::CollisionReturn r1 = GameCollision::RecteAndRect(mPlayer->GetBound(),
-		map->door->GetBound());
-	if (r1.IsCollided)
+	for (size_t i = 0; i < map->mListDoor.size(); i++)
 	{
-		Entity::SideCollisions sidePlayer = GameCollision::getSideCollision(mPlayer, r1);
-		mPlayer->OnCollision(map->door->getEntity(), r1, sidePlayer);
-		map->door->isOpen = true;
+		Entity::CollisionReturn r1 = GameCollision::RecteAndRect(mPlayer->GetBound(),
+			map->mListDoor[i]->GetBound());
+		if (r1.IsCollided)
+		{
+			Entity::SideCollisions sidePlayer = GameCollision::getSideCollision(mPlayer, r1);
+			mPlayer->OnCollision(map->mListDoor[i]->getEntity(), r1, sidePlayer);
+			map->mListDoor[i]->isOpen = true;
+		}
 	}
 #pragma endregion
 
@@ -519,10 +523,24 @@ void DemoScene::checkCollision()
 				map->mListBrick2[i]->HP -= mPlayer->mListPlayerBullet[j]->damage;
 				mPlayer->mListPlayerBullet[j]->OnCollision();
 			}
+
+			//BRICK
+			if (map->brick)
+			{
+				Entity::CollisionReturn r3 = GameCollision::RecteAndRect(mPlayer->mListPlayerBullet[j]->GetBound(),
+					map->brick->GetBound());
+				if (r3.IsCollided)
+				{
+					mPlayer->mListPlayerBullet[j]->OnCollision();
+					map->brick->HP -= mPlayer->mListPlayerBullet[j]->damage;
+				}
+			}
 		}
 
 	}
 #pragma endregion
+
+
 
 }
 void DemoScene::DrawQuadtree(QuadTree *quadtree)
