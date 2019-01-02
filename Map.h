@@ -22,6 +22,9 @@
 #include <iostream>
 #include "GameObjects/Elevator/Elevator.h"
 #include "GameObjects/Door/Door.h"
+#include "GameObjects/Brick2/Brick2.h"
+#include "GameObjects/Ship/Ship.h"
+#include "GameObjects/Ship/Plane.h"
 class Map
 {
 public:
@@ -66,11 +69,15 @@ public:
 	std::vector<Enemy1*>             mListEnemy1;
 	std::vector<Enemy2*>             mListEnemy2;
 	std::vector<Enemy3*>             mListEnemy3;
+	std::vector<Brick2*>             mListBrick2;
 
 	Elevator *elevator;
 	Door *door;
+	Ship *ship;
+	Plane *plane;
 	Boss1 *mBoss1;
 	Boss3 *mBoss3;
+	
 	//void saveQuadTree(QuadTree *quadtree);
 	~Map();
 

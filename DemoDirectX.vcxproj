@@ -117,6 +117,11 @@
     <ClCompile Include="GameObjects\Boss3\Boss3GenerateBeeState.cpp" />
     <ClCompile Include="GameObjects\Boss3\Boss3PreparingState.cpp" />
     <ClCompile Include="GameObjects\Boss3\Boss3State.cpp" />
+    <ClCompile Include="GameObjects\Brick2\Brick2.cpp" />
+    <ClCompile Include="GameObjects\Brick2\Brick2Data.cpp" />
+    <ClCompile Include="GameObjects\Brick2\Brick2DieState.cpp" />
+    <ClCompile Include="GameObjects\Brick2\Brick2StandingState.cpp" />
+    <ClCompile Include="GameObjects\Brick2\Brick2State.cpp" />
     <ClCompile Include="GameObjects\Bullets\Bullet.cpp" />
     <ClCompile Include="GameObjects\Bullets\BulletState.cpp" />
     <ClCompile Include="GameObjects\Bullets\Enemy1Bullet\Enemy1Bullet.cpp" />
@@ -180,6 +185,8 @@
     <ClCompile Include="GameObjects\Player\PlayerSurfingState .cpp" />
     <ClCompile Include="GameObjects\Player\PlayerWallShotState.cpp" />
     <ClCompile Include="GameObjects\Player\PlayerWallState.cpp" />
+    <ClCompile Include="GameObjects\Ship\Plane.cpp" />
+    <ClCompile Include="GameObjects\Ship\Ship.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapReader\base64.cpp" />
@@ -240,6 +247,11 @@
     <ClInclude Include="GameObjects\Boss3\Boss3GenerateBeeState.h" />
     <ClInclude Include="GameObjects\Boss3\Boss3PreparingState.h" />
     <ClInclude Include="GameObjects\Boss3\Boss3State.h" />
+    <ClInclude Include="GameObjects\Brick2\Brick2.h" />
+    <ClInclude Include="GameObjects\Brick2\Brick2Data.h" />
+    <ClInclude Include="GameObjects\Brick2\Brick2DieState.h" />
+    <ClInclude Include="GameObjects\Brick2\Brick2StandingState.h" />
+    <ClInclude Include="GameObjects\Brick2\Brick2State.h" />
     <ClInclude Include="GameObjects\Bullets\Bullet.h" />
     <ClInclude Include="GameObjects\Bullets\BulletState.h" />
     <ClInclude Include="GameObjects\Bullets\Enemy1Bullet\Enemy1Bullet.h" />
@@ -308,6 +320,8 @@
     <ClInclude Include="GameObjects\Player\PlayerSurfingState .h" />
     <ClInclude Include="GameObjects\Player\PlayerWallShotState.h" />
     <ClInclude Include="GameObjects\Player\PlayerWallState.h" />
+    <ClInclude Include="GameObjects\Ship\Plane.h" />
+    <ClInclude Include="GameObjects\Ship\Ship.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapReader\base64.h" />
     <ClInclude Include="MapReader\tinyxml2.h" />

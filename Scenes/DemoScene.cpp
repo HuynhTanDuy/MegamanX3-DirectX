@@ -22,9 +22,9 @@ void DemoScene::LoadContent()
 	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()/2);
 	//map = new Map("Resources/marioworld1-1.tmx");
 
-	map = new Map("Resources/map.tmx",mPlayer);
+	map = new Map("Resources/map1.tmx",mPlayer);
 	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()+500);
-	mPlayer->SetPosition(19509.3,4180);
+	mPlayer->SetPosition(10618.7,1824);
 	camera = new Camera(GameGlobal::GetWidth(), GameGlobal::GetHeight());
 	camera->SetPosition(GameGlobal::GetWidth()/2, GameGlobal::GetHeight()/2);
 
@@ -498,6 +498,32 @@ void DemoScene::checkCollision()
 		}
 	}
 #pragma endregion
+
+#pragma region XU LY VA CHAM CUA BRICK
+	for (size_t i = 0; i < map->mListBrick2.size(); i++)
+	{
+
+		Entity::CollisionReturn r1 = GameCollision::RecteAndRect(mPlayer->GetBound(),
+			map->mListBrick2[i]->GetBound());
+		if (r1.IsCollided)
+		{
+			Entity::SideCollisions sidePlayer = GameCollision::getSideCollision(mPlayer, r1);
+			mPlayer->OnCollision(map->mListBrick2[i]->getEntity(), r1, sidePlayer);
+		}
+		for (size_t j = 0; j < mPlayer->mListPlayerBullet.size(); j++)
+		{
+			Entity::CollisionReturn r2 = GameCollision::RecteAndRect(mPlayer->mListPlayerBullet[j]->GetBound(),
+				map->mListBrick2[i]->GetBound());
+			if (r2.IsCollided)
+			{
+				map->mListBrick2[i]->HP -= mPlayer->mListPlayerBullet[j]->damage;
+				mPlayer->mListPlayerBullet[j]->OnCollision();
+			}
+		}
+
+	}
+#pragma endregion
+
 }
 void DemoScene::DrawQuadtree(QuadTree *quadtree)
 {

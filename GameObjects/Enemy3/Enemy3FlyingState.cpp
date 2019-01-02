@@ -23,7 +23,7 @@ Enemy3FlyingState::~Enemy3FlyingState()
 
 void Enemy3FlyingState::Update(float dt)
 {
-	GAMELOG("a:%d", mEnemyData3->Enemy3->GetVy());
+	
 	if (mEnemyData3->Enemy3->GetVy() > 0)
 	{
 		this->mEnemyData3->Enemy3->AddVy(acceleratorY);

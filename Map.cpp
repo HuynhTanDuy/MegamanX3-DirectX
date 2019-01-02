@@ -130,20 +130,27 @@ void Map::LoadMap(char* filePath)
 
 					
 				}
-				if (object->GetName() == "Boss 2")
+				if (object->GetName() == "Boss 3")
 				{
 					D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
 					 mBoss3 = new Boss3(this->mPlayer);
 
 					mBoss3->SetPosition(position);
-					
-
-
 				}
+			}
 
+		}
 
-
-
+		if (objectGroup->GetName() == "brick")
+			{
+			for (size_t j = 0; j < objectGroup->GetNumObjects(); j++)
+			{
+				Tmx::Object *object = objectGroup->GetObjects().at(j);
+			
+					D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
+					Brick2 *temp = new Brick2();
+					temp->SetPosition(position);
+					mListBrick2.push_back(temp);
 			}
 
 		}
@@ -161,6 +168,11 @@ void Map::LoadMap(char* filePath)
 	door = new Door();
 	door->SetPosition(19009.3, 4220);
 	
+	//SHIP
+	ship = new Ship();
+	ship->SetPosition(12618.7, 1824);
+	plane = new Plane();
+	plane->SetPosition(12618.7, 1524);
 
 	//BEE
 	for (size_t i = 0; i < 4; i++)
@@ -312,10 +324,16 @@ void Map::Draw()
 #pragma endregion
 
 	
-
+#pragma region DRAW GAME SPECIAL OBJECTS
 	elevator->Draw(elevator->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 	door->Draw(door->GetPosition(), RECT(), D3DXVECTOR2(), trans);
-	//elevator->Draw(D3DXVECTOR3(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight() / 2, 0));
+	for (size_t i = 0; i < mListBrick2.size(); i++)
+	{
+		if (mListBrick2[i]) mListBrick2[i]->Draw(mListBrick2[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	}
+	ship->Draw(ship->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	plane->Draw(plane->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+#pragma endregion
 }
 
 
@@ -406,11 +424,27 @@ void Map::Update(float dt)
 	}
 #pragma endregion
 
+#pragma region UPDATE GAME SPECIAL OBJECT
 	if (inCamera(elevator->GetPosition().x)) elevator->Update(dt);
-	
 	if (door->GetPosition().x > (mPlayer->GetPosition().x)) door->locked = true;
 	if (inCamera(door->GetPosition().x)) door->Update(dt);
-
+	for (size_t i = 0; i < mListBrick2.size(); i++)
+	{
+		if (mListBrick2[i]) mListBrick2[i]->Update(dt);
+		if (mListBrick2[i]->isDeleted) {
+			mListBrick2[i] = NULL;
+			mListBrick2.erase(mListBrick2.begin() + i);
+		}
+	}
+	if (inCamera(ship->GetPosition().x)) ship->Update(dt);
+	if (inCamera(plane->GetPosition().x))
+	{
+		 		 plane->Update(dt);
+				
+				 
+		//else plane->FlyUp();
+	}
+#pragma endregion
 #pragma region UPDATE BOSS
 	
 		
