@@ -11,7 +11,7 @@ Boss3PreparingState::Boss3PreparingState(Boss3Data *Boss3Data)
 	this->mBoss3Data->Boss3->SetVx(0);
 	this->mBoss3Data->Boss3->SetVy(0);
 	count = 0;
-	time = 200;
+	time = 100;
 	this->mBoss3Data->attackTime++;
 }
 
@@ -31,14 +31,15 @@ void Boss3PreparingState::Update(float dt)
 
 	if (count == time)
 	{
-		if (this->mBoss3Data->attackTime==4)
+		if (this->mBoss3Data->attackTime == this->mBoss3Data->attackTime2)
 		{
 			this->mBoss3Data->Boss3->SetVy(0);
 			this->mBoss3Data->Boss3->SetState(new Boss3GenerateBeeState(this->mBoss3Data));
 		}
-		else
+		else 
 		this->mBoss3Data->Boss3->SetState(new Boss3AttackState(this->mBoss3Data));
-	}
+	} 
+	
 
 
 }

@@ -10,7 +10,7 @@ Enemy1StandingState::Enemy1StandingState(EnemyData1 *playerData)
     this->mEnemyData1->Enemy1->SetVx(0);
     this->mEnemyData1->Enemy1->SetVy(0);
 	count = 0;
-	time = 200;
+	time = 50;
 }
 
 

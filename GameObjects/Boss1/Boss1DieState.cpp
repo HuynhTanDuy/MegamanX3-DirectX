@@ -22,7 +22,7 @@ void Boss1DieState::Update(float dt)
 {
 	
 	dem++;
-	if (dem == 10) this->mBoss1Data->Boss1->isDeleted = true;
+	if (dem == 100) this->mBoss1Data->Boss1->isDeleted = true;
 	
 }
 

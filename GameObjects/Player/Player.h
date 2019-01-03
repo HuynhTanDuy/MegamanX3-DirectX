@@ -12,6 +12,7 @@
 #include "PlayerFallingState.h"
 #include "PlayerHurtingState .h"
 #include "../Bullets/PlayerBullet.h"
+#include "PlayerDieState.h"
 
 class Player : public Entity
 {
@@ -85,6 +86,7 @@ protected:
 		*playerWallingShot,
 		*playerFalling,
 		*playerHurting,
+		*playerDie,
 		*charged1,
 		*charged2
 		;

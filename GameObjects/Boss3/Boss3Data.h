@@ -18,6 +18,8 @@ public:
 	float PlayerX,PlayerY;
 	bool mCurrentReverse;
 	int attackTime=0;
+	int attackTime2 = 4;
+	int generateBee = 0;
 	bool BeeRight=false;
 protected:
 

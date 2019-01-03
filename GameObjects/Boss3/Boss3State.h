@@ -14,7 +14,8 @@ public:
 		GenerateBee,
 		Preparing,
 		Born,
-		Die
+		Die, 
+		ZiczacBee,
 
 	};
 

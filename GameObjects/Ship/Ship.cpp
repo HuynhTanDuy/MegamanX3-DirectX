@@ -6,7 +6,7 @@ Ship::Ship() {
 	this->width = CurrentAnimation->GetWidth();
 	this->height = CurrentAnimation->GetHeight();
 	count = 0; count2 = 0;
-	time = 180;
+	time = 200;
 	HP = 3;
 }
 void Ship::Update(float dt)
@@ -23,7 +23,7 @@ void Ship::Update(float dt)
 	if (isFinished) {
 		this->SetVy(-100);
 		count2++;
-		if (count2 == 300) isDeleted = true;
+		if (count2 > 300) isDeleted = true;
 	}
 	
 	

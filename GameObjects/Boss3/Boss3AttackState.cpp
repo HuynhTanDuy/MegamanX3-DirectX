@@ -11,7 +11,7 @@ Boss3AttackState::Boss3AttackState(Boss3Data *Boss3Data)
 	this->mBoss3Data->Boss3->SetVx(0);
 	this->mBoss3Data->Boss3->SetVy(0);
 	count = 0;
-	time = 300;
+	time = 250;
 	playerPosX = this->mBoss3Data->Player->GetPosition().x;
 	playerPosY = this->mBoss3Data->Player->GetPosition().y;
 	distanceX = this->mBoss3Data->Boss3->GetPosition().x - playerPosX;
@@ -23,7 +23,7 @@ Boss3AttackState::Boss3AttackState(Boss3Data *Boss3Data)
 Boss3AttackState::~Boss3AttackState()
 {
 
-}
+} 
 
 void Boss3AttackState::Update(float dt)
 {
@@ -88,8 +88,8 @@ Boss3State::StateName Boss3AttackState::GetState()
 
 void Boss3AttackState::ReturnPointLeft()
 {
-	this->mBoss3Data->Boss3->SetVx(-50);
-	this->mBoss3Data->Boss3->SetVy(-100);
+	this->mBoss3Data->Boss3->SetVx(-150);
+	this->mBoss3Data->Boss3->SetVy(-250);
 	if (mBoss3Data->Boss3->GetPosition().y <= 3980)
 	{
 		this->mBoss3Data->Boss3->SetVy(0);
@@ -105,8 +105,8 @@ void Boss3AttackState::ReturnPointLeft()
 
 void Boss3AttackState::ReturnPointRight()
 {
-	this->mBoss3Data->Boss3->SetVx(100);
-	this->mBoss3Data->Boss3->SetVy(-100);
+	this->mBoss3Data->Boss3->SetVx(150);
+	this->mBoss3Data->Boss3->SetVy(-250);
 	if (mBoss3Data->Boss3->GetPosition().y <= 3980)
 	
 	

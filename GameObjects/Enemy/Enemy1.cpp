@@ -118,7 +118,7 @@ Entity* Enemy1::getEntity()
 void Enemy1::OnCollissionWithBullet(int damage)
 {
 	HP=HP-damage;
-	if (HP < 0) isDestroyed = true;
+	if (HP <= 0) isDestroyed = true;
 }
 
 void Enemy1::onFired()

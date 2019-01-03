@@ -108,7 +108,7 @@ void Map::LoadMap(char* filePath)
 			{
 
 				Tmx::Object *object = objectGroup->GetObjects().at(j);
-				D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
+				D3DXVECTOR3 position(object->GetX(), object->GetY()-150, 0);
 				//Enemy1 *temp = new Enemy1();
 				Enemy3 *temp = new Enemy3();
 				temp->SetPosition(position);
@@ -165,7 +165,7 @@ void Map::LoadMap(char* filePath)
 			{
 				Tmx::Object *object = objectGroup->GetObjects().at(j);
 
-				D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
+				D3DXVECTOR3 position(object->GetX(), object->GetY()-60, 0);
 				Door *temp = new Door();
 				temp->SetPosition(position);
 				mListDoor.push_back(temp);
@@ -396,12 +396,14 @@ void Map::Update(float dt)
 
 	for (size_t i = 0; i < mListEnemy2.size(); i++)
 	{
-		//if (inCamera(mListEnemy2[i]->GetPosition().x))
-		{
-			if (mPlayer->GetPosition().x > mListEnemy2[i]->GetPosition().x - 30) mListEnemy2[i]->SetReverse(true);
-			else mListEnemy2[i]->SetReverse(false);
-			mListEnemy2[i]->Update(dt);
-
+		
+		
+			if (inCamera(mListEnemy2[i]->GetPosition().x))
+			{
+				if (mPlayer->GetPosition().x > mListEnemy2[i]->GetPosition().x - 30) mListEnemy2[i]->SetReverse(true);
+				else mListEnemy2[i]->SetReverse(false);
+				mListEnemy2[i]->Update(dt);
+			}
 			//update bullet enemy
 			for (size_t j = 0; j < mListEnemy2[i]->mListEnemy2Bullet.size(); j++)
 			{
@@ -417,7 +419,7 @@ void Map::Update(float dt)
 				delete mListEnemy2.at(i);
 				mListEnemy2.erase(mListEnemy2.begin() + i);
 			}
-		}
+		
 
 	}
 	for (size_t i = 0; i < mListEnemy3.size(); i++)
@@ -427,7 +429,7 @@ void Map::Update(float dt)
 			if (mPlayer->GetPosition().x > mListEnemy3[i]->GetPosition().x - 30) mListEnemy3[i]->SetReverse(true);
 			else mListEnemy3[i]->SetReverse(false);
 			mListEnemy3[i]->Update(dt);
-
+		}
 			//update bullet enemy
 			for (size_t j = 0; j < mListEnemy3[i]->mListEnemy3Bullet.size(); j++)
 			{
@@ -443,7 +445,7 @@ void Map::Update(float dt)
 				delete mListEnemy3.at(i);
 				mListEnemy3.erase(mListEnemy3.begin() + i);
 			}
-		}
+		
 	}
 #pragma endregion
 
@@ -457,7 +459,8 @@ void Map::Update(float dt)
 	}
 	for (size_t i = 0; i < mListBrick2.size(); i++)
 	{
-		if (mListBrick2[i]) mListBrick2[i]->Update(dt);
+		if (mListBrick2[i])
+		if (inCamera(mListBrick2[i]->GetPosition().x))	mListBrick2[i]->Update(dt);
 		if (mListBrick2[i]->isDeleted) {
 			mListBrick2[i] = NULL;
 			mListBrick2.erase(mListBrick2.begin() + i);
@@ -490,7 +493,7 @@ void Map::Update(float dt)
 					plane = NULL;
 					brick = NULL;
 				}
-				//else plane->FlyUp();
+				
 			}
 		}
 	
@@ -500,11 +503,14 @@ void Map::Update(float dt)
 	
 		
 		if (mBoss3) {
-			if (mPlayer->GetPosition().x > mBoss3->GetPosition().x - 30) mBoss3->SetReverse(true);
-			else mBoss3->SetReverse(false);
-			mBoss3->Update(dt);
-			if (mBoss3->isDeleted)
-				mBoss3 = NULL;
+			if (inCamera(mBoss3->GetPosition().x))
+			{
+				if (mPlayer->GetPosition().x > mBoss3->GetPosition().x - 30) mBoss3->SetReverse(true);
+				else mBoss3->SetReverse(false);
+				mBoss3->Update(dt);
+				if (mBoss3->isDeleted)
+					mBoss3 = NULL;
+			}
 		}
 
 
@@ -568,12 +574,12 @@ void Map::Update(float dt)
 	//	}
 
 	if (mBoss1) {
-		mBoss1->Update(dt);
+		if (inCamera(mBoss1->GetPosition().x-100)) mBoss1->Update(dt);
 		if (mBoss1->isDeleted) 
 			 mBoss1=NULL;
 	}
 	if (mBoss2) {
-		mBoss2->Update(dt);
+		if (inCamera(mBoss2->GetPosition().x)) mBoss2->Update(dt);
 		for (size_t i=0; i < mBoss2->mListBoss2Bullet.size(); i++)
 		{
 			mBoss2->mListBoss2Bullet[i]->Update(dt);

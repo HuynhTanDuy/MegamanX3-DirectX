@@ -42,5 +42,5 @@ void HpTaskBar::Draw(D3DXVECTOR3 position, RECT sourceRect, D3DXVECTOR2 scale, D
 	//CurrentAnimation->SetPosition(D3DXVECTOR3(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight() / 2, 0));
 
 	//    CurrentAnimation->Draw(D3DXVECTOR3(posX, posY, 0));
-	CurrentAnimation->Draw(D3DXVECTOR3(GameGlobal::GetWidth() / 2-270, GameGlobal::GetHeight() / 2-160, 0));
+	CurrentAnimation->Draw(D3DXVECTOR3(GameGlobal::GetWidth() / 2-400, GameGlobal::GetHeight() / 2-270, 0));
 }

@@ -21,7 +21,7 @@ Player::Player()
 	playerWalling = new Animation("Resources/playerWall.png", 1, 1, 1, 0.1f);
 	playerWallingShot = new Animation("Resources/playerWallShot.png", 1, 1, 1, 0.1f);
 	playerHurting = new Animation("Resources/playerAttacked.png", 2, 1, 2, 0.1f);
-	
+	playerDie= new Animation("Resources/playerDieState.png", 1, 1, 1, 0.0f);
 	
 
     this->mPlayerData = new PlayerData();
@@ -57,7 +57,8 @@ void Player::Update(float dt)
 	if (charging)
 	{
 		count++;
-		//GAMELOG("a:%d", level);
+		if (count > 16) level = 2;
+		if (count > 85) level = 3;
 		if (charged1==NULL && level==2) charged1 = new Animation("Resources/Charged1.png", 10, 1, 10, 0.1f);
 		if (charged2 == NULL && level == 3) {
 			charged2 = new Animation("Resources/Charged2.png", 10, 1, 10, 0.1f);
@@ -92,6 +93,8 @@ void Player::Update(float dt)
 			clock = 0;
 		}
 	}
+
+	if (HP != 16) this->SetState(new PlayerDieState(this->mPlayerData));
 	
 }
 
@@ -128,20 +131,22 @@ void Player::OnKeyPressed(int key)
     }
 	if (key == 0x58 && mCurrentState == PlayerState::Running)
 	{
+		charging = true;
 		if (allowShot)
 		{
 			this->SetState(new PlayerRunningShotState(this->mPlayerData));
 			//return;
 			allowShot = false;
 
-			
 
 
-			
+
+
 		}
 	}
 	if (key == 0x58 && mCurrentState == PlayerState::Jumping)
 	{
+		charging = true;
 		if (allowShot)
 		{
 			this->SetState(new PlayerJumpingShotState(this->mPlayerData));
@@ -160,9 +165,9 @@ void Player::OnKeyUp(int key)
         allowJump = true;
 	if (key == 0x58)
 	{
+		
 		allowShot = true;
-		if (count > 16) level = 2;
-		if (count > 85) level = 3;
+		
 		charging = false;
 	
 		//GAMELOG("level: %d", level);
@@ -172,6 +177,8 @@ void Player::OnKeyUp(int key)
 	}
 	/*if (key == 0x59)
 		allowJumpingShot = true;*/
+
+	
 	
 }
 
@@ -271,6 +278,9 @@ void Player::changeAnimation(PlayerState::StateName state)
 			break;
 		case PlayerState::Hurting:
 			CurrentAnimation = playerHurting;
+			break;
+		case PlayerState::Die:
+			CurrentAnimation = playerDie;
 			break;
     }
 

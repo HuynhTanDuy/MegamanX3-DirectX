@@ -12,7 +12,7 @@ Boss1StandingState::Boss1StandingState(Boss1Data *Boss1Data)
 	this->mBoss1Data->Boss1->SetVy(0);
 	this->mBoss1Data->movingZiczacTime++;
 	count = 0;
-	time = 300;
+	time = 100;
 }
 
 

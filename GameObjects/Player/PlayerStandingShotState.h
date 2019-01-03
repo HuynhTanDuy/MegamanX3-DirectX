@@ -13,6 +13,8 @@ public:
 
     virtual StateName GetState(); // lay state nhan vat
 
+	void OnCollision(Entity *impactor, Entity::SideCollisions side, Entity::CollisionReturn data);
+
 protected:
 };
 

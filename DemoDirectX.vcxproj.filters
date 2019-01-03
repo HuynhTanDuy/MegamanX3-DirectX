@@ -95,6 +95,9 @@
     <Filter Include="FrameWork\GameObjects\Boss2\Shuriken">
       <UniqueIdentifier>{eea1b748-eff9-4781-892a-71dc140211d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork\GameObjects\HpTaskBar\bossHP">
+      <UniqueIdentifier>{c8992bcc-64cc-40f5-8669-26de5e7e9718}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -370,24 +373,6 @@
     <ClCompile Include="GameObjects\Boss3\Boss3.cpp">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjects\Boss3\Boss3AttackState.cpp">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss3\Boss3BornState.cpp">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss3\Boss3FlyingState.cpp">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss3\Boss3GenerateBeeState.cpp">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss3\Boss3PreparingState.cpp">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss3\Boss3State.cpp">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjects\Boss3\Bee\Bee.cpp">
       <Filter>FrameWork\GameObjects\Boss3\Bee</Filter>
     </ClCompile>
@@ -423,9 +408,6 @@
     </ClCompile>
     <ClCompile Include="GameObjects\Door\DoorClosedState.cpp">
       <Filter>FrameWork\GameObjects\Door</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss3\Boss3DieState.cpp">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClCompile>
     <ClCompile Include="GameObjects\Brick2\Brick2.cpp">
       <Filter>FrameWork\GameObjects\Brick2</Filter>
@@ -522,6 +504,36 @@
     </ClCompile>
     <ClCompile Include="GameObjects\Boss2\Boss2DieState.cpp">
       <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3AttackState.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3BornState.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3DieState.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3FlyingState.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3GenerateBeeState.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3PreparingState.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3State.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3ZiczacBeeState.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\HpTaskBar\bossHP\BossHP.cpp">
+      <Filter>FrameWork\GameObjects\HpTaskBar\bossHP</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Player\PlayerDieState.cpp">
+      <Filter>FrameWork\GameObjects\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -822,27 +834,6 @@
     <ClInclude Include="GameObjects\Boss3\Boss3.h">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3AttackState.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3BornState.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3Data.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3FlyingState.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3GenerateBeeState.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3PreparingState.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3State.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjects\Boss3\Bee\Bee.h">
       <Filter>FrameWork\GameObjects\Boss3\Bee</Filter>
     </ClInclude>
@@ -881,9 +872,6 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Door\DoorClosedState.h">
       <Filter>FrameWork\GameObjects\Door</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3DieState.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClInclude>
     <ClInclude Include="GameObjects\Brick2\Brick2.h">
       <Filter>FrameWork\GameObjects\Brick2</Filter>
@@ -986,6 +974,39 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Boss2\Boss2DieState.h">
       <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3AttackState.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3BornState.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3Data.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3DieState.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3FlyingState.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3GenerateBeeState.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3PreparingState.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3State.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3ZiczacBeeState.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\HpTaskBar\bossHP\BossHP.h">
+      <Filter>FrameWork\GameObjects\HpTaskBar\bossHP</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Player\PlayerDieState.h">
+      <Filter>FrameWork\GameObjects\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

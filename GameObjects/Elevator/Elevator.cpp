@@ -4,7 +4,7 @@ Elevator::Elevator() {
 	//Elevator = new Animation("Resources/Enemy/Elevator.png", 5, 1, 5, 0.035f);
 	CurrentAnimation = new Animation("Resources/elevator.png", 3, 3, 1, 0.035f);
 	this->width = CurrentAnimation->GetWidth();
-	this->height = CurrentAnimation->GetHeight();
+	this->height = CurrentAnimation->GetHeight()/2;
 	
 
 }

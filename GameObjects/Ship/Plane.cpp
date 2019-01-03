@@ -7,7 +7,7 @@ Plane::Plane() {
 	this->width = CurrentAnimation->GetWidth();
 	this->height = CurrentAnimation->GetHeight();
 	count = 0;
-	time = 450;
+	time = 400;
 	isDown = true;
 }
 void Plane::Update(float dt)

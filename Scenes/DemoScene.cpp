@@ -25,14 +25,16 @@ void DemoScene::LoadContent()
 	map = new Map("Resources/map1.tmx",mPlayer);
 	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()+500);
 	//mPlayer->SetPosition(19509.3,4180); //boss 3
-	// mPlayer->SetPosition(6304,2294.67); //boss 1
-	mPlayer->SetPosition(14417.3,2254.67); //boss2
+	//mPlayer->SetPosition(5504,2294.67); //boss 1
+	mPlayer->SetPosition(12417.3,2254.67); //boss2
+	//mPlayer->SetPosition(12618.7, 1824);
 	camera = new Camera(GameGlobal::GetWidth(), GameGlobal::GetHeight());
 	camera->SetPosition(GameGlobal::GetWidth()/2, GameGlobal::GetHeight()/2);
 
 	map->SetCamera(camera);
 	hpTaskBar = new HpTaskBar();
-	
+	bossHP1 = new BossHP();
+	bossHP2 = new BossHP();
 	
 }
 
@@ -54,7 +56,8 @@ void DemoScene::Update(float dt)
 		mPlayer->mListPlayerBullet.at(i)->Update(dt);
 	}
 	hpTaskBar->Update(dt,mPlayer->HP);
-	
+	if (mPlayer->GetPosition().x > 13417 && map->mBoss2) bossHP1->Update(dt, map->mBoss2->HP);
+	if (map->mBoss3) bossHP2->Update(dt, map->mBoss3->HP);
 }
 
 void DemoScene::Draw()
@@ -63,6 +66,7 @@ void DemoScene::Draw()
 	map->Draw();
     mPlayer->Draw();
 	hpTaskBar->Draw();
+	if (map->mBoss2) bossHP1->Draw();
 	//mEnemy1->Draw(mEnemy1->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 	
 	//DrawQuadtree(map->GetQuadTree());
@@ -187,7 +191,7 @@ void DemoScene::checkCollision()
 	for (size_t i = 0; i < listEnemy.size(); i++)
 	{
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
-			listEnemy.at(i)->getEntity()->GetBound()); //xac dinh Rect va cham
+			listEnemy.at(i)->GetBound()); //xac dinh Rect va cham
 		
 		if (r.IsCollided && mPlayer->nobody==false)
 		{
@@ -208,7 +212,7 @@ void DemoScene::checkCollision()
 		for (size_t j = 0; j <listEnemy[i]->mListEnemy1Bullet.size();j++  )
 		{
 			Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
-				listEnemy.at(i)->mListEnemy1Bullet[j]->getEntity()->GetBound()); //xac dinh Rect va cham
+				listEnemy.at(i)->mListEnemy1Bullet[j]->GetBound()); //xac dinh Rect va cham
 			if (r.IsCollided && mPlayer->nobody == false)
 			{
 				mPlayer->OnCollisionWithEnemy();
@@ -227,7 +231,7 @@ void DemoScene::checkCollision()
 
 		for (size_t i = 0;i <listCollisionEnemyvsMap.size(); i++)
 		{
-			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy[j]->getEntity()->GetBound(),
+			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy[j]->GetBound(),
 				listCollisionEnemyvsMap.at(i)->GetBound()); //xac dinh Rect va cham
 
 			if (r.IsCollided)
@@ -271,7 +275,7 @@ void DemoScene::checkCollision()
 	for (size_t i = 0; i < listEnemy2.size(); i++)
 	{
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
-			listEnemy2.at(i)->getEntity()->GetBound()); //xac dinh Rect va cham
+			listEnemy2.at(i)->GetBound()); //xac dinh Rect va cham
 
 		if (r.IsCollided && mPlayer->nobody == false)
 		{
@@ -291,7 +295,7 @@ void DemoScene::checkCollision()
 		for (size_t j = 0; j < listEnemy2[i]->mListEnemy2Bullet.size(); j++)
 		{
 			Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
-				listEnemy2.at(i)->mListEnemy2Bullet[j]->getEntity()->GetBound()); //xac dinh Rect va cham
+				listEnemy2.at(i)->mListEnemy2Bullet[j]->GetBound()); //xac dinh Rect va cham
 			if (r.IsCollided && mPlayer->nobody == false)
 			{
 				mPlayer->OnCollisionWithEnemy();
@@ -310,7 +314,7 @@ void DemoScene::checkCollision()
 
 		for (size_t i = 0; i < listCollisionEnemyvsMap.size(); i++)
 		{
-			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy2[j]->getEntity()->GetBound(),
+			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy2[j]->GetBound(),
 				listCollisionEnemyvsMap.at(i)->GetBound()); //xac dinh Rect va cham
 
 			if (r.IsCollided)
@@ -353,7 +357,7 @@ void DemoScene::checkCollision()
 	for (size_t i = 0; i < listEnemy3.size(); i++)
 	{
 		Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
-			listEnemy3.at(i)->getEntity()->GetBound()); //xac dinh Rect va cham
+			listEnemy3.at(i)->GetBound()); //xac dinh Rect va cham
 
 		if (r.IsCollided && mPlayer->nobody == false)
 		{
@@ -373,7 +377,7 @@ void DemoScene::checkCollision()
 		for (size_t j = 0; j < listEnemy3[i]->mListEnemy3Bullet.size(); j++)
 		{
 			Entity::CollisionReturn r = GameCollision::RecteAndRect(mPlayer->GetBound(),
-				listEnemy3.at(i)->mListEnemy3Bullet[j]->getEntity()->GetBound()); //xac dinh Rect va cham
+				listEnemy3.at(i)->mListEnemy3Bullet[j]->GetBound()); //xac dinh Rect va cham
 			if (r.IsCollided && mPlayer->nobody == false)
 			{
 				mPlayer->OnCollisionWithEnemy();
@@ -392,7 +396,7 @@ void DemoScene::checkCollision()
 
 		for (size_t i = 0; i < listCollisionEnemyvsMap.size(); i++)
 		{
-			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy3[j]->getEntity()->GetBound(),
+			Entity::CollisionReturn r = GameCollision::RecteAndRect(listEnemy3[j]->GetBound(),
 				listCollisionEnemyvsMap.at(i)->GetBound()); //xac dinh Rect va cham
 
 			if (r.IsCollided)

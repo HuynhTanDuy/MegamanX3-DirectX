@@ -21,6 +21,7 @@
 
 #include "../GameObjects/Enemy/Enemy1.h"
 #include "../GameObjects/HpTaskBar/HpTaskBar.h"
+#include "../GameObjects/HpTaskBar/bossHP/BossHP.h"
 class DemoScene : public Scene
 {
 public:
@@ -35,6 +36,8 @@ public:
     void OnMouseDown(float x, float y);
 	void saveQuadTree(QuadTree *quadtree);
 	HpTaskBar *hpTaskBar;
+	BossHP *bossHP1,*bossHP2;
+
 protected:
 	void checkCollision();
 	void CheckCameraAndWorldMap();
