@@ -10,8 +10,9 @@ Boss1StandingState::Boss1StandingState(Boss1Data *Boss1Data)
 	this->mBoss1Data = Boss1Data;
 	this->mBoss1Data->Boss1->SetVx(0);
 	this->mBoss1Data->Boss1->SetVy(0);
+	this->mBoss1Data->movingZiczacTime++;
 	count = 0;
-	time = 200;
+	time = 300;
 }
 
 
@@ -22,9 +23,15 @@ Boss1StandingState::~Boss1StandingState()
 
 void Boss1StandingState::Update(float dt)
 {
+
 	count++;
+	if (this->mBoss1Data->movingZiczacTime == 5)
+		this->mBoss1Data->Boss1->SetState(new Boss1MovingZiczacState(this->mBoss1Data));
 	if (count == time)
+	{
+		
 		this->mBoss1Data->Boss1->SetState(new Boss1MovingState(this->mBoss1Data));
+	}
 	
 }
 

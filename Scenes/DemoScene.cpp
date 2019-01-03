@@ -24,7 +24,9 @@ void DemoScene::LoadContent()
 
 	map = new Map("Resources/map1.tmx",mPlayer);
 	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()+500);
-	mPlayer->SetPosition(19509.3,4180);
+	//mPlayer->SetPosition(19509.3,4180); //boss 3
+	// mPlayer->SetPosition(6304,2294.67); //boss 1
+	mPlayer->SetPosition(14417.3,2254.67); //boss2
 	camera = new Camera(GameGlobal::GetWidth(), GameGlobal::GetHeight());
 	camera->SetPosition(GameGlobal::GetWidth()/2, GameGlobal::GetHeight()/2);
 
@@ -472,6 +474,31 @@ void DemoScene::checkCollision()
 				{
 					mPlayer->mListPlayerBullet.at(i)->OnCollision();
 					map->mBoss1->OnCollissionWithBullet(mPlayer->mListPlayerBullet.at(i)->damage);
+				}
+			}
+		}
+	}
+#pragma endregion
+
+#pragma region XU LY VA CHAM CUA BOSS 2
+	if (map->mBoss2) {
+		Entity::CollisionReturn r2 = GameCollision::RecteAndRect(mPlayer->GetBound(),
+			map->mBoss2->GetBound());
+		if (r2.IsCollided)
+		{
+			mPlayer->OnCollisionWithEnemy();
+
+		}
+		for (size_t i = 0; i < mPlayer->mListPlayerBullet.size(); i++)
+		{
+			if (mPlayer->mListPlayerBullet.at(i))
+			{
+				Entity::CollisionReturn r = GameCollision::RecteAndRect(map->mBoss2->GetBound(),
+					mPlayer->mListPlayerBullet.at(i)->GetBound());
+				if (r.IsCollided)
+				{
+					mPlayer->mListPlayerBullet.at(i)->OnCollision();
+					map->mBoss2->OnCollissionWithBullet(mPlayer->mListPlayerBullet.at(i)->damage);
 				}
 			}
 		}

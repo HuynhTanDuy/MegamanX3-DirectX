@@ -130,6 +130,14 @@ void Map::LoadMap(char* filePath)
 
 					
 				}
+				if (object->GetName() == "Boss 2")
+				{
+					D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
+					mBoss2 = new Boss2();
+					mBoss2->SetPosition(position);
+
+
+				}
 				
 				if (object->GetName() == "Boss 3")
 				{
@@ -300,11 +308,19 @@ void Map::Draw()
 		}
 	}
 	//DRAW BOSS
-	
+	if (mBoss1)	mBoss1->Draw(mBoss1->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	if (mBoss2)
+	{
+		mBoss2->Draw(mBoss2->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		for (size_t i=0; i < mBoss2->mListBoss2Bullet.size();i++)
+		{
+			mBoss2->mListBoss2Bullet[i]->Draw(mBoss2->mListBoss2Bullet[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		}
+	}
 	if (mBoss3)	mBoss3->Draw(mBoss3->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 
 	
-	if (mBoss1)	mBoss1->Draw(mBoss1->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+	
 
 	for (size_t i = 0; i < 4; i++)
 	{
@@ -556,7 +572,19 @@ void Map::Update(float dt)
 		if (mBoss1->isDeleted) 
 			 mBoss1=NULL;
 	}
-
+	if (mBoss2) {
+		mBoss2->Update(dt);
+		for (size_t i=0; i < mBoss2->mListBoss2Bullet.size(); i++)
+		{
+			mBoss2->mListBoss2Bullet[i]->Update(dt);
+			if (mBoss2->mListBoss2Bullet.at(i)->isDeleted) {
+				delete mBoss2->mListBoss2Bullet.at(i);
+				mBoss2->mListBoss2Bullet.erase(mBoss2->mListBoss2Bullet.begin() + i);
+			}
+		}
+		if (mBoss2->isDeleted)
+			mBoss2 = NULL;
+	}
 	
 
 #pragma endregion 

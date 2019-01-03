@@ -1,25 +1,21 @@
 #pragma once
 
-#include "Boss1Data.h"
-#include "../Entity.h"
+#include "ShurikenData.h"
+#include "ShurikenState.h"
+#include "../../Entity.h"
 #include <map>
 
-class Boss1State // Chi dung doi voi cac Enemy co cac trang thai di chuyen, tan cong
+class ShurikenState // Chi dung doi voi cac Enemy co cac trang thai di chuyen, tan cong
 {
 public:
 	enum StateName
 	{
-		Standing,
 		Moving,
-		Born,
-		MovingZiczac,
-		Die,
-		Horizontal,
-		
-
+		Stick,
+		Die
 	};
 
-	~Boss1State();
+	~ShurikenState();
 
 	virtual void Update(float dt);
 
@@ -32,8 +28,8 @@ public:
 
 
 protected:
-	Boss1State(Boss1Data *Boss1Data);
-	Boss1State();
+	ShurikenState(ShurikenData *ShurikenData);
+	ShurikenState();
 	int count, time;
-	Boss1Data *mBoss1Data;
+	ShurikenData *mShurikenData;
 };

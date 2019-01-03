@@ -6,18 +6,16 @@
 #include "../../GameComponents/Animation.h"
 #include "../../GameComponents/GameGlobal.h"
 #include "../../GameComponents/Camera.h"
-
-#include "Boss1Data.h"
 #include "../Entity.h"
-#include "Boss1State.h"
-#include "Boss1MovingState.h"
-#include "Boss1StandingState.h"
-#include "Boss1BornState.h"
-#include "Boss1DieState.h"
-
-class Boss1 : public Entity {
-public: Boss1();
-		~Boss1();
+#include "Boss2Data.h"
+#include "Boss2State.h"
+#include "Boss2StandingState.h"
+#include "../Player/Player.h"
+#include "Shuriken/Shuriken.h"
+#include "Boss2DieState.h"
+class Boss2 : public Entity {
+public: Boss2();
+		~Boss2();
 		enum MoveDirection
 		{
 			MoveToLeft, //chay tu phai sang trai
@@ -28,33 +26,41 @@ public: Boss1();
 
 		void Draw(D3DXVECTOR3 position = D3DXVECTOR3(), RECT sourceRect = RECT(), D3DXVECTOR2 scale = D3DXVECTOR2(), D3DXVECTOR2 transform = D3DXVECTOR2(), float angle = 0, D3DXVECTOR2 rotationCenter = D3DXVECTOR2(), D3DXCOLOR colorKey = D3DCOLOR_XRGB(255, 255, 255));
 
-		void SetState(Boss1State *newState);
+		void SetState(Boss2State *newState);
 
 		bool mCurrentReverse;
 
 		void SetReverse(bool flag);
 
-		Boss1State::StateName Boss1::getState();
+		Boss2State::StateName Boss2::getState();
 
-		Boss1State::StateName mCurrentState;
+		Boss2State::StateName mCurrentState;
 
-		bool isLeft,isDeleted,isDestroyed;	int count, time,HP;
+		bool isLeft,isDestroyed,isDeleted;	int count, time,HP;
 
 		void OnCollision(Entity *impactor, Entity::CollisionReturn data, Entity::SideCollisions side);
+		//void GetPlayerPosition();
+		bool isRight();
+
+		std::vector<Shuriken*>             mListBoss2Bullet;
+
+		void onFired();
 
 		void OnCollissionWithBullet(int damage);
 protected:
-	Boss1Data *mBoss1Data;
+	Boss2Data *mBoss2Data;
 
-	Animation *Boss1Standing,
-		*Boss1Moving,
-		*Boss1Born,
-		*Boss1Die,
+	Animation *Boss2Standing,
+		*Boss2Attack,
+		*Boss2Shooting,
+		*Boss2Die,
 		*CurrentAnimation;
 
-	void changeAnimation(Boss1State::StateName state);
+	void changeAnimation(Boss2State::StateName state);
 
 	//Animation *bullet;
 	//ShotData *PlayerShot;
+	
+
 
 };

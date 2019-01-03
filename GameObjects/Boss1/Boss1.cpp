@@ -6,9 +6,9 @@
 
 Boss1::Boss1() {
 
-	Boss1Standing = new Animation("Resources/Boss1/Boss1Standing.png", 10, 1, 10, 0.0001f);
+	Boss1Standing = new Animation("Resources/Boss1/Boss1Standing.png", 10, 1, 10, 0.000f);
 	Boss1Moving = new Animation("Resources/Boss1/Boss1Moving.png", 1, 1, 1, 0.0f);
-	Boss1Born= new Animation("Resources/Boss1/Boss1Standing.png", 10, 1, 10, 0.0001f);
+	Boss1Born= new Animation("Resources/Boss1/Boss1Standing.png", 10, 1, 10, 0.0f);
 	Boss1Die = new Animation("Resources/Enemy1/DieState.png", 7, 1, 7, 0.1f);
 	Boss1Born->SetScale(D3DXVECTOR2(2, 2));
 	//this->mBoss1Data->Boss1 = this;
@@ -35,7 +35,7 @@ void Boss1::Update(float dt)
 
 	CurrentAnimation->Update(dt);
 	Entity::Update(dt);
-	if (isDestroyed && mCurrentState!=4) this->SetState(new Boss1DieState(this->mBoss1Data));
+	if (isDestroyed && mCurrentState != 4) this->SetState(new Boss1DieState(this->mBoss1Data));
 	if (this->mBoss1Data->Boss1State)
 	{
 		this->mBoss1Data->Boss1State->Update(dt);
@@ -83,10 +83,18 @@ void Boss1::changeAnimation(Boss1State::StateName state)
 	case Boss1State::Born:
 		CurrentAnimation = Boss1Born;
 		break;
+	
+	case Boss1State::Horizontal:
+		CurrentAnimation = Boss1Standing;
+		break;
+	case Boss1State::MovingZiczac:
+		CurrentAnimation = Boss1Standing;
+		break;
 	case Boss1State::Die:
 		CurrentAnimation = Boss1Die;
 		break;
-	}
+}
+
 
 	this->width = CurrentAnimation->GetWidth();
 	this->height = CurrentAnimation->GetHeight();
@@ -114,5 +122,5 @@ void Boss1::OnCollissionWithBullet(int damage)
 {
 	HP = HP - damage;
 	if (HP < 0) isDestroyed = true;
-	
+
 }

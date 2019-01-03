@@ -14,9 +14,10 @@ public:
 
 	Boss1 *Boss1;
 	Boss1State *Boss1State;
-
-
-
+	int horizontalTime = 0;
+	int movingTime = 0;
+	int movingZiczacTime = 0;
+	int bornTime = 0;
 protected:
 
 };

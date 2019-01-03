@@ -2,6 +2,8 @@
 #include "Boss1State.h"
 #include "Boss1Data.h"
 #include "Boss1StandingState.h"
+#include "Boss1MovingZiczacState.h"
+#include "Boss1HorizontalState.h"
 
 class Boss1MovingState : public Boss1State
 {

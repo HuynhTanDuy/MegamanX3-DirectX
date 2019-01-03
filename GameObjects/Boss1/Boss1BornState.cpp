@@ -12,6 +12,7 @@ Boss1BornState::Boss1BornState(Boss1Data *Boss1Data)
 	this->mBoss1Data->Boss1->SetVy(0);
 	count = 0;
 	time = 50;
+	this->mBoss1Data->bornTime++;
 }
 
 
@@ -27,8 +28,12 @@ void Boss1BornState::Update(float dt)
 		this->mBoss1Data->Boss1->SetVx(200);
 	if (count == time + 30)
 		this->mBoss1Data->Boss1->SetVx(0);
-	if (count == time * 8)
-		this->mBoss1Data->Boss1->SetState(new Boss1StandingState(this->mBoss1Data));
+	/*if (this->mBoss1Data->bornTime == 4)
+		this->mBoss1Data->Boss1->SetState(new Boss1MovingZiczacState(this->mBoss1Data));*/
+	if (count == time * 4)
+		this->mBoss1Data->Boss1->SetState(new Boss1HorizontalState(this->mBoss1Data));
+
+	
 
 }
 

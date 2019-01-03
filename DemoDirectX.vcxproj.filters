@@ -89,6 +89,12 @@
     <Filter Include="FrameWork\GameObjects\Brick">
       <UniqueIdentifier>{d787f63d-a521-429b-8a09-946dc0b795dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork\GameObjects\Boss2">
+      <UniqueIdentifier>{e2eb87d8-dff6-400f-a91a-7083b5a3c785}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork\GameObjects\Boss2\Shuriken">
+      <UniqueIdentifier>{eea1b748-eff9-4781-892a-71dc140211d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -361,27 +367,6 @@
     <ClCompile Include="GameObjects\Bullets\Enemy3Bullet\Enemy3BulletMovingState.cpp">
       <Filter>FrameWork\GameObjects\Bullets\Enemy3Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjects\Boss1\Boss1.cpp">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss1\Boss1BornState.cpp">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss1\Boss1Data.cpp">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss1\Boss1MovingState.cpp">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss1\Boss1StandingState.cpp">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss1\Boss1State.cpp">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss1\Boss1ZiczacState.cpp">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjects\Boss3\Boss3.cpp">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClCompile>
@@ -439,9 +424,6 @@
     <ClCompile Include="GameObjects\Door\DoorClosedState.cpp">
       <Filter>FrameWork\GameObjects\Door</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjects\Boss1\Boss1DieState.cpp">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjects\Boss3\Boss3DieState.cpp">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClCompile>
@@ -480,6 +462,66 @@
     </ClCompile>
     <ClCompile Include="GameObjects\Brick\BrickState.cpp">
       <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1BornState.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1Data.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1HorizontalState.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1MovingState.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1MovingZiczacState.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1StandingState.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1State.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Boss2.cpp">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Boss2AttackState.cpp">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Boss2ShootingState.cpp">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Boss2StandingState.cpp">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Boss2State.cpp">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Shuriken\Shuriken.cpp">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Shuriken\ShurikenMovingState.cpp">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Shuriken\ShurikenState.cpp">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Shuriken\ShurikenStickState.cpp">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Shuriken\ShurikenDieState.cpp">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss1\Boss1DieState.cpp">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss2\Boss2DieState.cpp">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -777,27 +819,6 @@
     <ClInclude Include="GameObjects\Bullets\Enemy3Bullet\Enemy3BulletMovingState.h">
       <Filter>FrameWork\GameObjects\Bullets\Enemy3Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjects\Boss1\Boss1.h">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss1\Boss1BornState.h">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss1\Boss1Data.h">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss1\Boss1MovingState.h">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss1\Boss1StandingState.h">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss1\Boss1State.h">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss1\Boss1ZiczacState.h">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjects\Boss3\Boss3.h">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClInclude>
@@ -861,9 +882,6 @@
     <ClInclude Include="GameObjects\Door\DoorClosedState.h">
       <Filter>FrameWork\GameObjects\Door</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjects\Boss1\Boss1DieState.h">
-      <Filter>FrameWork\GameObjects\Boss1</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjects\Boss3\Boss3DieState.h">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClInclude>
@@ -902,6 +920,72 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Brick\BrickState.h">
       <Filter>FrameWork\GameObjects\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1BornState.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1Data.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1HorizontalState.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1MovingState.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1MovingZiczacState.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1StandingState.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1State.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Boss2.h">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Boss2AttackState.h">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Boss2Data.h">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Boss2ShootingState.h">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Boss2StandingState.h">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Boss2State.h">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Shuriken\Shuriken.h">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Shuriken\ShurikenData.h">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Shuriken\ShurikenMovingState.h">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Shuriken\ShurikenState.h">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Shuriken\ShurikenStickState.h">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Shuriken\ShurikenDieState.h">
+      <Filter>FrameWork\GameObjects\Boss2\Shuriken</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss1\Boss1DieState.h">
+      <Filter>FrameWork\GameObjects\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss2\Boss2DieState.h">
+      <Filter>FrameWork\GameObjects\Boss2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

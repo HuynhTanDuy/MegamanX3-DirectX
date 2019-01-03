@@ -26,7 +26,7 @@
 #include "GameObjects/Ship/Ship.h"
 #include "GameObjects/Ship/Plane.h"
 #include "GameObjects/Brick/Brick.h"
-
+#include "GameObjects/Boss2/Boss2.h"
 class Map
 {
 public:
@@ -79,6 +79,7 @@ public:
 	Plane *plane;
 	Brick *brick;
 	Boss1 *mBoss1;
+	Boss2 *mBoss2;
 	Boss3 *mBoss3;
 	
 	//void saveQuadTree(QuadTree *quadtree);
