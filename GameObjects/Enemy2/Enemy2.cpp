@@ -4,15 +4,15 @@
 
 Enemy2::Enemy2() {
 
-	Enemy2Standing = new Animation("Resources/enemy2/enemy2Standing.png", 1, 1, 1, 0.0f);
-	Enemy2Shooting = new Animation("Resources/enemy2/enemy2Shooting.png", 3, 1, 3, 0.2f);
-	Enemy2Die = new Animation("Resources/enemy1/DieState.png", 7, 1, 7, 0.05f);
+	Enemy2Standing = new Animation("Resources/enemy2/enemy2Standing.png", 2, 1, 2, 0.1f);
+	Enemy2Shooting = new Animation("Resources/enemy2/enemy2Shooting.png", 4, 1, 4, 0.2f);
+	Enemy2Die = new Animation("Resources/enemy1/DieState.png", 8, 1, 8, 0.05f);
 	this->mEnemyData2 = new EnemyData2();
 	this->mEnemyData2->Enemy2 = this;
 	this->SetVx(0);
 	this->SetVy(0);
-	Enemy2Standing->SetScale(D3DXVECTOR2(2, 2));
-	Enemy2Shooting->SetScale(D3DXVECTOR2(2, 2));
+	
+	
 	this->SetState(new Enemy2StandingState(this->mEnemyData2));
 	//this->SetState(new Enemy2StandingState(this->mEnemyData1));
 	//this->mEnemyData->PlayerShot = new PlayerShot(this);

@@ -8,7 +8,7 @@ Enemy1::Enemy1() {
 	Enemy1Jumping = new Animation("Resources/enemy1/enemy1Jumping.png", 1, 1, 1, 0.0f);
 	Enemy1Falling = new Animation("Resources/enemy1/enemy1Jumping.png", 1, 1, 1, 0.0f);
 	Enemy1Shooting = new Animation("Resources/enemy1/enemy1Shooting.png", 1, 1, 1, 0.0f);
-	Enemy1Die = new Animation("Resources/enemy1/DieState.png", 7, 1, 7, 0.05f);
+	Enemy1Die = new Animation("Resources/enemy1/DieState.png", 8, 1, 8, 0.05f);
 	this->mEnemyData1 = new EnemyData1();
 	this->mEnemyData1->Enemy1 = this;
 	this->SetVx(0);

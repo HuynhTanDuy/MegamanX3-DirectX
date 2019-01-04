@@ -9,7 +9,7 @@ Boss1::Boss1() {
 	Boss1Standing = new Animation("Resources/Boss1/Boss1Standing.png", 10, 1, 10, 0.000f);
 	Boss1Moving = new Animation("Resources/Boss1/Boss1Moving.png", 1, 1, 1, 0.0f);
 	Boss1Born= new Animation("Resources/Boss1/Boss1Standing.png", 10, 1, 10, 0.0f);
-	Boss1Die = new Animation("Resources/Enemy1/DieState.png", 7, 1, 7, 0.1f);
+	Boss1Die = new Animation("Resources/Boss1/Explosion.png", 8, 1, 8, 0.2f);
 	Boss1Born->SetScale(D3DXVECTOR2(2, 2));
 	//this->mBoss1Data->Boss1 = this;
 	Boss1Moving->SetScale(D3DXVECTOR2(2, 2));

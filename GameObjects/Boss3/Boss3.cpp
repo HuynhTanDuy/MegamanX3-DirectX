@@ -29,7 +29,7 @@ Boss3::Boss3(Player *Player) {
 	this->SetVx(0);
 	this->SetVy(0);
 	
-	this->SetState(new Boss3PreparingState(this->mBoss3Data));
+	this->SetState(new Boss3StandingState(this->mBoss3Data));
 	Wings->SetPosition(CurrentAnimation->GetPosition().x, CurrentAnimation->GetPosition().y - wingsDistance);
 	
 	this->mBoss3Data->Player = Player;

@@ -16,8 +16,10 @@ Boss3AttackState::Boss3AttackState(Boss3Data *Boss3Data)
 	playerPosY = this->mBoss3Data->Player->GetPosition().y;
 	distanceX = this->mBoss3Data->Boss3->GetPosition().x - playerPosX;
 	distanceY = playerPosY-this->mBoss3Data->Boss3->GetPosition().y;
+	if (this->mBoss3Data->Boss3->mCurrentReverse) acceX = 250;
+	else acceX = -250;
 	this->mBoss3Data->mCurrentReverse = !this->mBoss3Data->mCurrentReverse;
-	
+	isTurn = false;
 	
 }
 
@@ -29,51 +31,25 @@ Boss3AttackState::~Boss3AttackState()
 
 void Boss3AttackState::Update(float dt)
 {
-	
-	
-	
-	count++;
-	if (this->mBoss3Data->mCurrentReverse==false)
-	
-	if (this->mBoss3Data->Boss3->GetPosition().x >= playerPosX) // tan cong muc tieu ben trai
-	{
-		if (this->mBoss3Data->Boss3->GetPosition().y <= playerPosY+200)
+	if (isTurn) OnAttack();
+	else if (this->mBoss3Data->Boss3->GetPosition().y <= playerPosY)
 		{
 			this->mBoss3Data->Boss3->SetVy(distanceY);
 			this->mBoss3Data->Boss3->SetVx(-distanceX);
-			
-
-			
-			
 		}
-	}
-	else {
-		
-		//this->mBoss3Data->Boss3->SetPosition(this->mBoss3Data->Boss3->GetPosition().x, this->mBoss3Data->Boss3->GetPosition().y);
-		ReturnPointLeft();
-		
-		//count++;
-	}
-	
-	else {
+		else isTurn = true;
+			
+			
+	/*else {
 	if (this->mBoss3Data->Boss3->GetPosition().x <= playerPosX) // tan cong muc tieu ben phai 
 	{
 		if (this->mBoss3Data->Boss3->GetPosition().y <= playerPosY+200)
 		{
 			this->mBoss3Data->Boss3->SetVy(distanceY);
 			this->mBoss3Data->Boss3->SetVx(-distanceX);
-			
-		
 		}
 	}
-	else {
-		this->mBoss3Data->Boss3->SetPosition(this->mBoss3Data->Boss3->GetPosition().x, this->mBoss3Data->Boss3->GetPosition().y);
-		
-		ReturnPointRight();
-		
-	}
-
-	}
+	}*/
 	
 	
 
@@ -120,3 +96,16 @@ void Boss3AttackState::ReturnPointRight()
 		this->mBoss3Data->Boss3->SetState(new Boss3StandingState(this->mBoss3Data));
 }
 
+void Boss3AttackState::OnAttack()
+{
+	this->mBoss3Data->Boss3->SetVx(acceX);
+	
+	this->mBoss3Data->Boss3->SetVy(-350);
+	if (mBoss3Data->Boss3->GetPosition().y <= 3980)
+	{
+		this->mBoss3Data->Boss3->SetVy(0);
+	}
+	if ((this->mBoss3Data->Boss3->GetPosition().x <= 19509.3 - 400) || mBoss3Data->Boss3->GetPosition().x >= (19509.3 + 30))
+		this->mBoss3Data->Boss3->SetVx(0);
+	if (this->mBoss3Data->Boss3->GetVx()==0 && this->mBoss3Data->Boss3->GetVy() == 0) this->mBoss3Data->Boss3->SetState(new Boss3StandingState(this->mBoss3Data));
+}

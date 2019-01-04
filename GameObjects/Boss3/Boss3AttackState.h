@@ -18,9 +18,11 @@ public:
 	virtual StateName GetState(); // lay state nhan vat
 	void ReturnPointLeft();
 	void ReturnPointRight();
+	bool isTurn;
+	void OnAttack();
 protected:
 	float playerPosX, playerPosY;
-	float distanceX, distanceY;
+	float distanceX, distanceY, acceX;
 	
 };
 

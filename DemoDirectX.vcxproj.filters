@@ -532,6 +532,9 @@
     <ClCompile Include="GameObjects\Boss3\Boss3StandingState.cpp">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClCompile>
+    <ClCompile Include="GameComponents\Sound.cpp">
+      <Filter>FrameWork\GameComponents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameComponents\Game.h">
@@ -1001,6 +1004,9 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Boss3\Boss3StandingState.h">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameComponents\Sound.h">
+      <Filter>FrameWork\GameComponents</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

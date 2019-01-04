@@ -15,6 +15,7 @@ public:
 
 	virtual StateName GetState(); // lay state nhan vat
 
+	
 protected:
 
 };

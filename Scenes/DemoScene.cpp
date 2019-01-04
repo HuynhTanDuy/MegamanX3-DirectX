@@ -1,6 +1,6 @@
 #include "DemoScene.h"
 #include "../GameDefines/GameDefine.h"
-
+#include "../GameComponents/Sound.h"
 
 DemoScene::DemoScene()
 {
@@ -11,8 +11,13 @@ DemoScene::DemoScene()
 
 void DemoScene::LoadContent()
 {
+	Sound::getInstance()->loadSound("Resources/Sound/Background.wav", "Background");
+	Sound::getInstance()->loadSound("Resources/Sound/PlayerJump.wav", "PlayerJumping");
+	Sound::getInstance()->loadSound("Resources/Sound/PlayerDash.wav", "PlayerDashing");
+	Sound::getInstance()->loadSound("Resources/Sound/PlayerShoot.wav", "PlayerShooting");
+	Sound::getInstance()->play("Background", true, 0);
 	mDebugDraw = new GameDebugDraw();
-    //set mau backcolor cho scene o day la mau xanh
+	//set mau backcolor cho scene o day la mau xanh
     mBackColor = 0x54acd2; 
 	/*map = new Animation("Resources/background.png", 1, 1, 1, 0.0f);
 	map->SetScale(D3DXVECTOR2(6, 6));*/
@@ -24,7 +29,7 @@ void DemoScene::LoadContent()
 	
 	map = new Map("Resources/map1.tmx",mPlayer);
 	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()+500);
-	mPlayer->SetPosition(19509.3,4180); //boss 3
+	mPlayer->SetPosition(17409.3,4080); //boss 3
 	//mPlayer->SetPosition(5504,2294.67); //boss 1
 	//mPlayer->SetPosition(12417.3,2254.67); //boss2
 	//mPlayer->SetPosition(12618.7, 1824);

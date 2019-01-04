@@ -141,7 +141,7 @@ void Map::LoadMap(char* filePath)
 				
 				if (object->GetName() == "Boss 3")
 				{
-					D3DXVECTOR3 position(object->GetX(), object->GetY(), 0);
+					D3DXVECTOR3 position(object->GetX(), object->GetY()-200, 0);
 					 mBoss3 = new Boss3(this->mPlayer);
 
 					mBoss3->SetPosition(position);

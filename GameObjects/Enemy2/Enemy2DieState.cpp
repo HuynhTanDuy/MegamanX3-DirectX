@@ -22,7 +22,7 @@ void Enemy2DieState::Update(float dt)
 {
 	
 	dem++;
-	if (dem == 10) this->mEnemyData2->Enemy2->isDeleted = true;
+	if (dem == 25) this->mEnemyData2->Enemy2->isDeleted = true;
 	
 }
 

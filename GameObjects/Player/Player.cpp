@@ -4,6 +4,7 @@
 #include "PlayerJumpingShotState.h"
 #include "PlayerRunningShot.h"
 #include "../../GameComponents/GameLog.h"
+#include "../../GameComponents/Sound.h"
 
 Player::Player()
 {
@@ -94,7 +95,7 @@ void Player::Update(float dt)
 		}
 	}
 
-	if (HP != 16) this->SetState(new PlayerDieState(this->mPlayerData));
+	if (HP ==0) this->SetState(new PlayerDieState(this->mPlayerData));
 	
 }
 
@@ -128,6 +129,7 @@ void Player::OnKeyPressed(int key)
 
             allowJump = false;
         }
+		Sound::getInstance()->play("PlayerJumping", false, 1);
     }
 	if (key == 0x58 && mCurrentState == PlayerState::Running)
 	{
@@ -165,7 +167,7 @@ void Player::OnKeyUp(int key)
         allowJump = true;
 	if (key == 0x58)
 	{
-		
+		Sound::getInstance()->play("PlayerShooting", false, 1);
 		allowShot = true;
 		
 		charging = false;

@@ -5,6 +5,7 @@
 #include "PlayerSurfingShotState .h"
 #include "../../GameDefines/GameDefine.h"
 #include "dinput.h"
+#include "../../GameComponents/Sound.h"
 PlayerSurfingState::PlayerSurfingState(PlayerData *playerData)
 {
 	this->mPlayerData = playerData;
@@ -36,7 +37,7 @@ void PlayerSurfingState::HandleKeyboard(std::map<int, bool> keys)
 		//mPlayerData->player->SetReverse(false);
 		if (this->mPlayerData->player->mCurrentReverse) mPlayerData->player->SetVx(-acceleratorX * 80);
 		else  mPlayerData->player->SetVx(acceleratorX * 80);
-		
+		Sound::getInstance()->play("PlayerDashing", false, 1);
 	}
 	else
 	if (keys[0x58] && keys[0x5A])

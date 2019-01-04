@@ -6,8 +6,8 @@ Enemy3::Enemy3() {
 	
 	Enemy3Standing = new Animation("Resources/enemy3/Enemy3Standing.png", 5, 1, 5, 0.2f);
 	Enemy3Flying = new Animation("Resources/enemy3/Enemy3Flying.png", 5, 1, 5, 0.2f);
-	Enemy3Die = new Animation("Resources/enemy1/DieState.png", 7, 1, 7, 0.05f);
-	Enemy3Shooting = new Animation("Resources/enemy3/Enemy3Shooting.png", 2, 1, 2, 0.2f);
+	Enemy3Die = new Animation("Resources/enemy1/DieState.png", 8, 1, 8, 0.05f);
+	Enemy3Shooting = new Animation("Resources/enemy3/Enemy3Shooting.png", 5, 1, 5, 0.05f);
 	//this->mEnemyData3 = new EnemyData3();
 	//this->mEnemyData3->Enemy3 = this;
 	this->mEnemyData3 = new Enemy3Data();

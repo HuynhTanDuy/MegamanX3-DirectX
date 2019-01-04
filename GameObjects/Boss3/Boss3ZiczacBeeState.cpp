@@ -89,7 +89,7 @@ void Boss3ZiczacBeeState::Update(float dt)
 	 count2++;
 	 if(count2==400)
 	 {
-		 this->mBoss3Data->Boss3->SetState(new Boss3StandingState(this->mBoss3Data));
+		 this->mBoss3Data->Boss3->SetState(new Boss3PreparingState(this->mBoss3Data));
 	 }
 	 
 
