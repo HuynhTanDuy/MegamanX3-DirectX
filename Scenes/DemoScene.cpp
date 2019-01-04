@@ -11,6 +11,8 @@ DemoScene::DemoScene()
 
 void DemoScene::LoadContent()
 {
+	Sound::getInstance()->loadSound("Resources/Sound/Explosion.wav", "Explosion");
+	Sound::getInstance()->loadSound("Resources/Sound/BossExplosion.wav", "BossExplosion");
 	Sound::getInstance()->loadSound("Resources/Sound/Background.wav", "Background");
 	Sound::getInstance()->loadSound("Resources/Sound/PlayerJump.wav", "PlayerJumping");
 	Sound::getInstance()->loadSound("Resources/Sound/PlayerDash.wav", "PlayerDashing");
@@ -29,9 +31,9 @@ void DemoScene::LoadContent()
 	
 	map = new Map("Resources/map1.tmx",mPlayer);
 	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()+500);
-	mPlayer->SetPosition(17409.3,4080); //boss 3
+	//mPlayer->SetPosition(17409.3,4080); //boss 3
 	//mPlayer->SetPosition(5504,2294.67); //boss 1
-	//mPlayer->SetPosition(12417.3,2254.67); //boss2
+	mPlayer->SetPosition(12417.3,2254.67); //boss2
 	//mPlayer->SetPosition(12618.7, 1824);
 	camera = new Camera(GameGlobal::GetWidth(), GameGlobal::GetHeight());
 	camera->SetPosition(GameGlobal::GetWidth()/2, GameGlobal::GetHeight()/2);
@@ -442,7 +444,7 @@ void DemoScene::checkCollision()
 		map->elevator->GetBound());
 	if (r.IsCollided)
 	{
-		map->elevator->SetVy(-50);
+		map->elevator->SetVy(-80);
 		//mPlayer->SetVy(-50);
 		Entity::SideCollisions sidePlayer = GameCollision::getSideCollision(mPlayer, r);
 		mPlayer->OnCollision(map->elevator, r, sidePlayer);

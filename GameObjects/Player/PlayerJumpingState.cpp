@@ -7,7 +7,7 @@
 PlayerJumpingState::PlayerJumpingState(PlayerData *playerData)
 {
     this->mPlayerData = playerData;
-    this->mPlayerData->player->SetVy(Define::PLAYER_MIN_JUMP_VELOCITY*1.75);
+    this->mPlayerData->player->SetVy(Define::PLAYER_MIN_JUMP_VELOCITY*2.2);
 
     acceleratorY = 5.0f;
     acceleratorX = 2.0f;
@@ -22,7 +22,7 @@ PlayerJumpingState::~PlayerJumpingState()
 
 void PlayerJumpingState::Update(float dt)
 {
-    this->mPlayerData->player->AddVy(acceleratorY*3); 
+    this->mPlayerData->player->AddVy(acceleratorY*5); 
 	
 
     if (mPlayerData->player->GetVy() >= 0)

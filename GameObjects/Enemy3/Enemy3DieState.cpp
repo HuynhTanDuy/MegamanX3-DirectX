@@ -5,12 +5,13 @@
 #include "../../GameComponents/GameLog.h"
 #include "../../GameDefines/GameDefine.h"
 #include "dinput.h"
+#include "../../GameComponents/Sound.h"
 Enemy3DieState::Enemy3DieState(Enemy3Data *playerData)
 {
     this->mEnemyData3 = playerData;
     this->mEnemyData3->Enemy3->SetVx(0);
 	this->mEnemyData3->Enemy3->isDestroyed = true;
-	
+	Sound::getInstance()->play("Explosion", false, 1);
 }
 
 

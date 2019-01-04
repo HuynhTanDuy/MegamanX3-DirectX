@@ -25,13 +25,13 @@ void PlayerRunningState::HandleKeyboard(std::map<int, bool> keys)
     if (keys[VK_RIGHT])
     {
         mPlayerData->player->SetReverse(false);
-		this->mPlayerData->player->SetVx(acceleratorX*40);
+		this->mPlayerData->player->SetVx(acceleratorX*60);
         	}
 	else 
 	if (keys[VK_LEFT])
 	{
 		mPlayerData->player->SetReverse(true);
-		this->mPlayerData->player->SetVx(-acceleratorX * 40);
+		this->mPlayerData->player->SetVx(-acceleratorX * 60);
 	}
 	else
 	{

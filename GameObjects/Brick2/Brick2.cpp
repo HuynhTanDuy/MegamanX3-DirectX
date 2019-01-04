@@ -5,7 +5,7 @@
 Brick2::Brick2() {
 
 	Brick2Standing = new Animation("Resources/Brick2.png", 1, 1, 1, 0.0f);
-	Brick2Die = new Animation("Resources/Enemy1/DieState.png", 7, 1, 7, 0.1f);
+	Brick2Die = new Animation("Resources/enemy1/DieState.png", 8, 1, 8, 0.05f);
 	this->mBrick2Data = new Brick2Data();
 	this->mBrick2Data->Brick2 = this;
 	this->SetState(new Brick2StandingState(this->mBrick2Data));

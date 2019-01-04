@@ -5,12 +5,14 @@
 #include "../../GameComponents/GameLog.h"
 #include "../../GameDefines/GameDefine.h"
 #include "dinput.h"
+#include "../../GameComponents/Sound.h"
 Boss1DieState::Boss1DieState(Boss1Data *playerData)
 {
     this->mBoss1Data = playerData;
     this->mBoss1Data->Boss1->SetVx(0);
 	this->mBoss1Data->Boss1->isDestroyed = true;
 	dem = 0;
+	Sound::getInstance()->play("BossExplosion", false, 1);
 }
 
 

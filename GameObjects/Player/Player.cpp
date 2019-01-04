@@ -11,11 +11,11 @@ Player::Player()
 	playerStanding = new Animation("Resources/playerStanding.png", 4, 1, 4, 0.1f);
 	playerJumping = new Animation("Resources/playerJumping.png", 3, 1, 3, 0.2f);
 	playerFalling = new Animation("Resources/playerFalling.png", 1, 1, 1, 0.2f);
-	playerRunning = new Animation("Resources/playerRunning.png", 11, 1, 11, 0.1f);
+	playerRunning = new Animation("Resources/playerRunning.png", 11, 1, 11, 0.05f);
 	playerSurfing = new Animation("Resources/playerSurfing.png", 1, 1, 1, 0.1f);
 	playerSurfingShot = new Animation("Resources/playerSurfingShot.png", 1, 1, 1, 0.1f);
-	playerClimbing = new Animation("Resources/playerClimbing.png", 5, 1, 5, 0.1f);
-	playerRunningShot = new Animation("Resources/playerRunningShot.png", 11, 1, 11, 0.1f);
+	playerClimbing = new Animation("Resources/playerClimbing.png", 5, 1, 5, 0.05f);
+	playerRunningShot = new Animation("Resources/playerRunningShot.png", 11, 1, 11, 0.05f);
 	playerJumpingShot = new Animation("Resources/playerJumpingShot.png", 3, 1, 3, 0.2f);
 	playerStandingShot = new Animation("Resources/playerStandingShot.png", 1, 1, 1, 0.1f);
 	playerClimbingShot = new Animation("Resources/playerClimbingShot.png", 1, 1, 1, 0.1f);
@@ -60,9 +60,9 @@ void Player::Update(float dt)
 		count++;
 		if (count > 16) level = 2;
 		if (count > 85) level = 3;
-		if (charged1==NULL && level==2) charged1 = new Animation("Resources/Charged1.png", 10, 1, 10, 0.1f);
+		if (charged1==NULL && level==2) charged1 = new Animation("Resources/Effect/Charged1.png", 11, 1, 11, 0.02f);
 		if (charged2 == NULL && level == 3) {
-			charged2 = new Animation("Resources/Charged2.png", 10, 1, 10, 0.1f);
+			charged2 = new Animation("Resources/Effect/Charged2.png", 11, 1, 11, 0.02f);
 			charged1 = NULL;
 		}
 	//	charged1->SetPosition(this->GetPosition());

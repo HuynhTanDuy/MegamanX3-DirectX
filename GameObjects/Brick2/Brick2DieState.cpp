@@ -5,10 +5,12 @@
 #include "../../GameComponents/GameLog.h"
 #include "../../GameDefines/GameDefine.h"
 #include "dinput.h"
+#include "../../GameComponents/Sound.h"
 Brick2DieState::Brick2DieState(Brick2Data *playerData)
 {
 	this->mBrick2Data = playerData;
 	count = 0;
+	Sound::getInstance()->play("Explosion", false, 1);
 }
 
 
