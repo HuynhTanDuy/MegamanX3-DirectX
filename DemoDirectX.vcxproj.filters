@@ -508,13 +508,7 @@
     <ClCompile Include="GameObjects\Boss3\Boss3AttackState.cpp">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjects\Boss3\Boss3BornState.cpp">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjects\Boss3\Boss3DieState.cpp">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjects\Boss3\Boss3FlyingState.cpp">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClCompile>
     <ClCompile Include="GameObjects\Boss3\Boss3GenerateBeeState.cpp">
@@ -534,6 +528,9 @@
     </ClCompile>
     <ClCompile Include="GameObjects\Player\PlayerDieState.cpp">
       <Filter>FrameWork\GameObjects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Boss3\Boss3StandingState.cpp">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -978,16 +975,10 @@
     <ClInclude Include="GameObjects\Boss3\Boss3AttackState.h">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3BornState.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjects\Boss3\Boss3Data.h">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClInclude>
     <ClInclude Include="GameObjects\Boss3\Boss3DieState.h">
-      <Filter>FrameWork\GameObjects\Boss3</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjects\Boss3\Boss3FlyingState.h">
       <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClInclude>
     <ClInclude Include="GameObjects\Boss3\Boss3GenerateBeeState.h">
@@ -1007,6 +998,9 @@
     </ClInclude>
     <ClInclude Include="GameObjects\Player\PlayerDieState.h">
       <Filter>FrameWork\GameObjects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Boss3\Boss3StandingState.h">
+      <Filter>FrameWork\GameObjects\Boss3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

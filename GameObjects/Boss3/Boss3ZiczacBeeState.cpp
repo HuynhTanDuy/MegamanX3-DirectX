@@ -12,11 +12,12 @@ Boss3ZiczacBeeState::Boss3ZiczacBeeState(Boss3Data *Boss3Data)
 
 	//this->mBoss3Data->Boss3->SetVy(-300.0f);
 	count = 0;
-	time = 300;
+	clock = 300;
 	count2 = 0;
 	isDown = true;
 	isLeft = false;
-
+	
+	
 }
 
 
@@ -86,9 +87,9 @@ void Boss3ZiczacBeeState::Update(float dt)
 	 }
 	 
 	 count2++;
-	 if(count2==800)
+	 if(count2==400)
 	 {
-		 this->mBoss3Data->Boss3->SetState(new Boss3PreparingState(this->mBoss3Data));
+		 this->mBoss3Data->Boss3->SetState(new Boss3StandingState(this->mBoss3Data));
 	 }
 	 
 

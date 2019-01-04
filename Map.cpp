@@ -190,18 +190,8 @@ void Map::LoadMap(char* filePath)
 	plane->SetPosition(12618.7, 1524);
 	brick = new Brick();
 	//BEE
-	for (size_t i = 0; i < 4; i++)
-	{
-		Bee *temp1 = new Bee();
-		temp1->SetPosition(19509.3 + 30, 3980);
-		mBee.push_back(temp1);
-	}
-	for (size_t i = 0; i < 4; i++)
-	{
-		Bee *temp2 = new Bee();
-		temp2->SetPosition(19509.3 - 425, 3980);
-		mBee2.push_back(temp2);
-	}
+	
+
 }
 
 
@@ -317,25 +307,20 @@ void Map::Draw()
 			mBoss2->mListBoss2Bullet[i]->Draw(mBoss2->mListBoss2Bullet[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 		}
 	}
-	if (mBoss3)	mBoss3->Draw(mBoss3->GetPosition(), RECT(), D3DXVECTOR2(), trans);
-
-	
-	
-
-	for (size_t i = 0; i < 4; i++)
+	if (mBoss3)
 	{
-		if (mBoss3) {
-			if (mBoss3->getState() == Boss3State::GenerateBee)
-				if (mBoss3->OnRight() == true) {
-					//mBee[i]->SetPosition(19509.3 + 30, 3980);
-					mBee[i]->Draw(mBee[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
-				}
-				else {
-					mBee2[i]->Draw(mBee2[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		mBoss3->Draw(mBoss3->GetPosition(), RECT(), D3DXVECTOR2(), trans);
+		if (mBoss3->mListBee.size()!=0)
 
-				}
+		for (size_t i = 0; i < mBoss3->mListBee.size(); i++)
+		{
+			mBoss3->mListBee[i]->Draw(mBoss3->mListBee[i]->GetPosition(), RECT(), D3DXVECTOR2(), trans);
 		}
 	}
+	
+	
+
+	
 #pragma endregion 
 
 #pragma region DRAW BULLETS PLAYER
@@ -511,68 +496,19 @@ void Map::Update(float dt)
 				if (mBoss3->isDeleted)
 					mBoss3 = NULL;
 			}
+			int speedBeeY = 30;
+			if (mBoss3->mListBee.size() != 0)
+			for (size_t i = 0; i < mBoss3->mListBee.size(); i++)
+			{
+				
+					speedBeeY += 20;
+					mBoss3->mListBee[i]->Update(dt);
+					if (mBoss3->mListBee[i]->mCurrentReverse) mBoss3->mListBee[i]->SetVx(speedBeeX);
+					else mBoss3->mListBee[i]->SetVx(-speedBeeX);
+					mBoss3->mListBee[i]->SetVy(speedBeeY);
+				
+			}
 		}
-
-
-		if (mBoss3) {
-			if (mBoss3->getState() == Boss3State::GenerateBee)
-				if (mBoss3->OnRight() == true)
-				{
-					/*for (size_t i=0;i<4;i++)
-					{
-						mBee[i]->Update(dt);
-						mBee[i]->SetVx(-speedBeeX);
-						mBee[i]->SetVy(speedBeeY + 10);
-					}*/
-					mBee[0]->Update(dt);
-					mBee[0]->SetVx(-speedBeeX);
-					mBee[0]->SetVy(speedBeeY + 20);
-
-					mBee[1]->Update(dt);
-					mBee[1]->SetVx(-speedBeeX);
-					mBee[1]->SetVy(speedBeeY + 40);
-
-					mBee[2]->Update(dt);
-					mBee[2]->SetVx(-speedBeeX);
-					mBee[2]->SetVy(speedBeeY + 60);
-
-					mBee[3]->Update(dt);
-					mBee[3]->SetVx(-speedBeeX);
-					mBee[3]->SetVy(speedBeeY + 80);
-
-
-
-
-				}
-				else {
-					mBee2[0]->SetReverse(true);
-					mBee2[0]->Update(dt);
-					mBee2[0]->SetVx(speedBeeX);
-					mBee2[0]->SetVy(speedBeeY + 20);
-
-					mBee2[1]->SetReverse(true);
-					mBee2[1]->Update(dt);
-					mBee2[1]->SetVx(speedBeeX);
-					mBee2[1]->SetVy(speedBeeY + 40);
-
-					mBee2[2]->SetReverse(true);
-					mBee2[2]->Update(dt);
-					mBee2[2]->SetVx(speedBeeX);
-					mBee2[2]->SetVy(speedBeeY + 60);
-
-					mBee2[3]->SetReverse(true);
-					mBee2[3]->Update(dt);
-					mBee2[3]->SetVx(speedBeeX);
-					mBee2[3]->SetVy(speedBeeY + 80);
-
-				}
-
-		}
-
-
-
-	//	}
-
 	if (mBoss1) {
 		if (inCamera(mBoss1->GetPosition().x-100)) mBoss1->Update(dt);
 		if (mBoss1->isDeleted) 

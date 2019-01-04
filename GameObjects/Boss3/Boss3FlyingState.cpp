@@ -11,7 +11,7 @@ Boss3FlyingState::Boss3FlyingState(Boss3Data *Boss3Data)
 	this->mBoss3Data->Boss3->SetVx(0);
 	this->mBoss3Data->Boss3->SetVy(0);
 	count = 0;
-	time = 200;
+	clock = 200;
 }
 
 
@@ -23,7 +23,7 @@ Boss3FlyingState::~Boss3FlyingState()
 void Boss3FlyingState::Update(float dt)
 {
 	count++;
-	if (count == time)
+	if (count == clock)
 		this->mBoss3Data->Boss3->SetState(new Boss3PreparingState(this->mBoss3Data));
 	
 }

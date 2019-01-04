@@ -11,12 +11,14 @@ Boss3AttackState::Boss3AttackState(Boss3Data *Boss3Data)
 	this->mBoss3Data->Boss3->SetVx(0);
 	this->mBoss3Data->Boss3->SetVy(0);
 	count = 0;
-	time = 250;
+	clock = 250;
 	playerPosX = this->mBoss3Data->Player->GetPosition().x;
 	playerPosY = this->mBoss3Data->Player->GetPosition().y;
 	distanceX = this->mBoss3Data->Boss3->GetPosition().x - playerPosX;
 	distanceY = playerPosY-this->mBoss3Data->Boss3->GetPosition().y;
 	this->mBoss3Data->mCurrentReverse = !this->mBoss3Data->mCurrentReverse;
+	
+	
 }
 
 
@@ -47,7 +49,7 @@ void Boss3AttackState::Update(float dt)
 	}
 	else {
 		
-		this->mBoss3Data->Boss3->SetPosition(this->mBoss3Data->Boss3->GetPosition().x, this->mBoss3Data->Boss3->GetPosition().y);
+		//this->mBoss3Data->Boss3->SetPosition(this->mBoss3Data->Boss3->GetPosition().x, this->mBoss3Data->Boss3->GetPosition().y);
 		ReturnPointLeft();
 		
 		//count++;
@@ -72,8 +74,6 @@ void Boss3AttackState::Update(float dt)
 	}
 
 	}
-	/*if (this->mBoss3Data->attackTime == 4)
-		this->mBoss3Data->Boss3->SetState(new Boss3GenerateBeeState(this->mBoss3Data));*/
 	
 	
 
@@ -88,8 +88,8 @@ Boss3State::StateName Boss3AttackState::GetState()
 
 void Boss3AttackState::ReturnPointLeft()
 {
-	this->mBoss3Data->Boss3->SetVx(-150);
-	this->mBoss3Data->Boss3->SetVy(-250);
+	this->mBoss3Data->Boss3->SetVx(-250);
+	this->mBoss3Data->Boss3->SetVy(-350);
 	if (mBoss3Data->Boss3->GetPosition().y <= 3980)
 	{
 		this->mBoss3Data->Boss3->SetVy(0);
@@ -98,15 +98,15 @@ void Boss3AttackState::ReturnPointLeft()
 	}
 	if (this->mBoss3Data->Boss3->GetPosition().x <= 19509.3 - 400)
 		this->mBoss3Data->Boss3->SetVx(0);
-	if(count==time)
-	this->mBoss3Data->Boss3->SetState(new Boss3PreparingState(this->mBoss3Data));
-	
+	if(count==clock)
+	this->mBoss3Data->Boss3->SetState(new Boss3StandingState(this->mBoss3Data));
+		
 }
 
 void Boss3AttackState::ReturnPointRight()
 {
-	this->mBoss3Data->Boss3->SetVx(150);
-	this->mBoss3Data->Boss3->SetVy(-250);
+	this->mBoss3Data->Boss3->SetVx(250);
+	this->mBoss3Data->Boss3->SetVy(-350);
 	if (mBoss3Data->Boss3->GetPosition().y <= 3980)
 	
 	
@@ -116,7 +116,7 @@ void Boss3AttackState::ReturnPointRight()
 	    this->mBoss3Data->Boss3->SetVx(0);
 		
 	
-	if (count == time)
-		this->mBoss3Data->Boss3->SetState(new Boss3PreparingState(this->mBoss3Data));
+	if (count == clock)
+		this->mBoss3Data->Boss3->SetState(new Boss3StandingState(this->mBoss3Data));
 }
 

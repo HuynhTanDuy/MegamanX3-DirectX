@@ -16,6 +16,7 @@ public:
 		Born,
 		Die, 
 		ZiczacBee,
+		Standing
 
 	};
 
@@ -34,6 +35,6 @@ public:
 protected:
 	Boss3State(Boss3Data *Boss3Data);
 	Boss3State();
-	int count, time;
+	int count, clock;
 	Boss3Data *mBoss3Data;
 };

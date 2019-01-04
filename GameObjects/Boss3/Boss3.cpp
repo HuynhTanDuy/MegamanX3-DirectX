@@ -5,7 +5,7 @@
 
 
 Boss3::Boss3(Player *Player) {
-	
+	Boss3Standing = new Animation("Resources/Boss3/Boss3Flying.png", 1, 1, 1, 0.0f);
 	Boss3Flying = new Animation("Resources/Boss3/Boss3Flying.png", 1, 1, 1, 0.0f);
 	//Boss3GenerateBee = new Animation("Resources/Boss3/Boss3GenerateBee.png", 5, 1, 5, 0.5f);
 	Boss3Attack = new Animation("Resources/Boss3/Boss3Attack.png", 5, 1, 5, 0.5f);
@@ -14,10 +14,10 @@ Boss3::Boss3(Player *Player) {
 	Boss3Die = new Animation("Resources/Enemy1/DieState.png", 7, 1, 7, 0.1f);
 	
 	Boss3Preparing->SetScale(D3DXVECTOR2(2, 2));
-	Boss3Flying->SetScale(D3DXVECTOR2(2, 2));
+	
 	Boss3GenerateBee->SetScale(D3DXVECTOR2(2, 2));
 	Boss3Attack->SetScale(D3DXVECTOR2(2, 2));
-	
+	Boss3ZiczacBee = new Animation("Resources/Boss3/Boss3Flying.png", 1, 1, 1, 0.0f);
 	
 	Wings = new Animation("Resources/Boss3/Wings.png", 3,1,3, 0.00011f);
 	Wings->SetScale(D3DXVECTOR2(2, 2));
@@ -34,7 +34,7 @@ Boss3::Boss3(Player *Player) {
 	
 	this->mBoss3Data->Player = Player;
 
-	this->HP = 2;
+	this->HP = 20;
 	//this->SetState(new Boss3StandingState(this->mBoss3Data));
 	//this->mEnemyData->PlayerShot = new PlayerShot(this);
 	
@@ -51,7 +51,8 @@ void Boss3::Update(float dt)
 	CurrentAnimation->Update(dt);
 	
 	Entity::Update(dt);
-	if (isDestroyed && mCurrentState!=5) this->SetState(new Boss3DieState(this->mBoss3Data));
+	//if (isDestroyed && mCurrentState!=5)
+		//this->SetState(new Boss3DieState(this->mBoss3Data));
 	if (this->mBoss3Data->Boss3State)
 	{
 		this->mBoss3Data->Boss3State->Update(dt);
@@ -122,8 +123,14 @@ void Boss3::changeAnimation(Boss3State::StateName state)
 	case Boss3State::Born:
 		CurrentAnimation = Boss3Flying;
 		break;
+	case Boss3State::ZiczacBee:
+			CurrentAnimation = Boss3ZiczacBee;
+			break;
 	case Boss3State::Die:
 		CurrentAnimation = Boss3Die;
+		break;
+	case Boss3State::Standing:
+		CurrentAnimation = Boss3Standing;
 		break;
 	}
 
@@ -165,4 +172,17 @@ void Boss3::OnCollissionWithBullet(int damage)
 	HP = HP - damage;
 	if (HP < 0) isDestroyed = true;
 
+}
+void Boss3::onFired()
+{
+	for (size_t i = 0; i < 4; i++)
+	{
+			Bee *temp1 = new Bee();
+			if (this->mCurrentReverse) {
+				temp1->SetPosition(19509.3 - 425, 3980);
+				temp1->SetReverse(true);
+			}
+			else temp1->SetPosition(19509.3 + 30, 3980);
+			mListBee.push_back(temp1);
+	}
 }

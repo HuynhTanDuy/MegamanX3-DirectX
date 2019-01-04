@@ -20,6 +20,7 @@ public:
 	int attackTime=0;
 	int attackTime2 = 4;
 	int generateBee = 0;
+	bool isAttack=false;
 	bool BeeRight=false;
 protected:
 

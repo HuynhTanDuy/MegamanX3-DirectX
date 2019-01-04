@@ -3,13 +3,12 @@
 #include "Boss3State.h"
 
 #include "Boss3PreparingState.h"
-#include "Boss3GenerateBeeState.h"
-#include "Boss3StandingState.h"
-class Boss3BornState : public Boss3State
+#include "Boss3ZiczacBeeState.h"
+class Boss3StandingState : public Boss3State
 {
 public:
-	Boss3BornState(Boss3Data *Boss3Data);
-	~Boss3BornState();
+	Boss3StandingState(Boss3Data *Boss3Data);
+	~Boss3StandingState();
 
 	void Update(float dt);
 

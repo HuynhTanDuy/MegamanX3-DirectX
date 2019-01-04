@@ -21,12 +21,12 @@ void DemoScene::LoadContent()
     
 	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()/2);
 	//map = new Map("Resources/marioworld1-1.tmx");
-
+	
 	map = new Map("Resources/map1.tmx",mPlayer);
 	//mPlayer->SetPosition(GameGlobal::GetWidth() / 2, GameGlobal::GetHeight()+500);
-	//mPlayer->SetPosition(19509.3,4180); //boss 3
+	mPlayer->SetPosition(19509.3,4180); //boss 3
 	//mPlayer->SetPosition(5504,2294.67); //boss 1
-	mPlayer->SetPosition(12417.3,2254.67); //boss2
+	//mPlayer->SetPosition(12417.3,2254.67); //boss2
 	//mPlayer->SetPosition(12618.7, 1824);
 	camera = new Camera(GameGlobal::GetWidth(), GameGlobal::GetHeight());
 	camera->SetPosition(GameGlobal::GetWidth()/2, GameGlobal::GetHeight()/2);

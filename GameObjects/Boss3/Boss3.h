@@ -45,6 +45,8 @@ public: Boss3(Player *player);
 		void GetPlayerPosition();
 		bool OnRight();
 		void OnCollissionWithBullet(int damage);
+		void onFired();
+		std::vector<Bee*>             mListBee;
 protected:
 	Boss3Data *mBoss3Data;
 
@@ -53,8 +55,9 @@ protected:
 		*Boss3Attack,
 		*Boss3Preparing,
 		*Boss3Die,
+		*Boss3ZiczacBee,
 		*Wings,
-		
+		*Boss3Standing,
 		*CurrentAnimation;
 
 	void changeAnimation(Boss3State::StateName state);
@@ -64,6 +67,6 @@ protected:
 	Player *player;
 	Bee *bee;
 	bool onRight;
-
+	
 
 };

@@ -102,8 +102,8 @@ private:
 
 	
 	
-	std::vector<Bee*> mBee;
-	std::vector<Bee*> mBee2;
+	
+	
 	float speedBeeX = 180, speedBeeY = 30;
 };
 

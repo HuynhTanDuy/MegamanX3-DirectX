@@ -24,6 +24,7 @@ void Boss3DieState::Update(float dt)
 	dem++;
 	if (dem == 10)
 		this->mBoss3Data->Boss3->isDeleted = true;
+
 	
 }
 

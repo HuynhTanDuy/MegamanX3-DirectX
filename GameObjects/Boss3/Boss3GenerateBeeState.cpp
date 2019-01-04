@@ -13,9 +13,10 @@ Boss3GenerateBeeState::Boss3GenerateBeeState(Boss3Data *Boss3Data)
 	this->mBoss3Data->Boss3->SetVy(0);
 	this->mBoss3Data->generateBee++;
 	count = 0;
-	time = 300;
-	this->mBoss3Data->BeeRight = !this->mBoss3Data->BeeRight;
-	this->mBoss3Data->attackTime2 += 2;
+	clock = 200;
+	
+	this->mBoss3Data->attackTime2 +=3;
+	this->mBoss3Data->Boss3->onFired();
 }
 
 
@@ -28,11 +29,8 @@ void Boss3GenerateBeeState::Update(float dt)
 {
 	
 	count++;
-	if (count == time)
-		if (this->mBoss3Data->generateBee == 1)
-			this->mBoss3Data->Boss3->SetState(new Boss3BornState(this->mBoss3Data));//xong
-	
-		else
+	if (count == clock)
+
 	    this->mBoss3Data->Boss3->SetState(new Boss3ZiczacBeeState(this->mBoss3Data));
 
 	
